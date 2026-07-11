@@ -1,60 +1,31 @@
-import http from "node:http";
-import fs from "node:fs";
-import path from "node:path";
-let root = process.cwd();
-if (!fs.existsSync(path.join(root, "index.html"))) {
-  if (fs.existsSync(path.join(root, "dist", "index.html"))) {
-    root = path.join(root, "dist");
-  } else if (fs.existsSync(path.join(root, "..", "index.html"))) {
-    root = path.resolve(root, "..");
+async function assetFetch(env, request) {
+  if (!env || !env.ASSETS) {
+    return new Response("Static asset binding is unavailable.", { status: 500 });
   }
+  return env.ASSETS.fetch(request);
 }
-const port = Number(process.env.PORT || 3000);
 
-const types = {
-  ".html": "text/html; charset=utf-8",
-  ".txt": "text/plain; charset=utf-8",
-  ".css": "text/css; charset=utf-8",
-  ".js": "application/javascript; charset=utf-8",
-  ".json": "application/json; charset=utf-8",
-  ".xml": "application/xml; charset=utf-8",
-  ".svg": "image/svg+xml",
-  ".ico": "image/x-icon",
-  ".woff2": "font/woff2",
-};
+function withPath(request, pathname) {
+  const url = new URL(request.url);
+  url.pathname = pathname;
+  return new Request(url, request);
+}
 
-function resolveFile(requestPath) {
-  const cleanPath = decodeURIComponent(requestPath).replace(/\/+$/, "") || "/";
-  const candidates = [];
-  if (cleanPath === "/") {
-    candidates.push("index.html");
-  } else {
-    const relative = cleanPath.replace(/^\/+/, "");
-    candidates.push(relative);
-    if (!path.extname(relative)) {
-      candidates.push(relative + ".html");
-      candidates.push(path.join(relative, "index.html"));
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    let response = await assetFetch(env, request);
+
+    if (response.status !== 404 || url.pathname.includes(".")) {
+      return response;
     }
-  }
-  candidates.push("404.html");
 
-  for (const candidate of candidates) {
-    const file = path.resolve(root, candidate);
-    if (!file.startsWith(root)) continue;
-    if (fs.existsSync(file) && fs.statSync(file).isFile()) return file;
-  }
-  return path.join(root, "404.html");
-}
+    const htmlPath = url.pathname.replace(/\/$/, "") + ".html";
+    response = await assetFetch(env, withPath(request, htmlPath));
+    if (response.status !== 404) {
+      return response;
+    }
 
-http
-  .createServer((req, res) => {
-    const url = new URL(req.url || "/", "http://localhost");
-    const file = resolveFile(url.pathname);
-    const ext = path.extname(file);
-    res.statusCode = path.basename(file) === "404.html" && url.pathname !== "/404.html" ? 404 : 200;
-    res.setHeader("Content-Type", types[ext] || "application/octet-stream");
-    fs.createReadStream(file).pipe(res);
-  })
-  .listen(port, "0.0.0.0", () => {
-    console.log("Sritikuthi static site listening on " + port);
-  });
+    return assetFetch(env, withPath(request, "/404.html"));
+  },
+};
