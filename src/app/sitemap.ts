@@ -3,6 +3,8 @@ import { journalPosts } from "@/data/journal";
 import { portfolioItems } from "@/data/portfolio";
 import { serviceLinks, siteConfig } from "@/data/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["", "/about", "/services", "/portfolio", "/journal", "/contact", "/privacy"];
   return [

@@ -23,15 +23,13 @@ export function ConsultationForm() {
 
   async function onSubmit(values: ContactFormValues) {
     setStatus("idle");
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
+    await new Promise((resolve) => setTimeout(resolve, 650));
+    console.info("Static consultation enquiry", {
+      name: values.fullName,
+      email: values.email,
+      eventType: values.eventType,
+      services: values.services,
     });
-    if (!response.ok) {
-      setStatus("error");
-      return;
-    }
     setStatus("success");
     reset();
   }
@@ -75,7 +73,7 @@ export function ConsultationForm() {
         <Send size={16} />
         {isSubmitting ? "Sending" : "Send Enquiry"}
       </button>
-      {status === "success" ? <p className="text-sm text-green-800">Thank you. Your enquiry has been received and the mock email handler logged it.</p> : null}
+      {status === "success" ? <p className="text-sm text-green-800">Thank you. Your enquiry has been captured in this static demo. Connect Resend or a CRM before production lead handling.</p> : null}
       {status === "error" ? <p className="text-sm text-red-700">Something went wrong. Please email us directly.</p> : null}
     </form>
   );

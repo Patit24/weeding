@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://sritikuthi-wedding-tales.example.com/sitemap.xml
