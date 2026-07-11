@@ -9,9 +9,14 @@ writeFileSync(
   String.raw`import http from "node:http";
 import fs from "node:fs";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+let root = process.cwd();
+if (!fs.existsSync(path.join(root, "index.html"))) {
+  if (fs.existsSync(path.join(root, "dist", "index.html"))) {
+    root = path.join(root, "dist");
+  } else if (fs.existsSync(path.join(root, "..", "index.html"))) {
+    root = path.resolve(root, "..");
+  }
+}
 const port = Number(process.env.PORT || 3000);
 
 const types = {
