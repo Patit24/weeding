@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://patit24.github.io/weeding/sitemap.xml
