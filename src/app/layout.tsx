@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { StructuredData } from "@/components/sections/StructuredData";
+import { ScrollReset } from "@/components/ui/ScrollReset";
 import { images } from "@/data/images";
 import { siteConfig } from "@/data/site";
 
@@ -60,9 +61,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable} ${allura.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${cormorant.variable} ${manrope.variable} ${allura.variable}`}>
       <body>
         <StructuredData />
+        <ScrollReset />
         <Header />
         <main id="main-content">{children}</main>
         <Footer />

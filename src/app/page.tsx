@@ -16,11 +16,11 @@ import { formatDate } from "@/lib/utils";
 export default function Home() {
   return (
     <>
-      <MotionSection className="relative min-h-[118vh] overflow-hidden border-b border-[var(--fine-border)] bg-[var(--warm-ivory)] pt-24 text-[var(--espresso)]">
-        <div className="container-wide relative min-h-[118vh]">
-          <FadeIn className="flex min-h-[48vh] flex-col items-center justify-end px-4 text-center">
+      <MotionSection className="relative min-h-screen overflow-hidden border-b border-[var(--fine-border)] bg-[var(--warm-ivory)] pt-24 text-[var(--espresso)]">
+        <div className="container-wide relative min-h-screen">
+          <FadeIn className="flex min-h-[56vh] flex-col items-center justify-end px-4 pb-8 text-center lg:min-h-[58vh]">
             <p className="eyebrow">Sritikuthi · Bengali Weddings · Films · Planning</p>
-            <h1 className="serif -mb-10 mt-8 text-[clamp(5.5rem,17vw,15.8rem)] leading-[0.68] tracking-normal sm:-mb-16">
+            <h1 className="serif mt-8 text-[clamp(5rem,14vw,14.2rem)] leading-[0.76] tracking-normal">
               Wedding<br />Tales
             </h1>
           </FadeIn>
@@ -33,16 +33,16 @@ export default function Home() {
               <ArrowRight size={28} />
             </Link>
           </FadeIn>
-          <div className="relative z-0 grid min-h-[58vh] border-x border-[var(--fine-border)] md:grid-cols-[0.92fr_1.25fr]">
+          <div className="relative z-0 grid min-h-[48vh] border-x border-[var(--fine-border)] md:grid-cols-[0.92fr_1.25fr]">
             <div className="relative flex items-start justify-center border-r border-[var(--fine-border)] px-6 pb-16 pt-8 md:pt-0">
-              <ImageReveal delay={0.28} className="relative aspect-[4/5] w-full max-w-[400px] overflow-hidden md:-mt-28">
+              <ImageReveal delay={0.28} className="relative aspect-[4/5] w-full max-w-[400px] overflow-hidden md:-mt-12">
                 <Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill priority sizes="420px" className="object-cover" />
               </ImageReveal>
               <p className="absolute bottom-8 max-w-sm text-sm leading-7 text-[var(--muted)]">
                 Founded by Shiladitya Das, Sritikuthi frames Bengali wedding rituals, families, pre-wedding quiet, and celebration design with a patient eye.
               </p>
             </div>
-            <div className="relative min-h-[54vh] overflow-hidden">
+            <div className="relative min-h-[48vh] overflow-hidden">
               <SlowZoom className="absolute inset-0">
                 <Image src={images.hero.src} alt={images.hero.alt} fill priority sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" />
               </SlowZoom>
