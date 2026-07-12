@@ -11,6 +11,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FilmFeature } from "@/components/sections/FilmFeature";
 import { TestimonialSlider } from "@/components/sections/TestimonialSlider";
 import { CTASection } from "@/components/sections/CTASection";
+import { HeroKineticTitle } from "@/components/sections/HeroKineticTitle";
 import { formatDate } from "@/lib/utils";
 
 export default function Home() {
@@ -18,12 +19,7 @@ export default function Home() {
     <>
       <MotionSection className="relative min-h-screen overflow-hidden border-b border-[var(--fine-border)] bg-[var(--warm-ivory)] pt-24 text-[var(--espresso)]">
         <div className="container-wide relative min-h-screen">
-          <FadeIn className="flex min-h-[56vh] flex-col items-center justify-end px-4 pb-8 text-center lg:min-h-[58vh]">
-            <p className="eyebrow">Sritikuthi · Bengali Weddings · Films · Planning</p>
-            <h1 className="serif mt-8 text-[clamp(5rem,14vw,14.2rem)] leading-[0.76] tracking-normal">
-              Wedding<br />Tales
-            </h1>
-          </FadeIn>
+          <HeroKineticTitle />
           <FadeIn delay={0.16} className="editorial-band relative z-10 grid min-h-16 grid-cols-[1fr_auto_74px] border-y text-[var(--espresso)] md:grid-cols-[1fr_360px_74px]">
             <div className="hidden border-r border-[var(--fine-border)] md:block" />
             <Link href="/contact" className="flex items-center justify-center px-6 text-center serif text-2xl transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]">
