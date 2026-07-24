@@ -6,6 +6,7 @@ import { overviewServices } from "@/data/services";
 import { journalPosts } from "@/data/journal";
 import { portfolioItems } from "@/data/portfolio";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { siteConfig } from "@/data/site";
 import { FadeIn, ImageReveal, MotionSection, SlowZoom, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FilmFeature } from "@/components/sections/FilmFeature";
@@ -35,7 +36,7 @@ export default function Home() {
                 <Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill priority sizes="420px" className="object-cover" />
               </ImageReveal>
               <p className="absolute bottom-8 max-w-sm text-sm leading-7 text-[var(--muted)]">
-                Founded by Shiladitya Das, Sritikuthi frames Bengali wedding rituals, families, pre-wedding quiet, and celebration design with a patient eye.
+                Founded by {siteConfig.owner}, স্মৃতিকুঠি frames Bengali wedding rituals, families, pre-wedding quiet, drone perspectives, films, and celebration design with a patient eye.
               </p>
             </div>
             <div className="relative min-h-[48vh] overflow-hidden">
@@ -58,7 +59,7 @@ export default function Home() {
           <FadeIn delay={0.12} className="mt-10 grid gap-8 border-t border-[var(--fine-border)] pt-8 lg:grid-cols-[0.7fr_1fr]">
             <ButtonLink href="/about" variant="text">Our Story</ButtonLink>
             <p className="max-w-2xl text-lg leading-9 text-[var(--muted)]">
-              We work quietly and attentively, bringing photography, cinematography, planning, and event coordination into one thoughtful experience.
+              We work quietly and attentively, bringing photography, cinematography, pre-wedding shoots, planning, drone, live streaming, albums, and event coordination into one thoughtful experience.
             </p>
           </FadeIn>
         </div>

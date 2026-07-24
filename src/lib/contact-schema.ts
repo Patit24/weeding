@@ -1,13 +1,10 @@
 import { z } from "zod";
+import { allServiceNames } from "@/data/site";
 
 export const serviceOptions = [
-  "Photography",
-  "Cinematography",
-  "Pre-wedding shoot",
+  ...allServiceNames,
   "Wedding planning",
-  "Décor",
-  "Guest management",
-  "Corporate event",
+  "Event management",
   "Other",
 ] as const;
 

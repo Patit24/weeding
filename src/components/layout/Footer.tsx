@@ -8,9 +8,9 @@ export function Footer() {
     <footer className="bg-[var(--espresso)] py-16 text-[var(--warm-ivory)]">
       <div className="container-editorial grid gap-12 lg:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         <div>
-          <Link href="/" className="serif text-5xl leading-none">Sritikuthi<br />The Wedding Tales</Link>
+          <Link href="/" className="serif text-5xl leading-none">স্মৃতিকুঠি<br />The Wedding Tales</Link>
           <p className="mt-5 max-w-sm text-sm leading-7 text-[rgba(247,243,236,0.72)]">
-            Bengali weddings, pre-wedding stories, films, planning, and hosted celebrations photographed with warmth and quiet precision.
+            {siteConfig.tagline}. Wedding photography, cinematography, planning, drone coverage, live streaming, albums, and family celebrations photographed with warmth and quiet precision.
           </p>
           <p className="mt-8 text-xs uppercase tracking-[0.22em] text-[rgba(247,243,236,0.58)]">Designed for meaningful celebrations</p>
         </div>
@@ -36,17 +36,18 @@ export function Footer() {
             <p className="flex gap-3"><Mail size={16} aria-hidden="true" /> {siteConfig.email}</p>
             <p className="flex gap-3"><Phone size={16} aria-hidden="true" /> {siteConfig.phone}</p>
             <p>{siteConfig.address}</p>
+            <p>{siteConfig.hours}</p>
           </div>
           <div className="mt-6 flex gap-4">
             <a href={siteConfig.instagram} aria-label="Instagram">IG</a>
-            <a href={siteConfig.pinterest} aria-label="Pinterest">P</a>
+            <a href={siteConfig.facebook} aria-label="Facebook">FB</a>
             <a href={siteConfig.youtube} aria-label="YouTube">YT</a>
           </div>
           <NewsletterForm />
         </div>
       </div>
       <div className="container-editorial mt-12 flex flex-col gap-3 border-t border-[rgba(247,243,236,0.18)] pt-6 text-xs text-[rgba(247,243,236,0.58)] sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} Sritikuthi The Wedding Tales. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
         <Link className="link-underline" href="/privacy">Privacy</Link>
       </div>
     </footer>

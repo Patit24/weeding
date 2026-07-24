@@ -1,9 +1,10 @@
 "use client";
 
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
+import { siteConfig } from "@/data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const eyebrow = "Sritikuthi · Bengali Weddings · Films · Planning";
+const eyebrow = "স্মৃতিকুঠি · Wedding Photography · Films · Planning";
 
 export function HeroKineticTitle() {
   const reduced = useReducedMotion();
@@ -65,8 +66,16 @@ export function HeroKineticTitle() {
           </motion.span>
         ))}
       </motion.p>
+      <motion.p
+        className="relative z-10 mt-5 max-w-2xl text-xs uppercase tracking-[0.22em] text-[var(--muted)]"
+        initial={reduced ? false : { opacity: 0, y: 12 }}
+        animate={reduced ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease, delay: 0.68 }}
+      >
+        {siteConfig.tagline}
+      </motion.p>
       <motion.h1
-        className="serif relative z-10 mt-8 text-[clamp(5rem,14vw,14.2rem)] leading-[0.76] tracking-normal"
+        className="serif relative z-10 mt-6 text-[clamp(5rem,14vw,14.2rem)] leading-[0.76] tracking-normal"
         style={reduced ? undefined : { x: titleX, y: titleY, rotateX, rotateY, transformPerspective: 1200 }}
         initial={reduced ? false : "hidden"}
         animate={reduced ? undefined : "show"}

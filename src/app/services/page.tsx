@@ -2,19 +2,46 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { overviewServices } from "@/data/services";
 import { images } from "@/data/images";
+import { allServiceNames } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Wedding photography, films, planning, decor, coordination, corporate events, and private celebration management.",
+  description: "Wedding photography, wedding cinematography, pre-wedding shoots, engagement, Haldi, Mehendi, Sangeet, Reception, drone, live streaming, albums, and event management.",
 };
 
 export default function ServicesPage() {
   return (
     <>
       <PageHero eyebrow="Services" title="Planning, photographs, films, and events held with care." intro="Choose one focused service or bring us in as a creative and logistical partner across the full celebration." image={images.planning} />
+      <MotionSection className="bg-[var(--soft-white)] py-20">
+        <div className="container-editorial grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
+          <FadeIn>
+            <p className="eyebrow">Complete Coverage</p>
+            <h2 className="serif mt-4 text-[clamp(3rem,6vw,6rem)] leading-[0.9] text-[var(--espresso)]">From rituals to reception, built as one story.</h2>
+          </FadeIn>
+          <StaggerGroup className="grid gap-3 text-sm uppercase tracking-[0.14em] text-[var(--muted)] sm:grid-cols-2">
+            {allServiceNames.map((service) => (
+              <StaggerItem key={service} className="border-t border-[var(--fine-border)] pt-3">{service}</StaggerItem>
+            ))}
+          </StaggerGroup>
+        </div>
+      </MotionSection>
+      <MotionSection className="py-20">
+        <div className="container-editorial grid gap-10 border-y border-[var(--fine-border)] py-12 lg:grid-cols-[0.9fr_1.1fr]">
+          <FadeIn>
+            <p className="eyebrow">Packages</p>
+            <h2 className="serif mt-4 text-6xl leading-none text-[var(--espresso)]">Custom proposals after availability.</h2>
+          </FadeIn>
+          <FadeIn delay={0.12} className="grid gap-5 text-sm leading-7 text-[var(--muted)] sm:grid-cols-2">
+            {["Hours covered", "Number of photographers", "Number of cinematographers", "Drone inclusion", "Album options", "Edited photo count", "Cinematic film duration", "Delivery timeline", "Raw files", "Live streaming"].map((item) => (
+              <p key={item} className="border-t border-[var(--fine-border)] pt-3">{item}</p>
+            ))}
+          </FadeIn>
+        </div>
+      </MotionSection>
       <MotionSection className="py-24">
         <div className="container-editorial space-y-16">
           {overviewServices.map((service, index) => (

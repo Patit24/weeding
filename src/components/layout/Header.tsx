@@ -51,8 +51,8 @@ export function Header() {
               </Link>
             ))}
           </nav>
-          <Link href="/" className="text-center" aria-label="Sritikuthi The Wedding Tales home">
-            <span className="serif block text-2xl leading-none sm:text-3xl">Sritikuthi</span>
+          <Link href="/" className="text-center" aria-label={`${siteConfig.name} home`}>
+            <span className="serif block text-2xl leading-none sm:text-3xl">স্মৃতিকুঠি</span>
             <span className="block text-[0.56rem] uppercase tracking-[0.28em]">The Wedding Tales</span>
           </Link>
           <div className="hidden items-center justify-end gap-7 lg:flex">
@@ -103,6 +103,7 @@ export function Header() {
             <div className="mt-12 border-t border-[var(--fine-border)] pt-8 text-sm leading-8 text-[var(--muted)]">
               <p>{siteConfig.email}</p>
               <p>{siteConfig.phone}</p>
+              <p>{siteConfig.hours}</p>
               <a className="link-underline mt-4 inline-flex" href={siteConfig.instagram}>
                 Instagram
               </a>

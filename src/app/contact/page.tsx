@@ -9,11 +9,19 @@ import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Enquire with Sritikuthi The Wedding Tales for wedding photography, films, planning, and event management.",
+  description: "Enquire with স্মৃতিকুঠি_The Wedding Tales for wedding photography, cinematography, planning, drone coverage, live streaming, albums, and event management.",
 };
 
 export default function ContactPage() {
-  const whatsappMessage = encodeURIComponent("Hello Sritikuthi The Wedding Tales, I would like to enquire about a celebration.");
+  const whatsappMessage = encodeURIComponent("Hello স্মৃতিকুঠি_The Wedding Tales, I would like to enquire about a celebration.");
+  const faqs = [
+    ["How far in advance should we book?", "For weddings, enquire as soon as your date is fixed. Popular winter and festive dates are best reserved early."],
+    ["Do you travel?", `Yes. We serve ${siteConfig.locations.join(", ")}.`],
+    ["How many photos do we receive?", "The final count depends on the package, number of events, and hours covered. Every delivered image is edited."],
+    ["Can we customize packages?", "Yes. Packages are customized around hours, team size, drone, album, raw files, films, and delivery timeline."],
+    ["What is the booking amount?", "Share your date and scope first. We will confirm availability, proposal, advance amount, and payment options."],
+    ["Do you provide live streaming?", "Yes. Live streaming can be included for wedding rituals, reception, corporate events, and family celebrations."],
+  ];
   return (
     <>
       <PageHero eyebrow="Contact" title="Begin with a quiet conversation." intro="Share where you are in the planning process. We will respond with next steps, availability, and a thoughtful way forward." image={images.contact} />
@@ -24,12 +32,18 @@ export default function ContactPage() {
             <FadeIn delay={0.12} className="mt-8 space-y-4 text-sm leading-7 text-[var(--muted)]">
               <p><strong className="text-[var(--charcoal)]">Email:</strong> {siteConfig.email}</p>
               <p><strong className="text-[var(--charcoal)]">Phone:</strong> {siteConfig.phone}</p>
-              <p><strong className="text-[var(--charcoal)]">Office hours:</strong> Monday to Saturday, 10:00 AM to 6:00 PM IST</p>
-              <p><strong className="text-[var(--charcoal)]">Service locations:</strong> Kolkata, India, and destination celebrations by request.</p>
+              <p><strong className="text-[var(--charcoal)]">Office hours:</strong> {siteConfig.hours}</p>
+              <p><strong className="text-[var(--charcoal)]">Studio:</strong> {siteConfig.address}</p>
+              <p><strong className="text-[var(--charcoal)]">Service locations:</strong> {siteConfig.locations.join(", ")}.</p>
             </FadeIn>
-            <a href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`} className="mt-7 inline-flex min-h-12 items-center gap-2 border border-[var(--espresso)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]">
-              <MessageCircle size={17} /> WhatsApp
-            </a>
+            <div className="mt-7 flex flex-wrap gap-4">
+              <a href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`} className="inline-flex min-h-12 items-center gap-2 border border-[var(--espresso)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]">
+                <MessageCircle size={17} /> WhatsApp
+              </a>
+              <a href={`tel:${siteConfig.primaryPhone}`} className="inline-flex min-h-12 items-center border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
+                Call Now
+              </a>
+            </div>
           </aside>
           <FadeIn delay={0.16}>
             <h2 className="serif text-[clamp(3rem,6vw,6rem)] leading-none text-[var(--espresso)]">Tell us what you are planning.</h2>
@@ -40,10 +54,10 @@ export default function ContactPage() {
       </MotionSection>
       <MotionSection className="bg-[var(--sand)] py-20">
         <StaggerGroup className="container-editorial grid gap-8 md:grid-cols-3">
-          {["Can we book only photography?", "Do you travel?", "How soon should we enquire?"].map((question) => (
+          {faqs.map(([question, answer]) => (
             <StaggerItem key={question} className="border-t border-[var(--fine-border)] pt-5">
               <h2 className="text-sm uppercase tracking-[0.16em]">{question}</h2>
-              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">Yes. Share your date, location, and scope, and we will suggest the most suitable next step.</p>
+              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{answer}</p>
             </StaggerItem>
           ))}
         </StaggerGroup>
