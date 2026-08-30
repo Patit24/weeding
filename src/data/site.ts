@@ -30,6 +30,7 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/stories", label: "Stories" },
   { href: "/#rate-calculator", label: "Calculator" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/journal", label: "Journal" },
