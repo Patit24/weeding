@@ -40,7 +40,7 @@ export default function ServicesPage() {
         <div className="container-editorial space-y-16">
           {overviewServices.map((service, index) => (
             <article key={service.slug} className={`grid items-center gap-10 border-t border-[var(--fine-border)] pt-12 lg:grid-cols-[0.8fr_1.2fr] ${index % 2 ? "lg:grid-cols-[1.2fr_0.8fr]" : ""}`}>
-              <ImageReveal className={`relative aspect-[4/5] overflow-hidden ${index % 2 ? "lg:order-2" : ""}`}>
+              <ImageReveal className={`relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md ${index % 2 ? "lg:order-2" : ""}`}>
                 <Image src={service.image.src} alt={service.image.alt} fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
               </ImageReveal>
               <FadeIn delay={0.12}>

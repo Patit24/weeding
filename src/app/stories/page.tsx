@@ -51,7 +51,7 @@ export default function StoriesPage() {
                 desc: "Customizable packages with zero hidden travel charges within Kolkata.",
               },
             ].map((item) => (
-              <StaggerItem key={item.title} className="p-6 border border-[var(--fine-border)] bg-[var(--soft-white)]">
+              <StaggerItem key={item.title} className="p-6 rounded-2xl border border-[var(--fine-border)] bg-[var(--soft-white)] shadow-sm">
                 <div className="flex items-center gap-3">
                   <div className="p-2.5 rounded-lg border border-[var(--fine-border)] bg-[var(--warm-ivory)]">
                     {item.icon}

@@ -51,7 +51,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
           <FadeIn><h2 className="serif text-6xl text-[var(--espresso)]">Sample gallery</h2></FadeIn>
           <StaggerGroup className="mt-10 grid gap-5 md:grid-cols-3">
             {[service.image, ...related.map((item) => item.cover)].map((image, index) => (
-              <ImageReveal delay={index * 0.08} className="relative aspect-[4/5] overflow-hidden" key={image.src}>
+              <ImageReveal delay={index * 0.08} className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm" key={image.src}>
                 <Image src={image.src} alt={image.alt} fill sizes="33vw" className="object-cover" />
               </ImageReveal>
             ))}

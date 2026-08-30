@@ -34,7 +34,7 @@ export function FilmFeature() {
   return (
     <MotionSection className="border-y border-[var(--fine-border)] bg-[var(--espresso)] py-24 text-[var(--warm-ivory)]">
       <div className="container-wide grid items-center gap-0 border-y border-[rgba(247,243,236,0.24)] lg:grid-cols-[1.15fr_0.85fr]">
-        <ImageReveal className="relative aspect-[16/10] overflow-hidden">
+        <ImageReveal className="relative aspect-[16/10] overflow-hidden rounded-2xl shadow-xl">
           <Image src={images.filmStill.src} alt={images.filmStill.alt} fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover opacity-86" />
           <motion.button
             ref={triggerRef}
@@ -76,10 +76,10 @@ export function FilmFeature() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 14, scale: 0.98 }}
             transition={{ duration: 0.45 }}
-            className="relative w-full max-w-4xl bg-black"
+            className="relative w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-2xl"
             onMouseDown={(event) => event.stopPropagation()}
           >
-            <button ref={closeRef} type="button" onClick={() => setOpen(false)} className="absolute right-3 top-3 z-10 min-h-11 min-w-11 text-white" aria-label="Close video">
+            <button ref={closeRef} type="button" onClick={() => setOpen(false)} className="absolute right-3 top-3 z-10 min-h-11 min-w-11 rounded-full text-white hover:bg-white/20 transition-colors" aria-label="Close video">
               <X />
             </button>
             <iframe

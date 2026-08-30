@@ -527,14 +527,14 @@ export function RateCalculator() {
           <div className="flex items-center gap-3">
             <button
               onClick={handleReset}
-              className="inline-flex items-center gap-2 border border-[var(--fine-border)] bg-[var(--warm-ivory)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--espresso)] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]"
+              className="inline-flex items-center gap-2 rounded-xl border border-[var(--fine-border)] bg-[var(--warm-ivory)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--espresso)] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]"
             >
               <RotateCcw size={14} />
               <span>Reset</span>
             </button>
             <button
               onClick={() => window.print()}
-              className="inline-flex items-center gap-2 border border-[var(--fine-border)] bg-[var(--warm-ivory)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--espresso)] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]"
+              className="inline-flex items-center gap-2 rounded-xl border border-[var(--fine-border)] bg-[var(--warm-ivory)] px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--espresso)] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]"
             >
               <Printer size={14} />
               <span>Print Quote</span>
@@ -557,7 +557,7 @@ export function RateCalculator() {
                   key={tab.id}
                   type="button"
                   onClick={() => setSelectedCategory(tab.id)}
-                  className={`group relative flex flex-col items-center justify-center p-5 text-center border transition-all ${
+                  className={`group relative flex flex-col items-center justify-center p-5 text-center border rounded-2xl transition-all ${
                     isSelected
                       ? "border-[var(--espresso)] bg-[var(--warm-ivory)] shadow-md ring-2 ring-[var(--espresso)]"
                       : "border-[var(--fine-border)] bg-[var(--soft-white)] hover:border-[var(--espresso)]"
@@ -599,18 +599,18 @@ export function RateCalculator() {
                   <span className="text-xs text-[var(--muted)]">Click any ritual to set operator team</span>
                 </div>
 
-                <div className="mt-6 divide-y divide-[var(--fine-border)] border-y border-[var(--fine-border)]">
+                <div className="mt-6 space-y-3">
                   {weddingFunctions.map((fn) => {
                     const isOpen = openWeddingAccordion === fn.id;
                     const totalCrew = Object.values(fn.team).reduce((a, b) => a + b, 0);
 
                     return (
-                      <div key={fn.id} className="transition-colors">
+                      <div key={fn.id} className="border border-[var(--fine-border)] rounded-2xl bg-[var(--soft-white)] overflow-hidden transition-colors">
                         {/* Accordion Row Header */}
                         <button
                           type="button"
                           onClick={() => toggleWeddingAccordion(fn.id)}
-                          className="flex w-full items-center justify-between py-4 px-3 text-left transition-colors hover:bg-[rgba(227,232,229,0.4)]"
+                          className="flex w-full items-center justify-between py-4 px-4 sm:px-6 text-left transition-colors hover:bg-[rgba(227,232,229,0.4)]"
                         >
                           <div className="flex items-center gap-3 sm:gap-4">
                             <span className="serif text-xl sm:text-2xl font-light text-[var(--muted)] w-8">
@@ -622,7 +622,7 @@ export function RateCalculator() {
                                   {fn.title}
                                 </h4>
                                 {totalCrew > 0 && (
-                                  <span className="inline-flex items-center px-2 py-0.5 text-[0.68rem] font-semibold uppercase tracking-wider bg-[var(--espresso)] text-[var(--warm-ivory)]">
+                                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[0.68rem] font-semibold uppercase tracking-wider bg-[var(--espresso)] text-[var(--warm-ivory)]">
                                     {totalCrew} Crew · {fn.duration}
                                   </span>
                                 )}
@@ -671,7 +671,7 @@ export function RateCalculator() {
                                           key={dur}
                                           type="button"
                                           onClick={() => updateWeddingFunctionDuration(fn.id, dur)}
-                                          className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider border transition-all ${
+                                          className={`px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider border transition-all ${
                                             fn.duration === dur
                                               ? "border-[var(--espresso)] bg-[var(--espresso)] text-[var(--warm-ivory)]"
                                               : "border-[var(--fine-border)] bg-[var(--soft-white)] text-[var(--charcoal)] hover:border-[var(--espresso)]"
@@ -699,7 +699,7 @@ export function RateCalculator() {
                                       return (
                                         <div
                                           key={roleKey}
-                                          className="flex items-center justify-between p-3 border border-[var(--fine-border)] bg-[var(--soft-white)]"
+                                          className="flex items-center justify-between p-3.5 rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)]"
                                         >
                                           <div>
                                             <div className="text-xs font-semibold text-[var(--espresso)]">
@@ -714,7 +714,7 @@ export function RateCalculator() {
                                             onChange={(e) =>
                                               updateWeddingFunctionTeam(fn.id, roleKey, parseInt(e.target.value, 10))
                                             }
-                                            className="h-9 min-w-14 rounded-none border border-[var(--fine-border)] bg-[var(--warm-ivory)] px-2 text-sm font-semibold text-[var(--espresso)] outline-none focus:border-[var(--espresso)]"
+                                            className="h-9 min-w-14 rounded-lg border border-[var(--fine-border)] bg-[var(--warm-ivory)] px-2 text-sm font-semibold text-[var(--espresso)] outline-none focus:border-[var(--espresso)]"
                                           >
                                             {Array.from({ length: config.maxCount + 1 }, (_, i) => (
                                               <option key={i} value={i}>
@@ -738,7 +738,7 @@ export function RateCalculator() {
               </div>
             ) : (
               /* 🌟 STEP 2 (NON-WEDDING): SINGLE SERVICE TEAM OPERATORS */
-              <div className="p-6 sm:p-8 border border-[var(--espresso)] bg-[var(--warm-ivory)] shadow-sm">
+              <div className="p-6 sm:p-8 border border-[var(--espresso)] rounded-3xl bg-[var(--warm-ivory)] shadow-sm">
                 {(() => {
                   const svc = singleServices[selectedCategory];
                   if (!svc) return null;
@@ -766,7 +766,7 @@ export function RateCalculator() {
                                 key={dur}
                                 type="button"
                                 onClick={() => updateSingleServiceDuration(selectedCategory, dur as any)}
-                                className={`px-3.5 py-2 text-xs font-semibold uppercase tracking-wider border transition-all ${
+                                className={`px-3.5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider border transition-all ${
                                   svc.duration === dur
                                     ? "border-[var(--espresso)] bg-[var(--espresso)] text-[var(--warm-ivory)]"
                                     : "border-[var(--fine-border)] bg-[var(--soft-white)] text-[var(--charcoal)] hover:border-[var(--espresso)]"
@@ -794,14 +794,14 @@ export function RateCalculator() {
                           return (
                             <div
                               key={roleKey}
-                              className={`flex items-center justify-between p-4 border transition-all ${
+                              className={`flex items-center justify-between p-4 rounded-2xl border transition-all ${
                                 count > 0
                                   ? "border-[var(--espresso)] bg-[var(--soft-white)] shadow-sm"
                                   : "border-[var(--fine-border)] bg-[rgba(255,255,255,0.6)]"
                               }`}
                             >
                               <div className="flex items-center gap-3">
-                                <div className="p-2 border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-[var(--espresso)]">
+                                <div className="p-2 rounded-xl border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-[var(--espresso)]">
                                   {roleKey === "cinematographer" || roleKey === "traditionalVideo" ? (
                                     <Video size={16} />
                                   ) : roleKey === "droneOperator" ? (
@@ -825,7 +825,7 @@ export function RateCalculator() {
                                   type="button"
                                   onClick={() => updateSingleServiceTeam(selectedCategory, roleKey, count - 1)}
                                   disabled={count === 0}
-                                  className="h-8 w-8 flex items-center justify-center border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-sm font-bold text-[var(--espresso)] hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)] disabled:opacity-30"
+                                  className="h-8 w-8 rounded-lg flex items-center justify-center border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-sm font-bold text-[var(--espresso)] hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)] disabled:opacity-30"
                                 >
                                   -
                                 </button>
@@ -836,7 +836,7 @@ export function RateCalculator() {
                                   type="button"
                                   onClick={() => updateSingleServiceTeam(selectedCategory, roleKey, count + 1)}
                                   disabled={count >= config.maxCount}
-                                  className="h-8 w-8 flex items-center justify-center border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-sm font-bold text-[var(--espresso)] hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)] disabled:opacity-30"
+                                  className="h-8 w-8 rounded-lg flex items-center justify-center border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-sm font-bold text-[var(--espresso)] hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)] disabled:opacity-30"
                                 >
                                   +
                                 </button>
@@ -852,7 +852,7 @@ export function RateCalculator() {
             )}
 
             {/* 🌟 STEP 3: ADDITIONAL CUSTOM FUNCTION BUILDER */}
-            <div className="p-6 border border-[var(--fine-border)] bg-[var(--warm-ivory)]">
+            <div className="p-6 rounded-3xl border border-[var(--fine-border)] bg-[var(--warm-ivory)]">
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
                 <Plus size={14} />
                 <span>Add Additional Function / Custom Ritual</span>
@@ -871,7 +871,7 @@ export function RateCalculator() {
                     value={newCustomName}
                     onChange={(e) => setNewCustomName(e.target.value)}
                     placeholder="Enter function name"
-                    className="mt-1 h-11 w-full border border-[var(--fine-border)] bg-[var(--soft-white)] px-3 text-sm outline-none focus:border-[var(--espresso)]"
+                    className="mt-1 h-11 w-full rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)] px-3 text-sm outline-none focus:border-[var(--espresso)]"
                   />
                 </div>
                 <div>
@@ -884,7 +884,7 @@ export function RateCalculator() {
                         key={dur}
                         type="button"
                         onClick={() => setNewCustomDuration(dur)}
-                        className={`flex-1 h-11 text-xs font-semibold uppercase tracking-wider border ${
+                        className={`flex-1 h-11 rounded-xl text-xs font-semibold uppercase tracking-wider border ${
                           newCustomDuration === dur
                             ? "border-[var(--espresso)] bg-[var(--espresso)] text-[var(--warm-ivory)]"
                             : "border-[var(--fine-border)] bg-[var(--soft-white)] text-[var(--charcoal)]"
@@ -906,7 +906,7 @@ export function RateCalculator() {
                   {(Object.keys(teamRoleConfigs) as TeamRole[]).map((role) => (
                     <label
                       key={role}
-                      className="flex items-center gap-2 p-2 border border-[var(--fine-border)] bg-[var(--soft-white)] text-xs text-[var(--charcoal)] cursor-pointer"
+                      className="flex items-center gap-2 p-2 rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)] text-xs text-[var(--charcoal)] cursor-pointer"
                     >
                       <input
                         type="checkbox"
@@ -929,7 +929,7 @@ export function RateCalculator() {
                   type="button"
                   onClick={handleAddCustomFunction}
                   disabled={!newCustomName.trim()}
-                  className="inline-flex items-center gap-2 border border-[var(--espresso)] bg-[var(--espresso)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] disabled:opacity-40 transition-opacity"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[var(--espresso)] bg-[var(--espresso)] px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] disabled:opacity-40 transition-opacity"
                 >
                   <Plus size={14} />
                   <span>Add Function to Estimate</span>
@@ -943,7 +943,7 @@ export function RateCalculator() {
                   {customFunctions.map((cf) => (
                     <div
                       key={cf.id}
-                      className="flex items-center justify-between p-3 border border-[var(--fine-border)] bg-[var(--soft-white)] text-sm"
+                      className="flex items-center justify-between p-3 rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)] text-sm"
                     >
                       <div>
                         <span className="font-semibold text-[var(--espresso)]">{cf.name}</span>
@@ -979,7 +979,7 @@ export function RateCalculator() {
                       key={loc.id}
                       type="button"
                       onClick={() => setSelectedLocationId(loc.id)}
-                      className={`relative flex flex-col justify-between p-4 text-left border transition-all ${
+                      className={`relative flex flex-col justify-between p-5 rounded-2xl text-left border transition-all ${
                         isSelected
                           ? "border-[var(--espresso)] bg-[var(--warm-ivory)] shadow-sm ring-1 ring-[var(--espresso)]"
                           : "border-[var(--fine-border)] bg-[var(--soft-white)] hover:border-[var(--espresso)]"
@@ -1013,7 +1013,7 @@ export function RateCalculator() {
                   return (
                     <label
                       key={deliv.id}
-                      className={`relative flex items-start gap-3.5 p-4 border cursor-pointer transition-all ${
+                      className={`relative flex items-start gap-3.5 p-5 rounded-2xl border cursor-pointer transition-all ${
                         isChecked
                           ? "border-[var(--espresso)] bg-[var(--warm-ivory)] shadow-sm"
                           : "border-[var(--fine-border)] bg-[var(--soft-white)] hover:border-[var(--espresso)]"
@@ -1023,7 +1023,7 @@ export function RateCalculator() {
                         type="checkbox"
                         checked={isChecked}
                         onChange={() => toggleDeliverable(deliv.id)}
-                        className="mt-1 h-4 w-4 accent-[var(--espresso)]"
+                        className="mt-1 h-4 w-4 rounded accent-[var(--espresso)]"
                       />
                       <div className="flex-1">
                         <div className="flex items-start justify-between gap-2">
@@ -1043,10 +1043,10 @@ export function RateCalculator() {
 
           {/* 🌟 RIGHT COLUMN: STICKY ESTIMATE SUMMARY & WHATSAPP */}
           <div className="lg:relative">
-            <div className="sticky top-28 border border-[var(--espresso)] bg-[var(--espresso)] text-[var(--warm-ivory)] p-6 sm:p-8 shadow-xl">
+            <div className="sticky top-28 border border-[var(--espresso)] rounded-3xl bg-[var(--espresso)] text-[var(--warm-ivory)] p-6 sm:p-8 shadow-xl">
               <div className="flex items-center justify-between pb-5 border-b border-[rgba(227,232,229,0.2)]">
                 <span className="text-xs uppercase tracking-[0.24em] text-[var(--sand)]">Live Quotation</span>
-                <span className="text-xs font-mono bg-[rgba(227,232,229,0.15)] px-2 py-0.5 text-[var(--warm-ivory)]">
+                <span className="text-xs font-mono rounded-full bg-[rgba(227,232,229,0.15)] px-2.5 py-0.5 text-[var(--warm-ivory)]">
                   {calculation.activeFunctionSummaries.length} Function{calculation.activeFunctionSummaries.length > 1 ? "s" : ""}
                 </span>
               </div>
@@ -1113,12 +1113,12 @@ export function RateCalculator() {
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
                     placeholder="Enter SRITIKUTHI5"
-                    className="h-10 flex-1 bg-[rgba(255,255,255,0.08)] border border-[rgba(227,232,229,0.3)] px-3 text-xs text-[var(--warm-ivory)] uppercase outline-none focus:border-[var(--sand)]"
+                    className="h-10 flex-1 rounded-xl bg-[rgba(255,255,255,0.08)] border border-[rgba(227,232,229,0.3)] px-3 text-xs text-[var(--warm-ivory)] uppercase outline-none focus:border-[var(--sand)]"
                   />
                   <button
                     type="button"
                     onClick={handleApplyPromo}
-                    className="h-10 px-4 text-xs font-semibold uppercase tracking-wider bg-[var(--warm-ivory)] text-[var(--espresso)] hover:bg-[var(--sand)] transition-colors"
+                    className="h-10 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider bg-[var(--warm-ivory)] text-[var(--espresso)] hover:bg-[var(--sand)] transition-colors"
                   >
                     Apply
                   </button>
@@ -1137,7 +1137,7 @@ export function RateCalculator() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-12 w-full items-center justify-center gap-2.5 bg-emerald-700 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white hover:bg-emerald-600 transition-all shadow-md"
+                  className="flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-emerald-700 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white hover:bg-emerald-600 transition-all shadow-md"
                 >
                   <Send size={16} />
                   <span>Get on WhatsApp</span>
@@ -1145,7 +1145,7 @@ export function RateCalculator() {
                 
                 <a
                   href="/contact"
-                  className="flex min-h-11 w-full items-center justify-center gap-2 border border-[rgba(227,232,229,0.4)] bg-transparent px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] hover:bg-[rgba(227,232,229,0.1)] transition-colors"
+                  className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[rgba(227,232,229,0.4)] bg-transparent px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] hover:bg-[rgba(227,232,229,0.1)] transition-colors"
                 >
                   <span>Book Formal Consultation</span>
                 </a>

@@ -22,7 +22,7 @@ export function TestimonialSlider() {
             animate={{ opacity: 1, clipPath: "inset(0 0 0% 0)" }}
             exit={{ opacity: 0, clipPath: "inset(0 0 18% 0)" }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="relative mx-auto aspect-[4/5] w-56 overflow-hidden sm:w-72"
+            className="relative mx-auto aspect-[4/5] w-56 overflow-hidden rounded-2xl sm:w-72 shadow-md"
           >
             <Image src={item.portrait.src} alt={item.portrait.alt} fill sizes="288px" className="object-cover" />
           </motion.div>
@@ -43,10 +43,10 @@ export function TestimonialSlider() {
             </motion.div>
           </AnimatePresence>
           <div className="mt-8 flex items-center gap-4">
-            <motion.button type="button" onClick={() => move(-1)} whileHover={{ x: -2 }} whileTap={{ scale: 0.96 }} className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[var(--fine-border)]" aria-label="Previous testimonial">
+            <motion.button type="button" onClick={() => move(-1)} whileHover={{ x: -2 }} whileTap={{ scale: 0.96 }} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[var(--fine-border)] hover:border-[var(--espresso)] transition-colors" aria-label="Previous testimonial">
               <ArrowLeft size={18} />
             </motion.button>
-            <motion.button type="button" onClick={() => move(1)} whileHover={{ x: 2 }} whileTap={{ scale: 0.96 }} className="inline-flex min-h-11 min-w-11 items-center justify-center border border-[var(--fine-border)]" aria-label="Next testimonial">
+            <motion.button type="button" onClick={() => move(1)} whileHover={{ x: 2 }} whileTap={{ scale: 0.96 }} className="inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[var(--fine-border)] hover:border-[var(--espresso)] transition-colors" aria-label="Next testimonial">
               <ArrowRight size={18} />
             </motion.button>
             <span className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">{index + 1} / {testimonials.length}</span>

@@ -8,7 +8,7 @@ import { Send } from "lucide-react";
 import { contactSchema, serviceOptions, type ContactFormValues } from "@/lib/contact-schema";
 import { StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 
-const fieldClass = "min-h-12 w-full border border-[var(--fine-border)] bg-[var(--soft-white)] px-4 text-sm outline-none";
+const fieldClass = "min-h-12 w-full rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)] px-4 text-sm outline-none";
 const labelClass = "text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]";
 
 export function ConsultationForm() {
@@ -57,8 +57,8 @@ export function ConsultationForm() {
         <legend className={labelClass}>Services required</legend>
         <div className="mt-3 grid gap-3 sm:grid-cols-2">
           {serviceOptions.map((service) => (
-            <motion.label key={service} whileHover={{ y: -2 }} transition={{ duration: 0.2 }} className="flex min-h-11 items-center gap-3 border border-[var(--fine-border)] bg-[var(--soft-white)] px-4 text-sm">
-              <input type="checkbox" value={service} {...register("services")} />
+            <motion.label key={service} whileHover={{ y: -2 }} transition={{ duration: 0.2 }} className="flex min-h-11 items-center gap-3 rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)] px-4 text-sm cursor-pointer">
+              <input type="checkbox" value={service} {...register("services")} className="rounded" />
               {service}
             </motion.label>
           ))}
@@ -67,11 +67,11 @@ export function ConsultationForm() {
       </fieldset>
       <Field label="Message" error={error("message")}><textarea className={`${fieldClass} min-h-36 py-3`} {...register("message")} /></Field>
       <label className="flex gap-3 text-sm leading-7 text-[var(--muted)]">
-        <input type="checkbox" {...register("consent")} className="mt-2" />
+        <input type="checkbox" {...register("consent")} className="mt-2 rounded" />
         I consent to Sritikuthi The Wedding Tales contacting me about this enquiry.
       </label>
       {error("consent")}
-      <motion.button type="submit" disabled={isSubmitting} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} className="inline-flex min-h-12 items-center gap-2 border border-[var(--espresso)] bg-[var(--espresso)] px-7 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] disabled:opacity-60">
+      <motion.button type="submit" disabled={isSubmitting} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--espresso)] bg-[var(--espresso)] px-7 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] disabled:opacity-60">
         <Send size={16} />
         {isSubmitting ? "Sending" : "Send Enquiry"}
       </motion.button>

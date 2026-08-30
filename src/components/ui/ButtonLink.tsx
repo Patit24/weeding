@@ -23,7 +23,7 @@ export function ButtonLink({ href, children, variant = "dark", className }: Butt
     <Link
       href={href}
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-2 border px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] transition-colors",
+        "inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border px-6 py-3 text-xs font-semibold uppercase tracking-[0.18em] transition-all shadow-sm",
         variant === "dark"
           ? "border-[var(--espresso)] bg-[var(--espresso)] text-[var(--warm-ivory)] hover:bg-transparent hover:text-[var(--espresso)]"
           : "border-[rgba(247,243,236,0.62)] text-[var(--warm-ivory)] hover:bg-[var(--warm-ivory)] hover:text-[var(--espresso)]",

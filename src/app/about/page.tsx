@@ -27,9 +27,9 @@ export default function AboutPage() {
       </MotionSection>
       <MotionSection className="bg-[var(--soft-white)] py-24">
         <div className="container-editorial grid gap-6 md:grid-cols-3">
-          <ImageReveal className="relative aspect-[3/4] overflow-hidden md:mt-16"><Image src={images.team.src} alt={images.team.alt} fill sizes="33vw" className="object-cover" /></ImageReveal>
-          <ImageReveal delay={0.12} className="relative aspect-[4/5] overflow-hidden"><Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="33vw" className="object-cover" /></ImageReveal>
-          <ImageReveal delay={0.24} className="relative aspect-[3/4] overflow-hidden md:mt-28"><Image src={images.planning.src} alt={images.planning.alt} fill sizes="33vw" className="object-cover" /></ImageReveal>
+          <ImageReveal className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md md:mt-16"><Image src={images.team.src} alt={images.team.alt} fill sizes="33vw" className="object-cover" /></ImageReveal>
+          <ImageReveal delay={0.12} className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md"><Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="33vw" className="object-cover" /></ImageReveal>
+          <ImageReveal delay={0.24} className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-md md:mt-28"><Image src={images.planning.src} alt={images.planning.alt} fill sizes="33vw" className="object-cover" /></ImageReveal>
         </div>
       </MotionSection>
       <MotionSection className="py-24">

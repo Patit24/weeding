@@ -28,7 +28,7 @@ export default function ContactPage() {
       <MotionSection className="py-24">
         <div className="container-editorial grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
           <aside>
-            <ImageReveal className="relative aspect-[4/5] overflow-hidden"><Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="420px" className="object-cover" /></ImageReveal>
+            <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md"><Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="420px" className="object-cover" /></ImageReveal>
             <FadeIn delay={0.12} className="mt-8 space-y-4 text-sm leading-7 text-[var(--muted)]">
               <p><strong className="text-[var(--charcoal)]">Email:</strong> {siteConfig.email}</p>
               <p><strong className="text-[var(--charcoal)]">Phone:</strong> {siteConfig.phone}</p>
@@ -37,13 +37,13 @@ export default function ContactPage() {
               <p><strong className="text-[var(--charcoal)]">Service locations:</strong> {siteConfig.locations.join(", ")}.</p>
             </FadeIn>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`} className="inline-flex min-h-12 items-center gap-2 border border-[var(--espresso)] bg-[var(--espresso)] px-5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] transition-colors hover:bg-[var(--charcoal)]">
+              <a href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--espresso)] bg-[var(--espresso)] px-5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] transition-colors hover:bg-[var(--charcoal)]">
                 <MessageCircle size={17} /> WhatsApp
               </a>
-              <a href={`tel:${siteConfig.primaryPhone}`} className="inline-flex min-h-12 items-center border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
+              <a href={`tel:${siteConfig.primaryPhone}`} className="inline-flex min-h-12 items-center rounded-xl border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
                 Call Now
               </a>
-              <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
+              <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center rounded-xl border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
                 Google Maps
               </a>
             </div>

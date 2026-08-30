@@ -72,7 +72,7 @@ export default function Home() {
           <SectionHeading eyebrow="Services" title="Five ways we hold the story." />
           {overviewServices.slice(0, 5).map((service, index) => (
             <div key={service.slug} className={`grid items-center gap-10 lg:grid-cols-2 ${index % 2 ? "" : "lg:[&>*:first-child]:order-2"}`}>
-              <ImageReveal className="relative aspect-[4/5] overflow-hidden bg-[var(--sand)]">
+              <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[var(--sand)] shadow-md">
                 <Image src={service.image.src} alt={service.image.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
               </ImageReveal>
               <FadeIn className="max-w-xl">
@@ -89,7 +89,7 @@ export default function Home() {
       <MotionSection className="py-24">
         <div className="container-wide">
           <div className="relative grid gap-8 lg:grid-cols-[1fr_0.55fr]">
-            <ImageReveal className="relative aspect-[16/9] overflow-hidden">
+            <ImageReveal className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-md">
               <Image src={images.featuredWide.src} alt={images.featuredWide.alt} fill sizes="70vw" className="object-cover" />
             </ImageReveal>
             <FadeIn delay={0.12} className="lg:pt-24">
@@ -100,7 +100,7 @@ export default function Home() {
               <p className="mt-6 max-w-md leading-8 text-[var(--muted)]">{portfolioItems[0].story}</p>
               <ButtonLink href="/portfolio/ishani-ritwik-bengali-wedding" variant="text" className="mt-7">View Their Story</ButtonLink>
             </FadeIn>
-            <ImageReveal delay={0.24} className="relative aspect-[3/4] w-full max-w-sm overflow-hidden lg:absolute lg:bottom-[-12%] lg:left-[8%]">
+            <ImageReveal delay={0.24} className="relative aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl shadow-xl lg:absolute lg:bottom-[-12%] lg:left-[8%]">
               <Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="384px" className="object-cover" />
             </ImageReveal>
           </div>
@@ -128,9 +128,9 @@ export default function Home() {
           <StaggerGroup className="mt-12 grid gap-5 md:grid-cols-4">
             {[images.mosaicOne, images.mosaicTwo, images.mosaicThree, images.mosaicFour].map((image, index) => (
               <StaggerItem key={image.src} className={`${index === 0 ? "md:col-span-2 md:row-span-2" : index === 3 ? "md:col-span-2" : ""}`}>
-              <Link href="/portfolio" className={`group relative block overflow-hidden ${index === 0 ? "aspect-[4/5]" : index === 3 ? "aspect-[16/8]" : "aspect-[3/4]"}`}>
+              <Link href="/portfolio" className={`group relative block overflow-hidden rounded-2xl shadow-sm ${index === 0 ? "aspect-[4/5]" : index === 3 ? "aspect-[16/8]" : "aspect-[3/4]"}`}>
                 <Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <span className="absolute inset-0 flex items-end bg-[rgba(41,35,31,0.52)] p-5 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+                <span className="absolute inset-0 flex items-end rounded-2xl bg-[rgba(41,35,31,0.52)] p-5 opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                   <span className="text-xs uppercase tracking-[0.18em] text-[var(--warm-ivory)]">Wedding · Kolkata</span>
                 </span>
               </Link>
@@ -164,7 +164,7 @@ export default function Home() {
 
       <MotionSection className="pb-24">
         <div className="container-editorial grid items-center gap-10 lg:grid-cols-2">
-          <ImageReveal className="relative aspect-[4/5] overflow-hidden">
+          <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md">
             <Image src={images.event.src} alt={images.event.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </ImageReveal>
           <FadeIn delay={0.12}>
@@ -185,7 +185,7 @@ export default function Home() {
             {journalPosts.slice(0, 3).map((post) => (
               <StaggerItem key={post.slug}>
               <Link href={`/journal/${post.slug}`} className="group block">
-                <span className="relative block aspect-[4/3] overflow-hidden">
+                <span className="relative block aspect-[4/3] overflow-hidden rounded-2xl shadow-sm">
                   <Image src={post.image.src} alt={post.image.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </span>
                 <span className="mt-5 block text-xs uppercase tracking-[0.18em] text-[var(--muted)]">{post.category} · {formatDate(post.date)} · {post.readingTime}</span>
