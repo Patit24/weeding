@@ -35,13 +35,16 @@ export function Footer() {
           <div className="mt-5 space-y-3 text-sm text-[rgba(247,243,236,0.72)]">
             <p className="flex gap-3"><Mail size={16} aria-hidden="true" /> {siteConfig.email}</p>
             <p className="flex gap-3"><Phone size={16} aria-hidden="true" /> {siteConfig.phone}</p>
-            <p>{siteConfig.address}</p>
+            <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" className="block hover:text-white transition-colors">
+              📍 {siteConfig.address}
+            </a>
             <p>{siteConfig.hours}</p>
           </div>
           <div className="mt-6 flex gap-4">
-            <a href={siteConfig.instagram} aria-label="Instagram">IG</a>
-            <a href={siteConfig.facebook} aria-label="Facebook">FB</a>
-            <a href={siteConfig.youtube} aria-label="YouTube">YT</a>
+            <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">IG</a>
+            <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook">FB</a>
+            <a href={siteConfig.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">YT</a>
+            <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" aria-label="Google Maps">GM</a>
           </div>
           <NewsletterForm />
         </div>

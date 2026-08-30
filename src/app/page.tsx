@@ -13,6 +13,8 @@ import { FilmFeature } from "@/components/sections/FilmFeature";
 import { TestimonialSlider } from "@/components/sections/TestimonialSlider";
 import { CTASection } from "@/components/sections/CTASection";
 import { HeroKineticTitle } from "@/components/sections/HeroKineticTitle";
+import { RateCalculator } from "@/components/sections/RateCalculator";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { formatDate } from "@/lib/utils";
 
 export default function Home() {
@@ -154,8 +156,11 @@ export default function Home() {
         </div>
       </MotionSection>
 
+      <RateCalculator />
+
       <FilmFeature />
-      <TestimonialSlider />
+      
+      <GoogleReviews />
 
       <MotionSection className="pb-24">
         <div className="container-editorial grid items-center gap-10 lg:grid-cols-2">

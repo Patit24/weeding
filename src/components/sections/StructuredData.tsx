@@ -1,4 +1,5 @@
 import { siteConfig } from "@/data/site";
+import { googleProfileStats, googleReviews } from "@/data/google-reviews";
 
 export function StructuredData() {
   const sameAs = [siteConfig.instagram, siteConfig.facebook, siteConfig.youtube, siteConfig.pinterest].filter(Boolean);
@@ -30,6 +31,26 @@ export function StructuredData() {
             closes: "22:00",
           },
         ],
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: googleProfileStats.rating.toString(),
+          reviewCount: googleProfileStats.totalReviews.toString(),
+          bestRating: "5",
+          worstRating: "1",
+        },
+        review: googleReviews.map((r) => ({
+          "@type": "Review",
+          author: {
+            "@type": "Person",
+            name: r.authorName,
+          },
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: r.rating.toString(),
+            bestRating: "5",
+          },
+          reviewBody: r.text,
+        })),
         areaServed: siteConfig.locations,
         sameAs,
       },

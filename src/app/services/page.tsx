@@ -6,16 +6,22 @@ import { allServiceNames } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
+import { RateCalculator } from "@/components/sections/RateCalculator";
+import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: "Wedding photography, wedding cinematography, pre-wedding shoots, engagement, Haldi, Mehendi, Sangeet, Reception, drone, live streaming, albums, and event management.",
+  title: "Services & Rate Calculator",
+  description: "Wedding photography, wedding cinematography, pre-wedding shoots, engagement, Haldi, Mehendi, Sangeet, Reception, drone, live streaming, albums, and interactive rate calculator.",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <PageHero eyebrow="Services" title="Planning, photographs, films, and events held with care." intro="Choose one focused service or bring us in as a creative and logistical partner across the full celebration." image={images.planning} />
+      <PageHero eyebrow="Services" title="Planning, photographs, films, and events held with care." intro="Choose one focused service or calculate your customized wedding photography and film package with our live rate estimator." image={images.planning} />
+      
+      {/* Interactive Rate Calculator */}
+      <RateCalculator />
+
       <MotionSection className="bg-[var(--soft-white)] py-20">
         <div className="container-editorial grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
           <FadeIn>
@@ -29,19 +35,7 @@ export default function ServicesPage() {
           </StaggerGroup>
         </div>
       </MotionSection>
-      <MotionSection className="py-20">
-        <div className="container-editorial grid gap-10 border-y border-[var(--fine-border)] py-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <FadeIn>
-            <p className="eyebrow">Packages</p>
-            <h2 className="serif mt-4 text-6xl leading-none text-[var(--espresso)]">Custom proposals after availability.</h2>
-          </FadeIn>
-          <FadeIn delay={0.12} className="grid gap-5 text-sm leading-7 text-[var(--muted)] sm:grid-cols-2">
-            {["Hours covered", "Number of photographers", "Number of cinematographers", "Drone inclusion", "Album options", "Edited photo count", "Cinematic film duration", "Delivery timeline", "Raw files", "Live streaming"].map((item) => (
-              <p key={item} className="border-t border-[var(--fine-border)] pt-3">{item}</p>
-            ))}
-          </FadeIn>
-        </div>
-      </MotionSection>
+      
       <MotionSection className="py-24">
         <div className="container-editorial space-y-16">
           {overviewServices.map((service, index) => (
@@ -67,6 +61,9 @@ export default function ServicesPage() {
           ))}
         </div>
       </MotionSection>
+
+      {/* Google Business Profile Reviews on Services Page */}
+      <GoogleReviews />
     </>
   );
 }
