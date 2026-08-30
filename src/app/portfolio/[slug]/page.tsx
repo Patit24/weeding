@@ -53,7 +53,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
       </MotionSection>
       <MotionSection className="container-wide grid gap-5 pb-20 md:grid-cols-2">
         {item.gallery.map((image, index) => (
-          <ImageReveal key={`${image.src}-${index}`} delay={index * 0.08} className={`relative overflow-hidden ${index === 0 ? "aspect-[16/9] md:col-span-2" : "aspect-[4/5]"}`}>
+          <ImageReveal key={`${image.src}-${index}`} delay={index * 0.08} className={`relative overflow-hidden rounded-2xl shadow-md ${index === 0 ? "aspect-[16/9] md:col-span-2" : "aspect-[4/5]"}`}>
             <Image src={image.src} alt={image.alt} fill sizes={index === 0 ? "100vw" : "50vw"} className="object-cover" />
           </ImageReveal>
         ))}

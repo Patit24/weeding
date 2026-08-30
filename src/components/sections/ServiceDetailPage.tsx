@@ -11,7 +11,12 @@ import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@
 export function ServiceDetailPage({ slug }: { slug: string }) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
-  const related = portfolioItems.slice(0, 2);
+  const related = portfolioItems.filter((item) => {
+    if (slug === "pre-wedding") return item.category === "Pre-Weddings";
+    if (slug === "wedding" || slug === "wedding-photography") return item.category === "Weddings";
+    if (slug === "wedding-films") return item.category === "Films";
+    return true;
+  }).slice(0, slug === "pre-wedding" ? 6 : 4);
 
   return (
     <>
@@ -50,8 +55,8 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
         <div className="container-editorial">
           <FadeIn><h2 className="serif text-6xl text-[var(--espresso)]">Sample gallery</h2></FadeIn>
           <StaggerGroup className="mt-10 grid gap-5 md:grid-cols-3">
-            {[service.image, ...related.map((item) => item.cover)].map((image, index) => (
-              <ImageReveal delay={index * 0.08} className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm" key={image.src}>
+            {[service.image, ...related.map((item) => item.cover)].slice(0, 6).map((image, index) => (
+              <ImageReveal delay={index * 0.08} className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm" key={`${image.src}-${index}`}>
                 <Image src={image.src} alt={image.alt} fill sizes="33vw" className="object-cover" />
               </ImageReveal>
             ))}
@@ -79,13 +84,16 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
       </MotionSection>
       <MotionSection className="py-20">
         <div className="container-editorial">
-          <FadeIn><h2 className="serif text-6xl text-[var(--espresso)]">Related stories</h2></FadeIn>
-          <StaggerGroup className="mt-10 grid gap-8 md:grid-cols-2">
+          <FadeIn><h2 className="serif text-6xl text-[var(--espresso)]">Featured client stories</h2></FadeIn>
+          <StaggerGroup className="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {related.map((item) => (
               <StaggerItem key={item.slug}>
               <a href={`/portfolio/${item.slug}`} className="group block">
-                <span className="relative block aspect-[16/10] overflow-hidden"><Image src={item.cover.src} alt={item.cover.alt} fill sizes="50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" /></span>
-                <span className="serif mt-4 block text-4xl text-[var(--espresso)]">{item.title}</span>
+                <span className="relative block aspect-[16/10] overflow-hidden rounded-2xl shadow-sm">
+                  <Image src={item.cover.src} alt={item.cover.alt} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                </span>
+                <span className="mt-4 block text-xs uppercase tracking-[0.18em] text-[var(--muted)]">{item.location}</span>
+                <span className="serif mt-1 block text-3xl text-[var(--espresso)] group-hover:text-[var(--taupe)] transition-colors">{item.title}</span>
               </a>
               </StaggerItem>
             ))}

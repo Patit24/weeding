@@ -5,71 +5,135 @@ export type ImageAsset = {
 
 export const images = {
   hero: {
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2400&q=82",
-    alt: "A couple walking through warm wedding light after their ceremony",
+    src: "/pre-wedding/sneha-somnath/photo-1.jpg",
+    alt: "Sneha and Somnath running amidst fluttering pigeons at Howrah Bridge ghat in Kolkata",
   },
   intro: {
-    src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1600&q=82",
-    alt: "Newlyweds holding hands during an intimate outdoor ceremony",
+    src: "/pre-wedding/sourin-sharmistha/photo-1.jpg",
+    alt: "Sourin kissing Sharmistha's forehead in warm golden light",
   },
   photography: {
-    src: "https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1600&q=82",
-    alt: "Bride and groom in quiet portrait light",
+    src: "/pre-wedding/sneha-koushik/photo-1.jpg",
+    alt: "Sneha and Koushik in aristocratic attire under royal crystal chandelier",
   },
   films: {
-    src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=82",
-    alt: "Wedding couple framed by cinematic evening light",
+    src: "/pre-wedding/avronil-neha/photo-1.jpg",
+    alt: "Avronil and Neha sharing a candid laugh against vintage terracotta red walls",
   },
   planning: {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=82",
-    alt: "Elegant wedding reception table with floral styling",
+    src: "/pre-wedding/anirban-debapriya/photo-1.jpg",
+    alt: "Anirban and Debapriya under sunburst architectural silhouette",
   },
   featuredWide: {
-    src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=2200&q=82",
-    alt: "Candlelit wedding reception with floral centrepieces",
+    src: "/pre-wedding/sneha-somnath/photo-1.jpg",
+    alt: "Sneha and Somnath in vibrant Bengali attire by the Ganges with pigeons",
   },
   featuredPortrait: {
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=82",
-    alt: "Bride in embroidered wedding attire beside a window",
+    src: "/pre-wedding/sneha-koushik/photo-1.jpg",
+    alt: "Sneha and Koushik in heritage Kolkata Rajbari session",
   },
   mosaicOne: {
-    src: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1600&q=82",
-    alt: "Couple laughing during a wedding portrait session",
+    src: "/pre-wedding/sourin-sharmistha/photo-1.jpg",
+    alt: "Sourin and Sharmistha romantic golden hour portrait",
   },
   mosaicTwo: {
-    src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=82",
-    alt: "Wedding rings and floral details photographed editorially",
+    src: "/pre-wedding/avronil-neha/photo-1.jpg",
+    alt: "Avronil and Neha vintage North Kolkata session",
   },
   mosaicThree: {
-    src: "https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=1200&q=82",
-    alt: "Outdoor ceremony aisle with guests and flowers",
+    src: "/pre-wedding/indrajit-susmita/photo-1.jpg",
+    alt: "Indrajit and Susmita seaside hand-in-hand coastal pre-wedding",
   },
   mosaicFour: {
-    src: "https://images.unsplash.com/photo-1513278974582-3e1b4a4fa21e?auto=format&fit=crop&w=1800&q=82",
-    alt: "Wedding reception dancing under warm lights",
+    src: "/pre-wedding/anirban-debapriya/photo-1.jpg",
+    alt: "Anirban and Debapriya Kolkata golden sunburst silhouette",
   },
   filmStill: {
-    src: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=2000&q=82",
-    alt: "Evening celebration with sparklers and moving light",
+    src: "/pre-wedding/sourin-sharmistha/photo-1.jpg",
+    alt: "Cinematic romantic pre-wedding frame by Sritikuthi",
   },
   event: {
-    src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1800&q=82",
-    alt: "Elegant corporate dinner event with candles and flowers",
+    src: "/pre-wedding/sneha-somnath/photo-1.jpg",
+    alt: "Heritage Kolkata celebration and outdoor shoot",
   },
   cta: {
-    src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2200&q=82",
-    alt: "Refined reception tablescape ready for guests",
+    src: "/pre-wedding/sneha-koushik/photo-1.jpg",
+    alt: "Sritikuthi The Wedding Tales authentic couple celebration",
   },
   aboutHero: {
-    src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=2200&q=82",
-    alt: "Wedding photographer documenting a celebration from behind the camera",
+    src: "/pre-wedding/sneha-somnath/photo-1.jpg",
+    alt: "Sritikuthi The Wedding Tales documentary photography",
   },
   team: {
-    src: "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1600&q=82",
-    alt: "Creative event team arranging a refined celebration space",
+    src: "/pre-wedding/anirban-debapriya/photo-1.jpg",
+    alt: "Pre-wedding creative photography session by Shiladitya and team",
   },
   contact: {
-    src: "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1800&q=82",
-    alt: "Quiet bridal preparation moment before a wedding",
+    src: "/pre-wedding/avronil-neha/photo-1.jpg",
+    alt: "Candid Kolkata pre-wedding love story",
+  },
+};
+
+export const preWeddingGalleries = {
+  snehaSomnath: {
+    cover: { src: "/pre-wedding/sneha-somnath/photo-1.jpg", alt: "Sneha & Somnath at Howrah Bridge ghat Kolkata" },
+    photos: [
+      { src: "/pre-wedding/sneha-somnath/photo-1.jpg", alt: "Sneha & Somnath running with pigeons by the river" },
+      { src: "/pre-wedding/sneha-somnath/photo-2.jpg", alt: "Sneha & Somnath candid smiles by the Ganges" },
+      { src: "/pre-wedding/sneha-somnath/photo-3.jpg", alt: "Traditional Bengali attire and riverbank romance" },
+      { src: "/pre-wedding/sneha-somnath/photo-4.jpg", alt: "Sneha & Somnath holding hands on the pier" },
+      { src: "/pre-wedding/sneha-somnath/photo-5.jpg", alt: "Warm afternoon light over the Kolkata skyline" },
+      { src: "/pre-wedding/sneha-somnath/photo-6.jpg", alt: "Intimate moments captured by Sritikuthi" },
+    ],
+  },
+  snehaKoushik: {
+    cover: { src: "/pre-wedding/sneha-koushik/photo-1.jpg", alt: "Sneha & Koushik under crystal chandelier in heritage Rajbari" },
+    photos: [
+      { src: "/pre-wedding/sneha-koushik/photo-1.jpg", alt: "Grand royal palace ballroom portrait" },
+      { src: "/pre-wedding/sneha-koushik/photo-2.jpg", alt: "Aristocratic Bengali red and white festive styling" },
+      { src: "/pre-wedding/sneha-koushik/photo-3.jpg", alt: "Heritage vintage mirror reflections and golden lanterns" },
+      { src: "/pre-wedding/sneha-koushik/photo-4.jpg", alt: "Royal romance and heartfelt connection" },
+      { src: "/pre-wedding/sneha-koushik/photo-5.jpg", alt: "Timeless palace pre-wedding photography by Sritikuthi" },
+    ],
+  },
+  sourinSharmistha: {
+    cover: { src: "/pre-wedding/sourin-sharmistha/photo-1.jpg", alt: "Sourin & Sharmistha golden hour forehead kiss in nature" },
+    photos: [
+      { src: "/pre-wedding/sourin-sharmistha/photo-1.jpg", alt: "Sourin gently kissing Sharmistha's forehead" },
+      { src: "/pre-wedding/sourin-sharmistha/photo-2.jpg", alt: "Lush green natural garden backdrop" },
+      { src: "/pre-wedding/sourin-sharmistha/photo-3.jpg", alt: "Soft sunlight and intimate couple laughter" },
+      { src: "/pre-wedding/sourin-sharmistha/photo-4.jpg", alt: "Candid golden afternoon romance" },
+      { src: "/pre-wedding/sourin-sharmistha/photo-5.jpg", alt: "Quiet pre-wedding love story in Kolkata" },
+    ],
+  },
+  avronilNeha: {
+    cover: { src: "/pre-wedding/avronil-neha/photo-1.jpg", alt: "Avronil & Neha playful laughter against terracotta walls" },
+    photos: [
+      { src: "/pre-wedding/avronil-neha/photo-1.jpg", alt: "North Kolkata vintage lane candid portrait" },
+      { src: "/pre-wedding/avronil-neha/photo-2.jpg", alt: "Neha smiling at Avronil in vibrant red attire" },
+      { src: "/pre-wedding/avronil-neha/photo-3.jpg", alt: "Urban heritage and playful romance" },
+      { src: "/pre-wedding/avronil-neha/photo-4.jpg", alt: "Genuine smiles and effortless connection" },
+      { src: "/pre-wedding/avronil-neha/photo-5.jpg", alt: "Heritage architectural framing by Sritikuthi" },
+    ],
+  },
+  anirbanDebapriya: {
+    cover: { src: "/pre-wedding/anirban-debapriya/photo-1.jpg", alt: "Anirban & Debapriya sunburst silhouette over Kolkata skyline" },
+    photos: [
+      { src: "/pre-wedding/anirban-debapriya/photo-1.jpg", alt: "Dramatic sunburst silhouette and happy smiles" },
+      { src: "/pre-wedding/anirban-debapriya/photo-2.jpg", alt: "Architectural shadows and warm golden tones" },
+      { src: "/pre-wedding/anirban-debapriya/photo-3.jpg", alt: "Sunset romance over old Kolkata rooftops" },
+      { src: "/pre-wedding/anirban-debapriya/photo-4.jpg", alt: "Intimate laughter and quiet companionship" },
+      { src: "/pre-wedding/anirban-debapriya/photo-5.jpg", alt: "Documentary pre-wedding framing by Sritikuthi" },
+    ],
+  },
+  indrajitSusmita: {
+    cover: { src: "/pre-wedding/indrajit-susmita/photo-1.jpg", alt: "Indrajit & Susmita seaside hand-in-hand coastal pre-wedding" },
+    photos: [
+      { src: "/pre-wedding/indrajit-susmita/photo-1.jpg", alt: "Holding hands on the coastal beach sands" },
+      { src: "/pre-wedding/indrajit-susmita/photo-2.jpg", alt: "White beachwear and serene ocean horizon" },
+      { src: "/pre-wedding/indrajit-susmita/photo-3.jpg", alt: "Romantic sea breeze pre-wedding session" },
+      { src: "/pre-wedding/indrajit-susmita/photo-4.jpg", alt: "Coastal tide and minimalist couple portrait" },
+      { src: "/pre-wedding/indrajit-susmita/photo-5.jpg", alt: "Destination beach pre-wedding by Sritikuthi" },
+    ],
   },
 };

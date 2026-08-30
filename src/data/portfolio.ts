@@ -1,4 +1,4 @@
-import { images, type ImageAsset } from "./images";
+import { images, preWeddingGalleries, type ImageAsset } from "./images";
 
 export type PortfolioCategory = "Weddings" | "Pre-Weddings" | "Films" | "Event Design" | "Corporate Events";
 
@@ -18,6 +18,96 @@ export type PortfolioItem = {
 };
 
 export const portfolioItems: PortfolioItem[] = [
+  {
+    slug: "sneha-somnath-kolkata-prewedding",
+    title: "Sneha & Somnath",
+    location: "Howrah Ghat & Princep Ghat, Kolkata",
+    date: "January 2026",
+    category: "Pre-Weddings",
+    cover: preWeddingGalleries.snehaSomnath.cover,
+    gallery: preWeddingGalleries.snehaSomnath.photos,
+    services: ["Pre-Wedding Photography", "Drone Cinematography", "Creative Concept Styling"],
+    story:
+      "A quintessential Kolkata romance by the Ganges. Running freely as pigeons scatter before the iconic Howrah Bridge, dressed in vibrant Bengali handloom, catching the warm morning breeze.",
+    quote: "Smritikuthi made us forget the camera and just enjoy the ghats of our beloved Kolkata.",
+    credits: ["Location: Howrah Riverfront & Ghats, Kolkata", "Wardrobe: Handwoven Bengali Traditional", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "sneha-koushik-heritage-prewedding",
+  },
+  {
+    slug: "sneha-koushik-heritage-prewedding",
+    title: "Sneha & Koushik",
+    location: "Heritage Rajbari, Kolkata",
+    date: "December 2025",
+    category: "Pre-Weddings",
+    cover: preWeddingGalleries.snehaKoushik.cover,
+    gallery: preWeddingGalleries.snehaKoushik.photos,
+    services: ["Heritage Pre-Wedding Session", "Cinematic Film", "Lighting Direction"],
+    story:
+      "Framed beneath majestic crystal chandeliers and vintage gilded mirrors in a royal Kolkata Rajbari, this session brought aristocratic elegance and quiet intimacy into every frame.",
+    quote: "The lighting and royal aesthetic looked straight out of a classic Bengali period film.",
+    credits: ["Venue: Heritage Rajbari Kolkata", "Styling: Royal Red & White Bengali Ensembles", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "sourin-sharmistha-nature-prewedding",
+  },
+  {
+    slug: "sourin-sharmistha-nature-prewedding",
+    title: "Sourin & Sharmistha",
+    location: "Eco Park & Green Woodlands, Kolkata",
+    date: "November 2025",
+    category: "Pre-Weddings",
+    cover: preWeddingGalleries.sourinSharmistha.cover,
+    gallery: preWeddingGalleries.sourinSharmistha.photos,
+    services: ["Outdoor Pre-Wedding", "Couple Portraits", "Editorial Color Grading"],
+    story:
+      "Soft golden sunlight filtering through emerald trees, quiet whispers, and an intimate forehead kiss that holds years of shared memories.",
+    quote: "Every photo feels gentle, unhurried, and genuinely us.",
+    credits: ["Location: Green Woodlands & Botanical Vista, Kolkata", "Wardrobe: Contemporary Pastel Tones", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "avronil-neha-north-kolkata-prewedding",
+  },
+  {
+    slug: "avronil-neha-north-kolkata-prewedding",
+    title: "Avronil & Neha",
+    location: "North Kolkata Heritage Lanes",
+    date: "October 2025",
+    category: "Pre-Weddings",
+    cover: preWeddingGalleries.avronilNeha.cover,
+    gallery: preWeddingGalleries.avronilNeha.photos,
+    services: ["Heritage Street Pre-Wedding", "Candid Documentary", "Art Direction"],
+    story:
+      "Playful street laughter, old terracotta walls, and vintage wooden shutters in the charming lanes of North Kolkata.",
+    quote: "The team made our casual laughter look like poetry.",
+    credits: ["Location: Vintage Heritage Streets, North Kolkata", "Wardrobe: Crimson & Chikankari Kurta", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "anirban-debapriya-sunburst-prewedding",
+  },
+  {
+    slug: "anirban-debapriya-sunburst-prewedding",
+    title: "Anirban & Debapriya",
+    location: "Kolkata Architectural Skyline",
+    date: "September 2025",
+    category: "Pre-Weddings",
+    cover: preWeddingGalleries.anirbanDebapriya.cover,
+    gallery: preWeddingGalleries.anirbanDebapriya.photos,
+    services: ["Architectural Pre-Wedding", "Silhouette Photography", "Candid Portraits"],
+    story:
+      "Dramatic sunburst silhouettes over historic Kolkata rooftops and alleyways, celebrating warmth and unscripted companionship.",
+    quote: "The sunburst silhouette portrait is framed on our living room wall—truly magnificent.",
+    credits: ["Location: Historic City Center, Kolkata", "Wardrobe: Casual Contemporary", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "indrajit-susmita-coastal-prewedding",
+  },
+  {
+    slug: "indrajit-susmita-coastal-prewedding",
+    title: "Indrajit & Susmita",
+    location: "Bengal Coastal Shoreline",
+    date: "August 2025",
+    category: "Pre-Weddings",
+    cover: preWeddingGalleries.indrajitSusmita.cover,
+    gallery: preWeddingGalleries.indrajitSusmita.photos,
+    services: ["Destination Beach Pre-Wedding", "Drone Aerials", "Couple Session"],
+    story:
+      "Minimalist white-on-white romance by the calm coastal tide. Gentle sea breezes, interlocking fingers, and open horizon lines.",
+    quote: "The ocean portraits capture our bond with such peace and simplicity.",
+    credits: ["Location: Bengal Coastal Beach", "Wardrobe: Seaside White Monochrome", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "ishani-ritwik-bengali-wedding",
+  },
   {
     slug: "ishani-ritwik-bengali-wedding",
     title: "Ishani & Ritwik",
@@ -46,22 +136,7 @@ export const portfolioItems: PortfolioItem[] = [
       "A pre-wedding and wedding film shaped by red earth, quiet trees, handwritten vows, and the sound of families arriving.",
     quote: "The film feels like a letter from that week.",
     credits: ["Venue: Boutique garden stay", "Music: Licensed edit", "Planning: Client family"],
-    nextProject: "rimjhim-sagnik-prewedding",
-  },
-  {
-    slug: "rimjhim-sagnik-prewedding",
-    title: "Rimjhim & Sagnik",
-    location: "Darjeeling",
-    date: "October 2025",
-    category: "Pre-Weddings",
-    cover: images.mosaicOne,
-    gallery: [images.mosaicOne, images.intro, images.photography, images.mosaicTwo],
-    services: ["Pre-wedding Photography"],
-    story:
-      "A misty hill session with quiet portraits, old letters, and a route planned around the light rather than a shot list.",
-    quote: "We never felt posed. We just felt seen.",
-    credits: ["Styling: Client wardrobe", "Location: Heritage tea estate", "Photography: Sritikuthi The Wedding Tales"],
-    nextProject: "basu-family-annaprasan",
+    nextProject: "sneha-somnath-kolkata-prewedding",
   },
   {
     slug: "basu-family-annaprasan",
@@ -91,12 +166,13 @@ export const portfolioItems: PortfolioItem[] = [
       "A brand dinner shaped around tactile materials, measured guest flow, and photography that felt editorial without interrupting conversation.",
     quote: "The event looked refined and ran with no visible friction.",
     credits: ["Client: Independent design atelier", "Production: Sritikuthi The Wedding Tales", "Location: Mumbai"],
-    nextProject: "ishani-ritwik-bengali-wedding",
+    nextProject: "sneha-somnath-kolkata-prewedding",
   },
 ];
 
-export const portfolioCategories = ["All", "Weddings", "Pre-Weddings", "Films", "Event Design", "Corporate Events"] as const;
+export const portfolioCategories = ["All", "Pre-Weddings", "Weddings", "Films", "Event Design", "Corporate Events"] as const;
 
 export function getPortfolioItem(slug: string) {
   return portfolioItems.find((item) => item.slug === slug);
 }
+
