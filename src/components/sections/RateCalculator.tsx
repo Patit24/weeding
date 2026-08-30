@@ -1043,36 +1043,36 @@ export function RateCalculator() {
 
           {/* 🌟 RIGHT COLUMN: STICKY ESTIMATE SUMMARY & WHATSAPP */}
           <div className="lg:relative">
-            <div className="sticky top-28 border border-[var(--espresso)] rounded-3xl bg-[var(--espresso)] text-[var(--warm-ivory)] p-6 sm:p-8 shadow-xl">
-              <div className="flex items-center justify-between pb-5 border-b border-[rgba(227,232,229,0.2)]">
-                <span className="text-xs uppercase tracking-[0.24em] text-[var(--sand)]">Live Quotation</span>
-                <span className="text-xs font-mono rounded-full bg-[rgba(227,232,229,0.15)] px-2.5 py-0.5 text-[var(--warm-ivory)]">
+            <div className="sticky top-28 border border-[var(--gold-border)] rounded-3xl bg-royal-espresso text-[var(--warm-ivory)] p-6 sm:p-8 shadow-2xl">
+              <div className="flex items-center justify-between pb-5 border-b border-[rgba(237,182,0,0.25)]">
+                <span className="text-xs uppercase tracking-[0.24em] text-[var(--gold)]">Live Quotation</span>
+                <span className="text-xs font-mono rounded-full bg-[rgba(237,182,0,0.15)] border border-[var(--gold-border)] px-3 py-1 text-[var(--gold-light)] font-bold">
                   {calculation.activeFunctionSummaries.length} Function{calculation.activeFunctionSummaries.length > 1 ? "s" : ""}
                 </span>
               </div>
 
               {/* Big Price Display */}
-              <div className="py-6 border-b border-[rgba(227,232,229,0.2)]">
-                <p className="text-[0.7rem] uppercase tracking-[0.2em] text-[var(--sand)]">Estimated Wedding Investment</p>
+              <div className="py-6 border-b border-[rgba(237,182,0,0.25)]">
+                <p className="text-[0.7rem] uppercase tracking-[0.2em] text-[var(--gold)]">Estimated Wedding Investment</p>
                 <div className="mt-2 flex items-baseline gap-2">
-                  <span className="serif text-4xl sm:text-5xl font-semibold text-[var(--soft-white)]">
+                  <span className="serif text-4xl sm:text-5xl font-semibold text-[var(--warm-ivory)]">
                     ₹{calculation.finalTotal.toLocaleString("en-IN")}
                   </span>
                   {calculation.discountAmount > 0 && (
-                    <span className="text-sm text-[var(--sand)] line-through">
+                    <span className="text-sm text-[rgba(247,243,236,0.6)] line-through">
                       ₹{calculation.grossTotal.toLocaleString("en-IN")}
                     </span>
                   )}
                 </div>
-                <p className="mt-2 text-xs text-[var(--sand)] leading-relaxed">
+                <p className="mt-2 text-xs text-[rgba(247,243,236,0.7)] leading-relaxed">
                   *Includes master retouching, audio mastering & digital delivery.
                 </p>
               </div>
 
               {/* Selected Services & Crew summary */}
-              <div className="py-5 border-b border-[rgba(227,232,229,0.2)] space-y-3 text-xs">
+              <div className="py-5 border-b border-[rgba(237,182,0,0.2)] space-y-3 text-xs">
                 {calculation.activeFunctionSummaries.map((f) => (
-                  <div key={f.name} className="flex justify-between text-[var(--sand)]">
+                  <div key={f.name} className="flex justify-between text-[rgba(247,243,236,0.85)]">
                     <span>{f.name} ({f.duration}):</span>
                     <span className="text-[var(--warm-ivory)] font-medium">
                       ₹{f.cost.toLocaleString("en-IN")}
@@ -1080,14 +1080,14 @@ export function RateCalculator() {
                   </div>
                 ))}
 
-                <div className="flex justify-between text-[var(--sand)] pt-2 border-t border-[rgba(227,232,229,0.1)]">
+                <div className="flex justify-between text-[rgba(247,243,236,0.85)] pt-2 border-t border-[rgba(237,182,0,0.15)]">
                   <span>Albums & Deliverables:</span>
                   <span className="text-[var(--warm-ivory)] font-medium">
                     ₹{calculation.deliverablesSubtotal.toLocaleString("en-IN")}
                   </span>
                 </div>
 
-                <div className="flex justify-between text-[var(--sand)]">
+                <div className="flex justify-between text-[rgba(247,243,236,0.85)]">
                   <span>Location ({selectedLocation.name}):</span>
                   <span className="text-[var(--warm-ivory)] font-medium">
                     {selectedLocation.travelCost === 0 ? "₹0 (Included)" : `₹${selectedLocation.travelCost.toLocaleString("en-IN")}`}
@@ -1095,7 +1095,7 @@ export function RateCalculator() {
                 </div>
 
                 {calculation.discountAmount > 0 && (
-                  <div className="flex justify-between text-emerald-400 font-semibold">
+                  <div className="flex justify-between text-[var(--gold-light)] font-semibold">
                     <span>Special Promo Discount:</span>
                     <span>- ₹{calculation.discountAmount.toLocaleString("en-IN")}</span>
                   </div>
@@ -1103,8 +1103,8 @@ export function RateCalculator() {
               </div>
 
               {/* Promo Code Box */}
-              <div className="py-5 border-b border-[rgba(227,232,229,0.2)]">
-                <label className="block text-[0.68rem] uppercase tracking-[0.18em] text-[var(--sand)] mb-2">
+              <div className="py-5 border-b border-[rgba(237,182,0,0.2)]">
+                <label className="block text-[0.68rem] uppercase tracking-[0.18em] text-[var(--gold)] mb-2 font-semibold">
                   Promo / Coupon Code
                 </label>
                 <div className="flex gap-2">
@@ -1113,19 +1113,19 @@ export function RateCalculator() {
                     value={promoCode}
                     onChange={(e) => setPromoCode(e.target.value)}
                     placeholder="Enter SRITIKUTHI5"
-                    className="h-10 flex-1 rounded-xl bg-[rgba(255,255,255,0.08)] border border-[rgba(227,232,229,0.3)] px-3 text-xs text-[var(--warm-ivory)] uppercase outline-none focus:border-[var(--sand)]"
+                    className="h-10 flex-1 rounded-xl bg-[rgba(255,255,255,0.08)] border border-[var(--gold-border)] px-3 text-xs text-[var(--warm-ivory)] uppercase outline-none focus:border-[var(--gold)]"
                   />
                   <button
                     type="button"
                     onClick={handleApplyPromo}
-                    className="h-10 px-4 rounded-xl text-xs font-semibold uppercase tracking-wider bg-[var(--warm-ivory)] text-[var(--espresso)] hover:bg-[var(--sand)] transition-colors"
+                    className="h-10 px-4 rounded-xl text-xs font-bold uppercase tracking-wider bg-gold-gradient text-[var(--espresso)] hover:brightness-105 transition-all shadow-gold-glow"
                   >
                     Apply
                   </button>
                 </div>
                 {promoError && <p className="mt-2 text-xs text-red-300">{promoError}</p>}
                 {appliedDiscount > 0 && (
-                  <p className="mt-2 text-xs text-emerald-300">
+                  <p className="mt-2 text-xs text-emerald-300 font-semibold">
                     ✓ Promo applied: {appliedDiscount * 100}% discount active!
                   </p>
                 )}
@@ -1137,7 +1137,7 @@ export function RateCalculator() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-emerald-700 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white hover:bg-emerald-600 transition-all shadow-md"
+                  className="flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 px-6 text-xs font-bold uppercase tracking-[0.18em] text-white transition-all shadow-lg hover:shadow-xl active:scale-95"
                 >
                   <Send size={16} />
                   <span>Get on WhatsApp</span>
@@ -1145,7 +1145,7 @@ export function RateCalculator() {
                 
                 <a
                   href="/contact"
-                  className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[rgba(227,232,229,0.4)] bg-transparent px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] hover:bg-[rgba(227,232,229,0.1)] transition-colors"
+                  className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[var(--gold-border)] bg-[rgba(255,255,255,0.06)] hover:bg-crimson-gradient hover:border-transparent px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] transition-all active:scale-95"
                 >
                   <span>Book Formal Consultation</span>
                 </a>

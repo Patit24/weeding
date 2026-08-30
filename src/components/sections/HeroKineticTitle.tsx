@@ -1,10 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
 import { siteConfig } from "@/data/site";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const eyebrow = "স্মৃতিকুঠি · Wedding Photography · Films · Planning";
+const eyebrow = "স্মৃতিকুঠি · The Wedding Tales · Kolkata";
 
 export function HeroKineticTitle() {
   const reduced = useReducedMotion();
@@ -31,7 +32,7 @@ export function HeroKineticTitle() {
 
   return (
     <div
-      className="relative flex min-h-[56vh] flex-col items-center justify-end overflow-hidden px-4 pb-8 text-center lg:min-h-[58vh]"
+      className="relative flex min-h-[58vh] flex-col items-center justify-end overflow-hidden px-4 pb-8 text-center lg:min-h-[62vh]"
       onPointerMove={handleMove}
       onPointerLeave={handleLeave}
     >
@@ -40,8 +41,25 @@ export function HeroKineticTitle() {
         initial={reduced ? false : { scaleX: 0, opacity: 0 }}
         animate={reduced ? undefined : { scaleX: 1, opacity: 1 }}
         transition={{ duration: 1.25, ease, delay: 0.18 }}
-        className="absolute bottom-[7%] left-1/2 h-px w-[min(78vw,1060px)] origin-center -translate-x-1/2 bg-[rgba(41,35,31,0.22)]"
+        className="absolute bottom-[7%] left-1/2 h-px w-[min(78vw,1060px)] origin-center -translate-x-1/2 bg-[rgba(185,30,18,0.25)]"
       />
+
+      <motion.div
+        className="relative z-10 mb-5 inline-flex items-center justify-center rounded-2xl bg-[rgba(255,255,255,0.92)] px-6 py-3 shadow-crimson-glow border border-[var(--gold-border)] backdrop-blur-sm"
+        initial={reduced ? false : { scale: 0.85, opacity: 0, y: 15 }}
+        animate={reduced ? undefined : { scale: 1, opacity: 1, y: 0 }}
+        transition={{ duration: 0.85, ease, delay: 0.1 }}
+      >
+        <div className="relative h-14 sm:h-20 w-44 sm:w-64">
+          <Image
+            src="/brand-logo.png"
+            alt="স্মৃতিকুঠি The Wedding Tales official Bengali brand logo"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+      </motion.div>
       <motion.p
         className="eyebrow relative z-10 flex flex-wrap justify-center gap-x-[0.34em] gap-y-1"
         initial={reduced ? false : "hidden"}

@@ -1,7 +1,10 @@
 export const siteConfig = {
-  name: "স্মৃতিকুঠি_The Wedding Tales",
+  name: "স্মৃতিকুঠি The Wedding Tales",
   englishName: "Sritikuthi The Wedding Tales",
+  bengaliName: "স্মৃতিকুঠি",
   tagline: "Where Every Detail Becomes a Memory",
+  logo: "/brand-logo.png",
+  logoFull: "/brand-logo-full.png",
   description:
     "Professional wedding photography, cinematography, pre-wedding shoots, rice ceremony (annaprasan), events, engagement, corporate shoot, model shoot, and commercial photography across Kolkata, West Bengal, Bihar, Jharkhand, and destination locations.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://patit24.github.io/weeding",

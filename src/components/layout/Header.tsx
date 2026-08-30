@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -33,7 +34,9 @@ export function Header() {
       <header
         className={cn(
           "fixed left-0 top-0 z-50 w-full transition-all duration-500",
-          scrolled || open ? "border-b border-[var(--fine-border)] bg-[rgba(227,232,229,0.94)] text-[var(--espresso)]" : "border-b border-[var(--fine-border)] bg-[rgba(227,232,229,0.78)] text-[var(--espresso)]",
+          scrolled || open
+            ? "border-b border-[var(--gold-border)] bg-[rgba(250,246,240,0.96)] backdrop-blur-md shadow-sm text-[var(--espresso)]"
+            : "border-b border-[var(--fine-border)] bg-[rgba(250,246,240,0.88)] backdrop-blur-sm text-[var(--espresso)]",
         )}
       >
         <div className="container-wide grid min-h-20 grid-cols-[1fr_auto_1fr] items-center gap-4 px-4 sm:px-8">
@@ -43,36 +46,58 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "link-underline text-xs uppercase tracking-[0.18em]",
-                  (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))) && "font-semibold",
+                  "link-underline text-xs uppercase tracking-[0.18em] transition-colors",
+                  (pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href)))
+                    ? "font-bold text-[var(--crimson)]"
+                    : "hover:text-[var(--crimson)]",
                 )}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
-          <Link href="/" className="text-center" aria-label={`${siteConfig.name} home`}>
-            <span className="serif block text-2xl leading-none sm:text-3xl">স্মৃতিকুঠি</span>
-            <span className="block text-[0.56rem] uppercase tracking-[0.28em]">The Wedding Tales</span>
+          <Link href="/" className="group flex flex-col items-center justify-center py-1 transition-transform duration-300 hover:scale-105" aria-label={`${siteConfig.name} home`}>
+            <div className="relative h-10 sm:h-12 w-32 sm:w-44">
+              <Image
+                src="/brand-logo.png"
+                alt="স্মৃতিকুঠি The Wedding Tales official logo"
+                fill
+                priority
+                className="object-contain"
+              />
+            </div>
+            <span className="block text-[0.54rem] font-bold uppercase tracking-[0.28em] text-[var(--crimson)] group-hover:text-[var(--gold-dark)] transition-colors">
+              The Wedding Tales
+            </span>
           </Link>
-          <div className="hidden items-center justify-end gap-7 lg:flex">
+          <div className="hidden items-center justify-end gap-6 lg:flex">
             {navLinks.slice(4).map((link) => (
-              <Link key={link.href} href={link.href} className="link-underline text-xs uppercase tracking-[0.18em]">
+              <Link
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "link-underline text-xs uppercase tracking-[0.18em] transition-colors",
+                  pathname.startsWith(link.href) ? "font-bold text-[var(--crimson)]" : "hover:text-[var(--crimson)]",
+                )}
+              >
                 {link.label}
               </Link>
             ))}
-            <Link href="/contact" className="link-underline text-xs font-semibold uppercase tracking-[0.18em]">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center rounded-full bg-crimson-gradient px-5 py-2.5 text-[0.72rem] font-bold uppercase tracking-[0.16em] text-white shadow-crimson-glow hover:brightness-110 hover:shadow-xl hover:scale-105 active:scale-95 transition-all"
+            >
               Check Availability
             </Link>
           </div>
           <button
             type="button"
-            className="col-start-3 ml-auto inline-flex min-h-11 min-w-11 items-center justify-center lg:hidden"
+            className="col-start-3 ml-auto inline-flex min-h-11 min-w-11 items-center justify-center lg:hidden text-[var(--crimson)]"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? <X size={24} /> : <Menu size={24} />}
+            {open ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </header>

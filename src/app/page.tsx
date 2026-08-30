@@ -23,12 +23,12 @@ export default function Home() {
       <MotionSection className="relative min-h-screen overflow-hidden border-b border-[var(--fine-border)] bg-[var(--warm-ivory)] pt-24 text-[var(--espresso)]">
         <div className="container-wide relative min-h-screen">
           <HeroKineticTitle />
-          <FadeIn delay={0.16} className="editorial-band relative z-10 grid min-h-16 grid-cols-[1fr_auto_74px] border-y text-[var(--espresso)] md:grid-cols-[1fr_360px_74px]">
+          <FadeIn delay={0.16} className="editorial-band relative z-10 grid min-h-16 grid-cols-[1fr_auto_74px] border-y border-[var(--fine-border)] text-[var(--espresso)] md:grid-cols-[1fr_360px_74px]">
             <div className="hidden border-r border-[var(--fine-border)] md:block" />
-            <Link href="/contact" className="flex items-center justify-center px-6 text-center serif text-2xl transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]">
+            <Link href="/contact" className="flex items-center justify-center px-6 text-center serif text-2xl transition-colors hover:bg-crimson-gradient hover:text-white">
               Begin a Conversation
             </Link>
-            <Link href="/contact" aria-label="Begin a conversation" className="flex items-center justify-center border-l border-[var(--fine-border)] transition-colors hover:bg-[var(--espresso)] hover:text-[var(--warm-ivory)]">
+            <Link href="/contact" aria-label="Begin a conversation" className="flex items-center justify-center border-l border-[var(--fine-border)] transition-colors hover:bg-crimson-gradient hover:text-white">
               <ArrowRight size={28} />
             </Link>
           </FadeIn>

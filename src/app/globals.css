@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --warm-ivory: #e3e8e5;
-  --soft-white: #f7f6f1;
-  --sand: #cbd3d0;
-  --taupe: #9aa39e;
-  --espresso: #302b28;
-  --charcoal: #3d3935;
-  --muted: #66615b;
-  --fine-border: rgba(48, 43, 40, 0.42);
+  --warm-ivory: #faf6f0;
+  --soft-white: #fdfbf8;
+  --sand: #f2e9dc;
+  --taupe: #a89f91;
+  --espresso: #1f0e0b;
+  --charcoal: #2d1e1b;
+  --muted: #6b5d57;
+  --crimson: #b91e12;
+  --crimson-dark: #8c140a;
+  --crimson-light: #d62817;
+  --gold: #edb600;
+  --gold-dark: #c67d0a;
+  --gold-light: #ffd609;
+  --fine-border: rgba(185, 30, 18, 0.18);
+  --gold-border: rgba(237, 182, 0, 0.35);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -156,6 +163,38 @@ img {
   border-color: var(--fine-border);
 }
 
+.bg-crimson-gradient {
+  background: linear-gradient(135deg, #b91e12 0%, #d62817 60%, #edb600 130%);
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #edb600 0%, #fb9b05 100%);
+}
+
+.bg-royal-espresso {
+  background: linear-gradient(135deg, #1f0e0b 0%, #301612 100%);
+}
+
+.text-crimson {
+  color: var(--crimson);
+}
+
+.text-gold {
+  color: var(--gold-dark);
+}
+
+.border-gold {
+  border-color: var(--gold-border);
+}
+
+.shadow-crimson-glow {
+  box-shadow: 0 8px 30px -4px rgba(185, 30, 18, 0.3);
+}
+
+.shadow-gold-glow {
+  box-shadow: 0 8px 30px -4px rgba(237, 182, 0, 0.3);
+}
+
 .prose-luxury p {
   margin-block: 1.1rem;
   color: var(--muted);
@@ -172,3 +211,4 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+

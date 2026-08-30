@@ -67,7 +67,7 @@ export function GoogleReviews() {
           </div>
 
           {/* Google Summary Glassmorphic Trust Card */}
-          <div className="border border-[var(--fine-border)] bg-[var(--warm-ivory)] p-6 sm:p-8 shadow-sm">
+          <div className="rounded-2xl border border-[var(--gold-border)] bg-[var(--soft-white)] p-6 sm:p-8 shadow-md">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
               {/* Google G Emblem + Rating Score */}
               <div className="flex items-center gap-4">
@@ -115,7 +115,7 @@ export function GoogleReviews() {
                   href={googleProfileStats.googleReviewUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--espresso)] bg-[var(--espresso)] px-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--warm-ivory)] hover:bg-[var(--charcoal)] transition-all shadow-sm"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-crimson-gradient px-5 text-xs font-bold uppercase tracking-[0.16em] text-white hover:brightness-110 shadow-crimson-glow active:scale-95 transition-all"
                 >
                   <Star size={13} fill="currentColor" />
                   <span>Write Review</span>
@@ -124,7 +124,7 @@ export function GoogleReviews() {
                   href={googleProfileStats.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex min-h-11 items-center justify-center gap-2 border border-[var(--fine-border)] bg-[var(--soft-white)] px-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--espresso)] hover:border-[var(--espresso)] transition-colors"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-[var(--fine-border)] bg-[var(--soft-white)] px-4 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--charcoal)] hover:border-[var(--crimson)] hover:text-[var(--crimson)] active:scale-95 transition-colors"
                 >
                   <MapPin size={13} />
                   <span>View on Maps</span>
@@ -135,16 +135,16 @@ export function GoogleReviews() {
             {/* Quick Metrics Bar */}
             <div className="mt-6 pt-5 border-t border-[var(--fine-border)] grid grid-cols-3 gap-2 text-center text-xs">
               <div className="border-r border-[var(--fine-border)] pr-2">
-                <span className="block font-bold text-base text-[var(--espresso)]">100%</span>
-                <span className="text-[0.68rem] text-[var(--muted)] uppercase tracking-wider">On-Time Delivery</span>
+                <span className="block font-bold text-base text-[var(--crimson)]">100%</span>
+                <span className="text-[0.68rem] text-[var(--muted)] uppercase tracking-wider font-medium">On-Time Delivery</span>
               </div>
               <div className="border-r border-[var(--fine-border)] pr-2">
-                <span className="block font-bold text-base text-[var(--espresso)]">4.9 ★</span>
-                <span className="text-[0.68rem] text-[var(--muted)] uppercase tracking-wider">Average Rating</span>
+                <span className="block font-bold text-base text-amber-600">4.9 ★</span>
+                <span className="text-[0.68rem] text-[var(--muted)] uppercase tracking-wider font-medium">Average Rating</span>
               </div>
               <div>
                 <span className="block font-bold text-base text-[var(--espresso)]">4+ Yrs</span>
-                <span className="text-[0.68rem] text-[var(--muted)] uppercase tracking-wider">Experience</span>
+                <span className="text-[0.68rem] text-[var(--muted)] uppercase tracking-wider font-medium">Experience</span>
               </div>
             </div>
           </div>
@@ -160,10 +160,10 @@ export function GoogleReviews() {
                   key={cat}
                   type="button"
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-4 py-2 text-xs font-semibold uppercase tracking-wider border transition-all ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
                     isActive
-                      ? "border-[var(--espresso)] bg-[var(--espresso)] text-[var(--warm-ivory)] shadow-sm"
-                      : "border-[var(--fine-border)] bg-[var(--warm-ivory)] text-[var(--charcoal)] hover:border-[var(--espresso)]"
+                      ? "bg-crimson-gradient text-white shadow-crimson-glow border-transparent scale-105"
+                      : "border border-[var(--fine-border)] bg-[var(--warm-ivory)] text-[var(--charcoal)] hover:border-[var(--crimson)] hover:text-[var(--crimson)]"
                   }`}
                 >
                   {cat}
@@ -192,7 +192,7 @@ export function GoogleReviews() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.35, delay: index * 0.05 }}
-                  className="group relative flex flex-col justify-between border border-[var(--fine-border)] bg-[var(--warm-ivory)] p-7 transition-all duration-300 hover:border-[var(--espresso)] hover:shadow-lg"
+                  className="group relative flex flex-col justify-between rounded-2xl border border-[var(--fine-border)] bg-[var(--warm-ivory)] p-7 transition-all duration-300 hover:border-[var(--gold-border)] hover:shadow-lg"
                 >
                   <div>
                     {/* Top Reviewer Row */}

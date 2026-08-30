@@ -71,7 +71,7 @@ export function ConsultationForm() {
         I consent to Sritikuthi The Wedding Tales contacting me about this enquiry.
       </label>
       {error("consent")}
-      <motion.button type="submit" disabled={isSubmitting} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--espresso)] bg-[var(--espresso)] px-7 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] disabled:opacity-60">
+      <motion.button type="submit" disabled={isSubmitting} whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-crimson-gradient px-8 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-crimson-glow hover:brightness-110 disabled:opacity-60 transition-all">
         <Send size={16} />
         {isSubmitting ? "Sending" : "Send Enquiry"}
       </motion.button>

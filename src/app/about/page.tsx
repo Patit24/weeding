@@ -15,10 +15,17 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About the studio" title="A calm eye for wedding tales." intro={`Founded by ${siteConfig.owner}, স্মৃতিকুঠি_The Wedding Tales began with a simple belief: weddings are not performances for the camera. They are family, ritual, sound, and memory.`} image={images.aboutHero} />
+      <PageHero eyebrow="About the studio" title="A calm eye for wedding tales." intro={`Founded by ${siteConfig.owner}, স্মৃতিকুঠি The Wedding Tales began with a simple belief: weddings are not performances for the camera. They are family, ritual, sound, and memory.`} image={images.aboutHero} />
       <MotionSection className="py-24">
-        <div className="container-editorial grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
-          <SectionHeading eyebrow="Origin" title="Built between planning tables and camera straps." />
+        <div className="container-editorial grid gap-12 lg:grid-cols-[0.8fr_1.2fr] items-center">
+          <div>
+            <div className="mb-6 inline-flex items-center gap-3 rounded-2xl bg-white p-4 shadow-crimson-glow border border-[var(--gold-border)]">
+              <div className="relative h-16 w-48">
+                <Image src="/brand-logo.png" alt="স্মৃতিকুঠি The Wedding Tales logo" fill className="object-contain" />
+              </div>
+            </div>
+            <SectionHeading eyebrow="Origin" title="Built between planning tables and camera straps." />
+          </div>
           <FadeIn className="prose-luxury text-lg">
             <p>Our team brings photography, cinematography, production, and hospitality into one steady experience. We are based near Tollygunge in Kolkata and work across West Bengal, India, and destination wedding locations for families, couples, and hosts who value emotional clarity over noise.</p>
             <p>We plan the logistics that protect a day, then photograph the moments that give it meaning: hands finding each other, elders watching quietly, rooms warming as guests arrive.</p>
