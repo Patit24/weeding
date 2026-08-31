@@ -13,6 +13,7 @@ import { FilmFeature } from "@/components/sections/FilmFeature";
 import { TestimonialSlider } from "@/components/sections/TestimonialSlider";
 import { CTASection } from "@/components/sections/CTASection";
 import { HeroKineticTitle } from "@/components/sections/HeroKineticTitle";
+import { HeroShowcaseCards } from "@/components/sections/HeroShowcaseCards";
 import { RateCalculator } from "@/components/sections/RateCalculator";
 import { HomeGalleryBento } from "@/components/sections/HomeGalleryBento";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
@@ -22,37 +23,10 @@ import { formatDate } from "@/lib/utils";
 export default function Home() {
   return (
     <>
-      <MotionSection className="relative min-h-screen overflow-hidden border-b border-[var(--fine-border)] bg-[var(--warm-ivory)] pt-24 text-[var(--espresso)]">
-        <div className="container-wide relative min-h-screen">
-          <HeroKineticTitle />
-          <FadeIn delay={0.16} className="editorial-band relative z-10 grid min-h-16 grid-cols-[1fr_auto_74px] border-y border-[var(--fine-border)] text-[var(--espresso)] md:grid-cols-[1fr_360px_74px]">
-            <div className="hidden border-r border-[var(--fine-border)] md:block" />
-            <a href={defaultWhatsAppUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center px-6 text-center serif text-2xl transition-colors hover:bg-crimson-gradient hover:text-white">
-              Begin a Conversation
-            </a>
-            <a href={defaultWhatsAppUrl} target="_blank" rel="noopener noreferrer" aria-label="Begin a conversation" className="flex items-center justify-center border-l border-[var(--fine-border)] transition-colors hover:bg-crimson-gradient hover:text-white">
-              <ArrowRight size={28} />
-            </a>
-          </FadeIn>
-          <div className="relative z-0 grid min-h-[52vh] border-x border-[var(--fine-border)] md:grid-cols-[0.95fr_1.25fr]">
-            <div className="flex flex-col items-center justify-between border-r border-[var(--fine-border)] px-6 py-8 md:py-10">
-              <ImageReveal delay={0.28} className="relative aspect-[4/5] w-full max-w-[360px] overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl md:-mt-8">
-                <Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill priority sizes="380px" className="object-cover" />
-              </ImageReveal>
-              <div className="mt-6 max-w-sm rounded-2xl border border-[var(--fine-border)] bg-[var(--soft-white)]/80 p-4 shadow-sm backdrop-blur-sm text-left">
-                <p className="text-xs leading-6 text-[var(--charcoal)]">
-                  <strong className="font-semibold text-[var(--crimson)]">Founded by {siteConfig.owner}</strong> — স্মৃতিকুঠি frames Bengali wedding rituals, families, pre-wedding quiet, drone perspectives, films, and celebration design with a patient eye.
-                </p>
-              </div>
-            </div>
-            <div className="relative min-h-[48vh] overflow-hidden">
-              <SlowZoom className="absolute inset-0">
-                <Image src={images.hero.src} alt={images.hero.alt} fill priority sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" />
-              </SlowZoom>
-            </div>
-          </div>
-        </div>
-      </MotionSection>
+      <section className="relative overflow-hidden border-b border-[var(--fine-border)] bg-[var(--warm-ivory)] text-[var(--espresso)]">
+        <HeroKineticTitle />
+        <HeroShowcaseCards />
+      </section>
 
       <MotionSection className="py-16 lg:py-20">
         <div className="container-editorial">
