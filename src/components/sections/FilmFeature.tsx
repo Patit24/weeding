@@ -4,76 +4,138 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Play, X, Film, Sparkles, Volume2, Video, ArrowRight } from "lucide-react";
-import { images } from "@/data/images";
+import { Play, Pause, X, Film, Sparkles, Volume2, VolumeX, Video, ArrowRight, Heart } from "lucide-react";
 import { FadeIn, MotionSection } from "@/components/ui/Motion";
+import { useAvailabilityModal } from "@/components/ui/AvailabilityModal";
 
 export function FilmFeature() {
+  const [activeFilm, setActiveFilm] = useState<"wedding" | "prewedding">("wedding");
   const [open, setOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const videoPlayerRef = useRef<HTMLVideoElement | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const triggerRef = useRef<HTMLButtonElement>(null);
+  const { openModal } = useAvailabilityModal();
+
+  const films = {
+    wedding: {
+      src: "/reels/wedding-reel.mp4",
+      title: "Sacred Bengali Wedding & Sindoor Daan",
+      couple: "Anirban & Debopriya · South Kolkata",
+      duration: "03:45",
+      tag: "4K Master Cinema",
+      description:
+        "Every conch blow, sacred Vedic mantra, and tears of joy during the Shubho Drishti & Saat Paak, captured in uncompressed 4K cinema.",
+    },
+    prewedding: {
+      src: "/reels/pre-wedding-reel.mp4",
+      title: "Heritage Rajbari & Riverbank Love Story",
+      couple: "Sneha & Somnath · Kolkata Ghats",
+      duration: "02:50",
+      tag: "Pre-Wedding Film",
+      description:
+        "Golden hour romance against the historic ghats of Kolkata and grand Rajbari courtyards, set to authentic emotional musical pacing.",
+    },
+  };
+
+  const current = films[activeFilm];
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
-      if (event.key === "Tab" && closeRef.current) {
-        event.preventDefault();
-        closeRef.current.focus();
-      }
     };
     closeRef.current?.focus();
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  useEffect(() => {
-    if (!open) triggerRef.current?.focus();
-  }, [open]);
+  const toggleModalPlay = () => {
+    if (!videoPlayerRef.current) return;
+    if (videoPlayerRef.current.paused) {
+      videoPlayerRef.current.play();
+      setIsPlaying(true);
+    } else {
+      videoPlayerRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleModalMute = () => {
+    if (!videoPlayerRef.current) return;
+    videoPlayerRef.current.muted = !videoPlayerRef.current.muted;
+    setIsMuted(videoPlayerRef.current.muted);
+  };
 
   return (
     <MotionSection className="relative border-y border-[var(--fine-border)] bg-[var(--espresso)] py-20 lg:py-28 text-[var(--warm-ivory)] overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-[rgba(155,27,45,0.22)] blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[rgba(237,182,0,0.15)] blur-3xl" />
+      <div className="pointer-events-none absolute -left-32 top-10 h-96 w-96 rounded-full bg-[rgba(155,27,45,0.25)] blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-10 h-96 w-96 rounded-full bg-[rgba(237,182,0,0.18)] blur-3xl" />
 
       <div className="container-editorial relative z-10">
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] xl:gap-16">
           
-          {/* Left Column: Visual Cinematic Film Showcase */}
+          {/* Left Column: Visual Cinematic Film Player */}
           <div className="relative">
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-black/60 shadow-2xl">
-              <Image
-                src={images.filmStill.src}
-                alt="Cinematic Bengali wedding film preview by Sritikuthi The Wedding Tales"
-                fill
-                priority
-                sizes="(min-width: 1024px) 55vw, 100vw"
-                className="object-cover transition-transform duration-700 hover:scale-105"
+            {/* Film Selector Tabs */}
+            <div className="mb-4 flex items-center gap-3">
+              <button
+                type="button"
+                onClick={() => setActiveFilm("wedding")}
+                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeFilm === "wedding"
+                    ? "bg-crimson-gradient text-white shadow-crimson-glow"
+                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
+                }`}
+              >
+                💍 Bengali Wedding Film
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveFilm("prewedding")}
+                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                  activeFilm === "prewedding"
+                    ? "bg-crimson-gradient text-white shadow-crimson-glow"
+                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
+                }`}
+              >
+                🕊️ Pre-Wedding Reel
+              </button>
+            </div>
+
+            {/* Video Container */}
+            <div 
+              onClick={() => setOpen(true)}
+              className="group relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-black shadow-2xl cursor-pointer"
+            >
+              <video
+                key={current.src}
+                src={current.src}
+                playsInline
+                loop
+                muted
+                autoPlay
+                preload="metadata"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-102"
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/30 pointer-events-none" />
 
               {/* Top Film Badge */}
-              <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/50 px-3.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--gold-light)] backdrop-blur-md">
+              <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/60 px-3.5 py-1.5 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-[var(--gold-light)] backdrop-blur-md">
                 <Film size={12} />
-                <span>4K Ultra-HD Teaser</span>
+                <span>{current.tag}</span>
               </div>
 
               {/* Pulsating Play Button */}
-              <motion.button
-                ref={triggerRef}
-                type="button"
-                onClick={() => setOpen(true)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                className="group absolute left-1/2 top-1/2 flex h-20 w-20 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white/80 bg-crimson-gradient p-0 text-white shadow-crimson-glow"
-                aria-label="Play wedding film preview"
-              >
-                <span className="absolute -inset-2 rounded-full border border-[var(--gold-light)] opacity-60 animate-ping" />
-                <Play size={28} fill="currentColor" className="ml-1 transition-transform group-hover:scale-110" />
-              </motion.button>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/80 bg-crimson-gradient p-0 text-white shadow-crimson-glow transition-transform duration-300 group-hover:scale-110">
+                  <span className="absolute -inset-2 rounded-full border border-[var(--gold-light)] opacity-60 animate-ping" />
+                  <Play size={28} fill="currentColor" className="ml-1" />
+                </div>
+              </div>
 
               {/* Bottom Film Details Bar */}
               <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl border border-white/15 bg-black/60 p-3.5 backdrop-blur-md text-xs">
@@ -82,12 +144,12 @@ export function FilmFeature() {
                     <Volume2 size={15} />
                   </div>
                   <div>
-                    <span className="block font-semibold text-white">Anirban & Debopriya · Kolkata</span>
-                    <span className="text-[0.68rem] text-[var(--gold-light)]">Original Audio & Vedic Chants</span>
+                    <span className="block font-semibold text-white">{current.couple}</span>
+                    <span className="text-[0.68rem] text-[var(--gold-light)]">{current.title}</span>
                   </div>
                 </div>
                 <span className="rounded-full bg-white/10 px-2.5 py-1 text-[0.65rem] uppercase tracking-wider text-white/80 font-mono">
-                  03:45
+                  {current.duration}
                 </span>
               </div>
             </div>
@@ -109,99 +171,110 @@ export function FilmFeature() {
             </h2>
 
             {/* Narrative Description */}
-            <p className="text-base leading-8 text-[rgba(247,243,236,0.8)] sm:text-lg sm:leading-8">
-              We build films from real sound, natural room atmosphere, unscripted glances, and rhythmic Bengali traditions — so your wedding day can be relived with pure emotion long after the lights fade.
+            <p className="text-base leading-8 text-[rgba(247,243,236,0.85)] sm:text-lg sm:leading-8">
+              {current.description}
             </p>
 
             {/* Film Highlights Grid */}
             <div className="grid grid-cols-3 gap-3 border-y border-white/15 py-4 text-xs">
               <div>
-                <span className="block font-bold text-white">4K Cine-Grade</span>
-                <span className="text-[0.68rem] text-[var(--gold-light)]">Sony Cinema Line</span>
+                <span className="block font-bold text-white">4K Cinema Line</span>
+                <span className="text-[0.68rem] text-[var(--gold-light)]">Sony FX3 / Alpha</span>
               </div>
               <div className="border-x border-white/15 px-3">
-                <span className="block font-bold text-white">Live Sound</span>
-                <span className="text-[0.68rem] text-[var(--gold-light)]">Vows & Mantras</span>
+                <span className="block font-bold text-white">Authentic Audio</span>
+                <span className="text-[0.68rem] text-[var(--gold-light)]">Vedic Chants & Vows</span>
               </div>
               <div className="pl-3">
-                <span className="block font-bold text-white">Drone Aerial</span>
-                <span className="text-[0.68rem] text-[var(--gold-light)]">Mandap & Venue</span>
+                <span className="block font-bold text-white">Drone Cinematography</span>
+                <span className="text-[0.68rem] text-[var(--gold-light)]">Licensed Pilots</span>
               </div>
             </div>
 
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="/services/wedding-films"
-                className="inline-flex min-h-12 items-center gap-2.5 rounded-full bg-crimson-gradient px-7 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-crimson-glow transition-all hover:brightness-110 hover:scale-[1.02] active:scale-95"
+              <button
+                type="button"
+                onClick={() => openModal(current.title)}
+                className="inline-flex min-h-12 items-center gap-2.5 rounded-full bg-crimson-gradient px-7 text-xs font-bold uppercase tracking-[0.18em] !text-white shadow-crimson-glow transition-all hover:brightness-110 hover:scale-[1.02] active:scale-95 cursor-pointer"
               >
-                <span>Explore Wedding Films</span>
+                <span>Check Film Availability</span>
                 <ArrowRight size={15} />
-              </Link>
+              </button>
               <button
                 type="button"
                 onClick={() => setOpen(true)}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-[var(--espresso)]"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 text-xs font-semibold uppercase tracking-[0.18em] text-white transition-colors hover:bg-white hover:text-[var(--espresso)] cursor-pointer"
               >
                 <Play size={13} fill="currentColor" />
-                <span>Watch Teaser</span>
+                <span>Watch Full Reel</span>
               </button>
             </div>
           </FadeIn>
         </div>
       </div>
 
-      {/* Video Modal */}
+      {/* 🎬 Ultra-HD Cinema Video Modal */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[99] flex items-center justify-center bg-black/90 p-4 backdrop-blur-2xl md:p-8"
+            className="fixed inset-0 z-[99] flex items-center justify-center bg-black/95 p-4 backdrop-blur-2xl md:p-8"
             onMouseDown={() => setOpen(false)}
             role="dialog"
             aria-modal="true"
-            aria-label="Wedding film teaser player"
+            aria-label="Wedding film player"
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.94 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.94 }}
-              className="relative w-full max-w-4xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl"
+              className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/20 bg-black shadow-2xl"
               onMouseDown={(e) => e.stopPropagation()}
             >
+              {/* Close Button */}
               <button
                 ref={closeRef}
                 type="button"
                 onClick={() => setOpen(false)}
-                className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-black"
+                className="absolute right-4 top-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white backdrop-blur-md transition-colors hover:bg-white hover:text-black cursor-pointer shadow-lg"
                 aria-label="Close video player"
               >
                 <X size={18} />
               </button>
 
-              <div className="relative aspect-video w-full">
-                <iframe
-                  className="h-full w-full"
-                  src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
-                  title="Sritikuthi The Wedding Tales Cinematic Film"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+              {/* Video Player */}
+              <div className="relative aspect-video w-full bg-black">
+                <video
+                  ref={videoPlayerRef}
+                  src={current.src}
+                  controls
+                  autoPlay
+                  playsInline
+                  className="h-full w-full object-contain"
                 />
               </div>
 
-              <div className="flex items-center justify-between border-t border-white/15 bg-neutral-950 p-5 text-white">
+              {/* Bottom Modal Bar */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/15 bg-neutral-950 p-5 text-white">
                 <div>
-                  <h3 className="serif text-lg text-white">Anirban & Debopriya · Shubho Drishti to Bou Bhat</h3>
-                  <p className="text-xs text-[var(--gold-light)]">4K UHD Cinema Teaser · Directed by Shiladitya Das</p>
+                  <h3 className="serif text-xl text-white">{current.title}</h3>
+                  <p className="text-xs text-[var(--gold-light)]">
+                    {current.couple} · 4K UHD Master Film directed by Shiladitya Das
+                  </p>
                 </div>
-                <Link
-                  href="/services/wedding-films"
-                  className="rounded-full bg-crimson-gradient px-5 py-2 text-xs font-bold uppercase tracking-wider text-white shadow-crimson-glow"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    openModal(current.title);
+                  }}
+                  className="rounded-full bg-crimson-gradient px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-crimson-glow transition-all hover:scale-105 cursor-pointer"
                 >
-                  Book Film Crew
-                </Link>
+                  Book This Film Crew 💬
+                </button>
               </div>
             </motion.div>
           </motion.div>
