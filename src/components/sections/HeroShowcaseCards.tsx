@@ -75,6 +75,7 @@ export function HeroShowcaseCards() {
           <video
             ref={videoLeftRef}
             src="/reels/wedding-reel.mp4"
+            poster="/thumbnails/wedding-reel.jpg"
             playsInline
             loop
             muted={mutedLeft}
@@ -151,6 +152,7 @@ export function HeroShowcaseCards() {
           <video
             ref={videoRightRef}
             src="/reels/pre-wedding-reel.mp4"
+            poster="/thumbnails/pre-wedding-reel.jpg"
             playsInline
             loop
             muted={mutedRight}

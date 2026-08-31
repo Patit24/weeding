@@ -169,6 +169,7 @@ export function ClientVideoReviews() {
                       videoRefs.current[review.id] = el;
                     }}
                     src={review.videoSrc}
+                    poster={`/thumbnails/${review.id}.jpg`}
                     playsInline
                     loop
                     muted={isMuted}

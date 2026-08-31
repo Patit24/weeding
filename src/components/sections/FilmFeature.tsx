@@ -20,6 +20,7 @@ export function FilmFeature() {
   const films = {
     wedding: {
       src: "/reels/wedding-reel.mp4",
+      poster: "/thumbnails/wedding-reel.jpg",
       title: "Sacred Bengali Wedding & Sindoor Daan",
       couple: "Anirban & Debopriya · South Kolkata",
       duration: "03:45",
@@ -31,6 +32,7 @@ export function FilmFeature() {
     },
     prewedding: {
       src: "/reels/pre-wedding-reel.mp4",
+      poster: "/thumbnails/pre-wedding-reel.jpg",
       title: "Heritage Rajbari & Riverbank Love Story",
       couple: "Sneha & Somnath · Kolkata Ghats",
       duration: "02:50",
@@ -42,6 +44,7 @@ export function FilmFeature() {
     },
     couple: {
       src: "/reels/couple-reel.mp4",
+      poster: "/thumbnails/couple-reel.jpg",
       title: "A Couple's Story — Rituals & Romance",
       couple: "Sacred Rituals · Destination Kolkata",
       duration: "04:10",
@@ -53,6 +56,7 @@ export function FilmFeature() {
     },
     prewedding2: {
       src: "/reels/pre-wedding-reel-2.mp4",
+      poster: "/thumbnails/pre-wedding-reel-2.jpg",
       title: "Romantic Pre-Wedding — Vol. II",
       couple: "Cinematic Love Story · West Bengal",
       duration: "03:20",
@@ -131,6 +135,7 @@ export function FilmFeature() {
               <video
                 key={current.src}
                 src={current.src}
+                poster={current.poster}
                 playsInline
                 loop
                 muted
