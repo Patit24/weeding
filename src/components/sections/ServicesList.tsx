@@ -20,7 +20,7 @@ export function ServicesList() {
               index % 2 ? "lg:[&>*:first-child]:order-2" : ""
             }`}
           >
-            <ImageReveal className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl">
+            <ImageReveal className="relative aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl">
               <Image
                 src={service.image.src}
                 alt={service.image.alt}

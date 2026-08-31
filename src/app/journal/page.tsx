@@ -21,7 +21,7 @@ export default function JournalPage() {
       <MotionSection className="py-24">
         <div className="container-editorial">
           <Link href={`/journal/${featured.slug}`} className="group grid items-center gap-10 border-b border-[var(--fine-border)] pb-14 lg:grid-cols-[1.1fr_0.9fr]">
-            <ImageReveal className="relative block aspect-[16/10] overflow-hidden">
+            <ImageReveal className="relative block aspect-[16/10] w-full overflow-hidden">
               <Image src={featured.image.src} alt={featured.image.alt} fill sizes="60vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
             </ImageReveal>
             <FadeIn delay={0.12}>

@@ -4,16 +4,16 @@ import type { HTMLMotionProps } from "framer-motion";
 import { motion, useReducedMotion } from "framer-motion";
 
 const ease = [0.22, 1, 0.36, 1] as const;
-const viewport = { once: true, margin: "-80px" } as const;
+const viewport = { once: true, margin: "0px 0px -30px 0px", amount: 0.05 } as const;
 
 export function FadeIn({ children, className, delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const reduced = useReducedMotion();
   return (
     <motion.div
-      initial={reduced ? false : { opacity: 0, y: 24 }}
+      initial={reduced ? false : { opacity: 0, y: 20 }}
       whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
       viewport={viewport}
-      transition={{ duration: 0.75, ease, delay }}
+      transition={{ duration: 0.7, ease, delay }}
       className={className}
     >
       {children}
@@ -25,10 +25,10 @@ export function ImageReveal({ children, className, delay = 0 }: { children: Reac
   const reduced = useReducedMotion();
   return (
     <motion.div
-      initial={reduced ? false : { clipPath: "inset(0 0 100% 0)" }}
-      whileInView={reduced ? undefined : { clipPath: "inset(0 0 0% 0)" }}
+      initial={reduced ? false : { opacity: 0, scale: 0.96, y: 14 }}
+      whileInView={reduced ? undefined : { opacity: 1, scale: 1, y: 0 }}
       viewport={viewport}
-      transition={{ duration: 1, ease, delay }}
+      transition={{ duration: 0.8, ease, delay }}
       className={className}
     >
       {children}

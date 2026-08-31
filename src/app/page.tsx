@@ -52,7 +52,7 @@ export default function Home() {
           <SectionHeading eyebrow="Bespoke Services" title="Five ways we hold the story." />
           {overviewServices.slice(0, 5).map((service, index) => (
             <div key={service.slug} className={`grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] ${index % 2 ? "" : "lg:[&>*:first-child]:order-2"}`}>
-              <ImageReveal className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl">
+              <ImageReveal className="relative aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl">
                 <Image src={service.image.src} alt={service.image.alt} fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white">
@@ -99,7 +99,7 @@ export default function Home() {
       <MotionSection className="py-16 lg:py-20 border-y border-[var(--fine-border)] bg-[var(--sand)]/40">
         <div className="container-editorial">
           <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <ImageReveal className="relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl">
+            <ImageReveal className="relative aspect-[4/3] sm:aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-xl">
               <Image src={images.featuredWide.src} alt={images.featuredWide.alt} fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-white">
@@ -185,7 +185,7 @@ export default function Home() {
 
       <MotionSection className="pb-24">
         <div className="container-editorial grid items-center gap-10 lg:grid-cols-2">
-          <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md">
+          <ImageReveal className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-md">
             <Image src={images.event.src} alt={images.event.alt} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </ImageReveal>
           <FadeIn delay={0.12}>

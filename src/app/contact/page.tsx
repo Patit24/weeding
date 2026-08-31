@@ -40,7 +40,7 @@ export default function ContactPage() {
       <MotionSection className="py-24">
         <div className="container-editorial grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
           <aside>
-            <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md"><Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="420px" className="object-cover" /></ImageReveal>
+            <ImageReveal className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-md"><Image src={images.featuredPortrait.src} alt={images.featuredPortrait.alt} fill sizes="420px" className="object-cover" /></ImageReveal>
             <FadeIn delay={0.12} className="mt-8 space-y-4 text-sm leading-7 text-[var(--muted)]">
               <p><strong className="text-[var(--charcoal)]">Email:</strong> {siteConfig.email}</p>
               <p><strong className="text-[var(--charcoal)]">Phone:</strong> {siteConfig.phone}</p>

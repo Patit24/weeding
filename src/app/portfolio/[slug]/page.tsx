@@ -63,7 +63,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
               </div>
             </FadeIn>
 
-            <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[var(--gold-border)] shadow-2xl">
+            <ImageReveal className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] shadow-2xl">
               <Image src={item.cover.src} alt={item.cover.alt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
             </ImageReveal>
           </div>
@@ -85,7 +85,7 @@ export default async function PortfolioDetailPage({ params }: Props) {
         {item.gallery
           .filter((image) => image.src !== item.cover.src)
           .map((image, index) => (
-            <ImageReveal key={`${image.src}-${index}`} delay={index * 0.08} className={`relative overflow-hidden rounded-2xl shadow-md ${index === 0 ? "aspect-[16/9] md:col-span-2" : "aspect-[4/5]"}`}>
+            <ImageReveal key={`${image.src}-${index}`} delay={index * 0.08} className={`relative w-full overflow-hidden rounded-2xl shadow-md ${index === 0 ? "aspect-[16/9] md:col-span-2" : "aspect-[4/5]"}`}>
               <Image src={image.src} alt={image.alt} fill sizes={index === 0 ? "100vw" : "50vw"} className="object-cover" />
             </ImageReveal>
           ))}

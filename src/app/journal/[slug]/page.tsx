@@ -46,7 +46,7 @@ export default async function JournalDetailPage({ params }: Props) {
         <div className="mx-auto max-w-3xl prose-luxury text-lg">
           {post.body.map((paragraph, index) => <FadeIn key={paragraph} delay={index * 0.04}><p>{paragraph}</p></FadeIn>)}
           <FadeIn><blockquote className="serif my-12 border-y border-[var(--fine-border)] py-8 text-5xl leading-tight text-[var(--espresso)]">“{post.quote}”</blockquote></FadeIn>
-          <ImageReveal className="relative my-12 aspect-[16/10] overflow-hidden"><Image src={post.image.src} alt={post.image.alt} fill sizes="768px" className="object-cover" /></ImageReveal>
+          <ImageReveal className="relative my-12 aspect-[16/10] w-full overflow-hidden"><Image src={post.image.src} alt={post.image.alt} fill sizes="768px" className="object-cover" /></ImageReveal>
           <FadeIn><p>When a celebration is planned with this kind of attention, the photographs and films do not have to compensate for the day. They simply reveal it.</p></FadeIn>
         </div>
       </MotionSection>
