@@ -69,23 +69,23 @@ export default function AboutPage() {
       name: "Shiladitya Das",
       specialty: "Creative Direction, Candid Portraiture & Master Cinematography",
       bio: "With over 4 years of dedicated wedding storytelling across Kolkata and India, Shiladitya balances technical cinema craft with deep cultural reverence.",
-      image: images.featuredPortrait,
-      badge: "Founder",
+      image: { src: "/team/founder.jpg", alt: "Shiladitya Das - Founder & Lead Storyteller" },
+      badge: "Founder & Lead",
     },
     {
-      role: "Principal Candid Photographers",
-      name: "Candid Storytelling Unit",
-      specialty: "Ritual Documentary, Emotion Frames & Fine-Art Couple Portraits",
-      bio: "Specialists in catching unscripted moments, subtle micro-expressions, and intimate bridal preparations without drawing attention to the camera.",
-      image: images.team,
-      badge: "Photography",
+      role: "Lead Cinematographer",
+      name: "Dipankar",
+      specialty: "4K Motion Capture, Drone Aerials & Sound Design",
+      bio: "Master of visual rhythm and motion. Dipankar captures the essence of Bengali weddings with sweeping cinematic angles and authentic live sound.",
+      image: { src: "/team/dipankar.jpg", alt: "Dipankar - Lead Cinematographer" },
+      badge: "Cinematography",
     },
     {
-      role: "Cinematography & Aerial Unit",
-      name: "Cinema & Color Master Team",
-      specialty: "4K Motion Capture, Sound Design & Cinematic Color Grading",
-      bio: "Creating wedding films that sound like real life and look like cinema, preserving the sacred chants, laughter, and speeches for generations.",
-      image: images.planning,
+      role: "Senior Cinematographer",
+      name: "Sankhadip",
+      specialty: "Ritual Documentary, Emotion Capture & Color Art",
+      bio: "Catching the sacred Vedic rituals, unscripted glances, and spontaneous celebrations with artistic framing and rich film tones.",
+      image: { src: "/team/sankhadip.jpg", alt: "Sankhadip - Senior Cinematographer" },
       badge: "Cinematography",
     },
   ];
@@ -149,8 +149,8 @@ export default function AboutPage() {
             <div className="relative">
               <ImageReveal className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-[var(--gold-border)] bg-[var(--sand)] shadow-2xl">
                 <Image
-                  src={images.aboutHero.src}
-                  alt={images.aboutHero.alt}
+                  src="/team/founder.jpg"
+                  alt="Shiladitya Das - Founder of Sritikuthi The Wedding Tales"
                   fill
                   priority
                   sizes="(min-width: 1024px) 45vw, 100vw"

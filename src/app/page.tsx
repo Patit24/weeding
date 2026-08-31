@@ -18,6 +18,7 @@ import { RateCalculator } from "@/components/sections/RateCalculator";
 import { HomeGalleryBento } from "@/components/sections/HomeGalleryBento";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { ClientVideoReviews } from "@/components/sections/ClientVideoReviews";
+import { TeamSection } from "@/components/sections/TeamSection";
 import { formatDate } from "@/lib/utils";
 
 export default function Home() {
@@ -177,6 +178,9 @@ export default function Home() {
       
       {/* Real Client Video Reviews & Testimonials */}
       <ClientVideoReviews />
+
+      {/* Meet the Storytellers Team Members Section */}
+      <TeamSection />
 
       <MotionSection className="pb-24">
         <div className="container-editorial grid items-center gap-10 lg:grid-cols-2">
