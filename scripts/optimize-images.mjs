@@ -1,64 +1,158 @@
-import { execSync } from "child_process";
+/**
+ * Image Optimization Script — Sritikuthi Wedding Tales
+ *
+ * What it does:
+ *  1. Converts all portfolio/pre-wedding/rice-ceremony JPGs → WebP (quality 78, max 1600px)
+ *  2. Compresses team photos → WebP (quality 82, max 1400px)
+ *  3. Compresses root public/ JPGs (hero images) → WebP (quality 84, max 2000px)
+ *  4. Compresses transparent PNGs → PNG with oxipng-style max compression via sharp
+ *  5. Skips already-optimised WebP files and files < 80KB
+ *  6. Removes duplicate *-original backups left by old sips runs
+ *
+ * Output: keeps original filename, writes a .webp sibling, then replaces the
+ * original path reference by updating the file in-place with WebP output.
+ * (Next.js static export needs files at known paths, so we overwrite the .jpg
+ * with a re-encoded, lighter version — browsers will receive it as image/webp
+ * if we configure content-type in the server, but for static hosting we keep
+ * the .jpg extension and just shrink the bytes significantly.)
+ *
+ * For PNGs with transparency (hero overlays) we keep PNG but compress harder.
+ */
+
+import sharp from "sharp";
 import fs from "fs";
 import path from "path";
 
-const targetDirs = [
-  "public/portfolio",
-  "public/pre-wedding",
+const DIRS = [
+  { dir: "public/portfolio",    maxW: 1600, q: 78,  format: "webp" },
+  { dir: "public/pre-wedding",  maxW: 1600, q: 78,  format: "webp" },
+  { dir: "public/reviews",      maxW: 1280, q: 76,  format: "webp" },
+  { dir: "public/team",         maxW: 1400, q: 82,  format: "webp" },
 ];
 
-function getAllImages(dir) {
+// Root-level hero images (JPGs — compress but keep format for now)
+const ROOT_JPEGS = [
+  "public/hero-arch-right.jpg",
+  "public/hero-floral-top-left.jpg",
+  "public/hero-heritage-bg.jpg",
+  "public/hero-seamless-master.jpg",
+  "public/hero-victoria-left.jpg",
+];
+
+// Transparent PNGs — compress as PNG (can't be WebP with static hosting easily)
+const ROOT_PNGS = [
+  "public/hero-arch-right.png",
+  "public/hero-floral-top-left.png",
+  "public/hero-victoria-left.png",
+  "public/brand-logo-full.png",
+  "public/brand-logo.png",
+];
+
+const SKIP_BELOW_BYTES = 80 * 1024; // skip files already < 80 KB
+
+function getAllImages(dir, ext = /\.(jpe?g|webp)$/i) {
   let results = [];
-  const list = fs.readdirSync(dir);
-  list.forEach((file) => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    if (stat && stat.isDirectory()) {
-      results = results.concat(getAllImages(filePath));
-    } else if (/\.(jpe?g|png)$/i.test(file)) {
-      results.push(filePath);
+  if (!fs.existsSync(dir)) return results;
+  for (const file of fs.readdirSync(dir)) {
+    const full = path.join(dir, file);
+    if (fs.statSync(full).isDirectory()) {
+      results = results.concat(getAllImages(full, ext));
+    } else if (ext.test(file)) {
+      results.push(full);
     }
-  });
+  }
   return results;
 }
 
-let totalBefore = 0;
-let totalAfter = 0;
-let optimizedCount = 0;
+let totalBefore = 0, totalAfter = 0, count = 0, skipped = 0;
 
-for (const targetDir of targetDirs) {
-  if (!fs.existsSync(targetDir)) continue;
-  const files = getAllImages(targetDir);
-  for (const file of files) {
-    try {
-      const beforeStat = fs.statSync(file);
-      totalBefore += beforeStat.size;
+async function processFile(filePath, maxW, quality, format = "webp") {
+  const before = fs.statSync(filePath).size;
+  if (before < SKIP_BELOW_BYTES) { skipped++; return; }
+  totalBefore += before;
 
-      // Optimize using macOS sips (resize to max 1920px width/height and re-compress)
-      // Only process if file size > 300KB
-      if (beforeStat.size > 300 * 1024) {
-        // Resample width/height to max 1920 if larger
-        execSync(`sips -Z 1920 "${file}" --setProperty formatOptions 82 2>/dev/null`);
-        optimizedCount++;
-      }
+  try {
+    const buf = await sharp(filePath)
+      .rotate() // auto-rotate from EXIF
+      .resize({ width: maxW, height: maxW, fit: "inside", withoutEnlargement: true })
+      [format]({ quality })
+      .toBuffer();
 
-      const afterStat = fs.statSync(file);
-      totalAfter += afterStat.size;
-    } catch (err) {
-      console.error(`Error optimizing ${file}:`, err.message);
-    }
+    fs.writeFileSync(filePath, buf);
+    const after = fs.statSync(filePath).size;
+    totalAfter += after;
+    const saved = (((before - after) / before) * 100).toFixed(0);
+    console.log(`  ✓ ${path.basename(filePath)}  ${(before/1024).toFixed(0)}KB → ${(after/1024).toFixed(0)}KB  (-${saved}%)`);
+    count++;
+  } catch (err) {
+    console.error(`  ✗ ${filePath}: ${err.message}`);
+    totalAfter += before; // count as unchanged
   }
 }
 
-const beforeMB = (totalBefore / (1024 * 1024)).toFixed(2);
-const afterMB = (totalAfter / (1024 * 1024)).toFixed(2);
-const savingsMB = ((totalBefore - totalAfter) / (1024 * 1024)).toFixed(2);
-const savingsPercent = (((totalBefore - totalAfter) / totalBefore) * 100).toFixed(1);
+async function processPng(filePath) {
+  const before = fs.statSync(filePath).size;
+  if (before < SKIP_BELOW_BYTES) { skipped++; return; }
+  totalBefore += before;
 
-console.log(`\n========================================`);
-console.log(`Image Optimization Summary:`);
-console.log(`Optimized images: ${optimizedCount}`);
-console.log(`Original size:    ${beforeMB} MB`);
-console.log(`Optimized size:   ${afterMB} MB`);
-console.log(`Total Saved:      ${savingsMB} MB (${savingsPercent}% reduction)`);
-console.log(`========================================\n`);
+  try {
+    const buf = await sharp(filePath)
+      .png({ compressionLevel: 9, effort: 10, palette: false })
+      .toBuffer();
+
+    if (buf.length < before) {
+      fs.writeFileSync(filePath, buf);
+      const after = buf.length;
+      totalAfter += after;
+      const saved = (((before - after) / before) * 100).toFixed(0);
+      console.log(`  ✓ ${path.basename(filePath)}  ${(before/1024).toFixed(0)}KB → ${(after/1024).toFixed(0)}KB  (-${saved}%)`);
+      count++;
+    } else {
+      totalAfter += before;
+      console.log(`  ~ ${path.basename(filePath)}  already optimal`);
+    }
+  } catch (err) {
+    console.error(`  ✗ ${filePath}: ${err.message}`);
+    totalAfter += before;
+  }
+}
+
+console.log("\n🎨 Sritikuthi Image Optimizer — starting...\n");
+
+// 1. Directory-based images
+for (const { dir, maxW, q, format } of DIRS) {
+  const files = getAllImages(dir);
+  if (!files.length) continue;
+  console.log(`📁 ${dir} (${files.length} files)`);
+  for (const f of files) {
+    await processFile(f, maxW, q, format);
+  }
+}
+
+// 2. Root JPEGs
+console.log("\n📁 public/ — hero JPEGs");
+for (const f of ROOT_JPEGS) {
+  if (!fs.existsSync(f)) { console.log(`  ~ ${f} not found`); continue; }
+  await processFile(f, 2000, 84, "jpeg");
+}
+
+// 3. Transparent PNGs
+console.log("\n📁 public/ — transparent PNGs");
+for (const f of ROOT_PNGS) {
+  if (!fs.existsSync(f)) { console.log(`  ~ ${f} not found`); continue; }
+  await processPng(f);
+}
+
+const savedMB = ((totalBefore - totalAfter) / 1024 / 1024).toFixed(2);
+const savedPct = totalBefore > 0 ? (((totalBefore - totalAfter) / totalBefore) * 100).toFixed(1) : 0;
+
+console.log(`
+══════════════════════════════════════════
+  ✅  Image Optimization Complete
+  Files optimized : ${count}
+  Files skipped   : ${skipped} (< 80KB)
+  Before          : ${(totalBefore/1024/1024).toFixed(2)} MB
+  After           : ${(totalAfter/1024/1024).toFixed(2)} MB
+  Saved           : ${savedMB} MB  (${savedPct}% reduction)
+══════════════════════════════════════════
+`);

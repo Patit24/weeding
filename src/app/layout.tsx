@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { StructuredData } from "@/components/sections/StructuredData";
 import { ScrollReset } from "@/components/ui/ScrollReset";
 import { AvailabilityProvider } from "@/components/ui/AvailabilityModal";
+import { Preloader } from "@/components/ui/Preloader";
 import { images } from "@/data/images";
 import { siteConfig } from "@/data/site";
 
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" data-scroll-behavior="smooth" className={`${cormorant.variable} ${manrope.variable} ${allura.variable}`}>
       <body>
         <AvailabilityProvider>
+          <Preloader />
           <StructuredData />
           <ScrollReset />
           <Header />

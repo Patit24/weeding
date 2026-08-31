@@ -144,7 +144,12 @@ export function HomeGalleryBento() {
                     src={photo.src}
                     alt={photo.alt}
                     fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    priority={index === 0}
+                    sizes={
+                      isHeroCard
+                        ? "(min-width: 1024px) 66vw, 100vw"
+                        : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    }
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 

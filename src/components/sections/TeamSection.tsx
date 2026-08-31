@@ -65,6 +65,28 @@ export function TeamSection() {
       gear: "Cinematic Prime Glass & Low-Noise Audio Rigs",
       icon: Sparkles,
     },
+    {
+      name: "Indrajit",
+      role: "Cinematographer",
+      badge: "Cinema Director",
+      experience: "Narrative Wedding Cinema",
+      image: "/team/indrajit.jpg",
+      focus: "Cinematic Direction, Color Grading & Film Narrative",
+      bio: "Indrajit brings a filmmaker's eye to every wedding — weaving rituals, emotions, and stolen moments into a cohesive cinematic narrative that families treasure for generations.",
+      gear: "Sony Cinema Line, DJI Ronin & Wireless Audio Systems",
+      icon: Video,
+    },
+    {
+      name: "Subhajit",
+      role: "Candid Photographer",
+      badge: "Portrait Specialist",
+      experience: "Fine-Art & Candid Photography",
+      image: "/team/subhajit.jpg",
+      focus: "Fine-Art Portraits, Candid Moments & Bridal Styling",
+      bio: "Subhajit has an instinct for the unposed — the quiet tear, the shared laugh, the unguarded glance. His images feel less like photographs and more like memories preserved in silver.",
+      gear: "Full-Frame Mirrorless & Art-Glass Prime Lenses",
+      icon: Camera,
+    },
   ];
 
   return (

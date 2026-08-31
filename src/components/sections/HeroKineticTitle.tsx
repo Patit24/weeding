@@ -11,38 +11,39 @@ export function HeroKineticTitle() {
 
   return (
     <div className="relative w-full overflow-hidden bg-[#FAF7F2] pt-28 pb-12 lg:pt-36 lg:pb-16">
-      {/* 🌸 1. TOP-LEFT HANGING FLORAL BRANCH (TRANSPARENT PNG) */}
       <div className="pointer-events-none absolute top-0 left-0 w-56 sm:w-72 md:w-88 lg:w-[420px] select-none z-0">
         <Image
-          src="/hero-floral-top-left.png"
+          src="/hero-floral-top-left.jpg"
           alt="Vintage floral branch"
           width={420}
           height={315}
           priority
+          sizes="(min-width: 1024px) 420px, (min-width: 768px) 288px, 224px"
           className="h-auto w-full object-contain"
         />
       </div>
 
-      {/* 🏛️ 2. BOTTOM-LEFT VICTORIA MEMORIAL MONUMENT WITH ROSES (TRANSPARENT PNG) */}
+      {/* 🏛️ 2. BOTTOM-LEFT VICTORIA MEMORIAL MONUMENT WITH ROSES */}
       <div className="pointer-events-none absolute bottom-0 left-0 w-60 sm:w-76 md:w-[380px] lg:w-[460px] select-none z-0">
         <Image
-          src="/hero-victoria-left.png"
+          src="/hero-victoria-left.jpg"
           alt="Victoria Memorial Kolkata with peach watercolor roses"
           width={460}
           height={613}
-          priority
+          sizes="(min-width: 1024px) 460px, (min-width: 768px) 380px, 240px"
           className="h-auto w-full object-contain"
         />
       </div>
 
-      {/* 🏰 3. RIGHT MUGHAL ARCHWAY WITH BOTANICAL ROSES (TRANSPARENT PNG) */}
+      {/* 🏰 3. RIGHT MUGHAL ARCHWAY WITH BOTANICAL ROSES */}
       <div className="pointer-events-none absolute top-6 sm:top-10 right-0 w-60 sm:w-80 md:w-[400px] lg:w-[480px] select-none z-0">
         <Image
-          src="/hero-arch-right.png"
+          src="/hero-arch-right.jpg"
           alt="Classical Mughal archway with peach floral vines"
           width={480}
           height={640}
           priority
+          sizes="(min-width: 1024px) 480px, (min-width: 768px) 400px, 240px"
           className="h-auto w-full object-contain"
         />
       </div>

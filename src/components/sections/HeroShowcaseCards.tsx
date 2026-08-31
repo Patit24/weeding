@@ -78,7 +78,7 @@ export function HeroShowcaseCards() {
             playsInline
             loop
             muted={mutedLeft}
-            preload="metadata"
+            preload="none"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-102"
           />
 
@@ -154,7 +154,7 @@ export function HeroShowcaseCards() {
             playsInline
             loop
             muted={mutedRight}
-            preload="metadata"
+            preload="none"
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-102"
           />
 

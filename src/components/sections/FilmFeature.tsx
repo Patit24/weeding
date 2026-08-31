@@ -9,7 +9,7 @@ import { FadeIn, MotionSection } from "@/components/ui/Motion";
 import { useAvailabilityModal } from "@/components/ui/AvailabilityModal";
 
 export function FilmFeature() {
-  const [activeFilm, setActiveFilm] = useState<"wedding" | "prewedding">("wedding");
+  const [activeFilm, setActiveFilm] = useState<"wedding" | "prewedding" | "couple" | "prewedding2">("wedding");
   const [open, setOpen] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -24,6 +24,8 @@ export function FilmFeature() {
       couple: "Anirban & Debopriya · South Kolkata",
       duration: "03:45",
       tag: "4K Master Cinema",
+      emoji: "💍",
+      label: "Bengali Wedding Film",
       description:
         "Every conch blow, sacred Vedic mantra, and tears of joy during the Shubho Drishti & Saat Paak, captured in uncompressed 4K cinema.",
     },
@@ -33,10 +35,35 @@ export function FilmFeature() {
       couple: "Sneha & Somnath · Kolkata Ghats",
       duration: "02:50",
       tag: "Pre-Wedding Film",
+      emoji: "🕊️",
+      label: "Pre-Wedding Reel",
       description:
         "Golden hour romance against the historic ghats of Kolkata and grand Rajbari courtyards, set to authentic emotional musical pacing.",
     },
+    couple: {
+      src: "/reels/couple-reel.mp4",
+      title: "A Couple's Story — Rituals & Romance",
+      couple: "Sacred Rituals · Destination Kolkata",
+      duration: "04:10",
+      tag: "Couple Highlights",
+      emoji: "🌸",
+      label: "Couple Story",
+      description:
+        "An intimate portrait of two souls — from the morning rituals and sacred vows to the stolen glances and quiet embraces that no one else noticed.",
+    },
+    prewedding2: {
+      src: "/reels/pre-wedding-reel-2.mp4",
+      title: "Romantic Pre-Wedding — Vol. II",
+      couple: "Cinematic Love Story · West Bengal",
+      duration: "03:20",
+      tag: "Pre-Wedding Vol. II",
+      emoji: "🌿",
+      label: "Pre-Wedding Vol. II",
+      description:
+        "A second chapter of cinematic pre-wedding storytelling — lush landscapes, golden light, and the unscripted chemistry between two people deeply in love.",
+    },
   };
+
 
   const current = films[activeFilm];
 
@@ -78,30 +105,22 @@ export function FilmFeature() {
           
           {/* Left Column: Visual Cinematic Film Player */}
           <div className="relative">
-            {/* Film Selector Tabs */}
-            <div className="mb-4 flex items-center gap-3">
-              <button
-                type="button"
-                onClick={() => setActiveFilm("wedding")}
-                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  activeFilm === "wedding"
-                    ? "bg-crimson-gradient text-white shadow-crimson-glow"
-                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
-                }`}
-              >
-                💍 Bengali Wedding Film
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveFilm("prewedding")}
-                className={`rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                  activeFilm === "prewedding"
-                    ? "bg-crimson-gradient text-white shadow-crimson-glow"
-                    : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
-                }`}
-              >
-                🕊️ Pre-Wedding Reel
-              </button>
+            {/* Film Selector Tabs — scrollable on mobile */}
+            <div className="mb-4 flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+              {(Object.keys(films) as Array<keyof typeof films>).map((key) => (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => setActiveFilm(key)}
+                  className={`flex-shrink-0 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
+                    activeFilm === key
+                      ? "bg-crimson-gradient text-white shadow-crimson-glow"
+                      : "bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
+                  }`}
+                >
+                  {films[key].emoji} {films[key].label}
+                </button>
+              ))}
             </div>
 
             {/* Video Container */}

@@ -172,7 +172,7 @@ export function ClientVideoReviews() {
                     playsInline
                     loop
                     muted={isMuted}
-                    preload="metadata"
+                    preload="none"
                     className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-102"
                   />
 
