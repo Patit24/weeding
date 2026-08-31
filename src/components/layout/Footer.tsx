@@ -79,9 +79,26 @@ export function Footer() {
           <NewsletterForm />
         </div>
       </div>
-      <div className="container-editorial mt-14 flex flex-col gap-3 border-t border-[rgba(247,243,236,0.18)] pt-6 text-xs text-[rgba(247,243,236,0.6)] sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-        <Link className="transition-colors hover:text-white" href="/privacy">Privacy Policy</Link>
+      <div className="container-editorial mt-14 flex flex-col gap-4 border-t border-[rgba(247,243,236,0.18)] pt-6 text-xs text-[rgba(247,243,236,0.68)] sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {new Date().getFullYear()} স্মৃতিকুঠি The Wedding Tales (sritikuthitheweddingtales). All rights reserved.
+        </p>
+        <div className="flex flex-wrap items-center gap-5 sm:gap-6">
+          <p className="flex items-center gap-1.5 text-[rgba(247,243,236,0.85)]">
+            <span>Developed by</span>
+            <a
+              href="https://www.pprglobal.online"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[var(--gold)] hover:text-white transition-colors underline decoration-[var(--gold)]/50 hover:decoration-white"
+            >
+              PPR Global
+            </a>
+          </p>
+          <Link className="transition-colors hover:text-white" href="/privacy">
+            Privacy Policy
+          </Link>
+        </div>
       </div>
     </footer>
   );
