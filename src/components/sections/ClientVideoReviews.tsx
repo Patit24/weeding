@@ -20,16 +20,16 @@ import { FadeIn, MotionSection } from "@/components/ui/Motion";
 import { useAvailabilityModal } from "@/components/ui/AvailabilityModal";
 import { cn } from "@/lib/utils";
 
-export type ClientVideoReview = {
+export interface ClientVideoReview {
   id: string;
   videoSrc: string;
   clientName: string;
   eventType: string;
   location: string;
-  badge: string;redesign th
-quote: string;
-rating: number;
-};
+  badge: string;
+  quote: string;
+  rating: number;
+}
 
 export const clientVideoReviews: ClientVideoReview[] = [
   {
