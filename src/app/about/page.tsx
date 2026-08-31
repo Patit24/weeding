@@ -74,18 +74,34 @@ export default function AboutPage() {
     },
     {
       role: "Lead Cinematographer",
+      name: "Ratul Kumar Saha",
+      specialty: "4K Motion Direction, Master Color Grading & Soundscapes",
+      bio: "Head of wedding cinematography. Ratul directs motion and emotion in perfect sync, transforming sacred Vedic vows and joyous celebrations into timeless motion pictures.",
+      image: null,
+      badge: "Cinematography Head",
+    },
+    {
+      role: "Candid Photographer",
+      name: "Soumyadip",
+      specialty: "Unscripted Emotions, Baraat Energy & Ritual Details",
+      bio: "Specialist in capturing raw, spontaneous laughter, quiet family glances, and the vibrant celebratory energy of traditional Bengali weddings.",
+      image: { src: "/team/soumyadip.jpg", alt: "Soumyadip - Candid Photographer" },
+      badge: "Photography",
+    },
+    {
+      role: "Cinematographer",
       name: "Dipankar",
       specialty: "4K Motion Capture, Drone Aerials & Sound Design",
       bio: "Master of visual rhythm and motion. Dipankar captures the essence of Bengali weddings with sweeping cinematic angles and authentic live sound.",
-      image: { src: "/team/dipankar.jpg", alt: "Dipankar - Lead Cinematographer" },
+      image: { src: "/team/dipankar.jpg", alt: "Dipankar - Cinematographer" },
       badge: "Cinematography",
     },
     {
-      role: "Senior Cinematographer",
+      role: "Cinematographer",
       name: "Sankhadip",
       specialty: "Ritual Documentary, Emotion Capture & Color Art",
       bio: "Catching the sacred Vedic rituals, unscripted glances, and spontaneous celebrations with artistic framing and rich film tones.",
-      image: { src: "/team/sankhadip.jpg", alt: "Sankhadip - Senior Cinematographer" },
+      image: { src: "/team/sankhadip.jpg", alt: "Sankhadip - Cinematographer" },
       badge: "Cinematography",
     },
   ];
@@ -320,27 +336,47 @@ export default function AboutPage() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div
                 key={member.name}
                 className="group flex flex-col rounded-3xl border border-[var(--gold-border)] bg-[var(--warm-ivory)] overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="relative aspect-[4/5] w-full overflow-hidden bg-[var(--sand)]">
-                  <Image
-                    src={member.image.src}
-                    alt={member.name}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-neutral-900 via-[#241512] to-neutral-950 flex items-center justify-center">
+                  {member.image ? (
+                    <Image
+                      src={member.image.src}
+                      alt={member.image.alt || member.name}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="relative flex flex-col items-center justify-center p-8 text-center text-white select-none">
+                      <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[var(--gold-border)] bg-white/5 backdrop-blur-md shadow-inner">
+                        <Camera size={38} className="text-[#D4AF37]" />
+                        <span className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--crimson)] text-white text-[0.65rem] font-bold border border-white">
+                          4K
+                        </span>
+                      </div>
+                      <span className="serif text-2xl font-bold tracking-wide text-[var(--gold-light)]">
+                        {member.name}
+                      </span>
+                      <span className="mt-1 text-xs uppercase tracking-[0.2em] text-white/70">
+                        {member.role}
+                      </span>
+                      <p className="mt-3 text-[0.72rem] text-white/60 max-w-[200px] leading-relaxed">
+                        Master Cinematography &amp; Film Direction
+                      </p>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
                   
                   <span className="absolute top-4 left-4 rounded-full bg-black/60 backdrop-blur-md px-3 py-1 text-[0.68rem] font-bold uppercase tracking-wider text-white border border-white/20">
                     {member.badge}
                   </span>
 
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="absolute bottom-4 left-4 right-4 text-white z-10">
                     <span className="text-[0.72rem] font-bold uppercase tracking-wider text-[#D4AF37] block">
                       {member.role}
                     </span>

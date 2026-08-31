@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Camera, Video, Sparkles, CheckCircle2, MessageSquare, Award } from "lucide-react";
+import { Camera, Video, Sparkles, CheckCircle2, MessageSquare, Award, Clapperboard } from "lucide-react";
 import { useAvailabilityModal } from "@/components/ui/AvailabilityModal";
 import { FadeIn, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 
@@ -22,24 +22,46 @@ export function TeamSection() {
       icon: Camera,
     },
     {
-      name: "Dipankar",
+      name: "Ratul Kumar Saha",
       role: "Lead Cinematographer",
-      badge: "Master Cinematography",
+      badge: "Cinematography Head",
+      experience: "Master 4K Cine & Direction",
+      image: null, // Without photo right now
+      focus: "Cinematic Film Direction, 4K UHD Master Grading & Soundscapes",
+      bio: "Head of wedding cinematography. Ratul directs motion and emotion in perfect sync, transforming sacred Vedic vows and royal processions into heirloom cinema.",
+      gear: "Sony FX Cine Cameras, Prime Cinema Lenses & 32-bit Float Audio",
+      icon: Clapperboard,
+    },
+    {
+      name: "Soumyadip",
+      role: "Candid Photographer",
+      badge: "Documentary Artist",
+      experience: "Candid Rituals & Micro-Moments",
+      image: "/team/soumyadip.jpg",
+      focus: "Unscripted Expressions, Baraat Energy & Intimate Details",
+      bio: "Specialist in capturing spontaneous laughter, quiet family glances, and the vibrant celebratory energy of traditional Bengali wedding rituals.",
+      gear: "Full-Frame Fast Primes & Low-Light Art Glass",
+      icon: Camera,
+    },
+    {
+      name: "Dipankar",
+      role: "Cinematographer",
+      badge: "Video Specialist",
       experience: "High-Speed & 4K Cinema",
       image: "/team/dipankar.jpg",
       focus: "4K Motion Capture, Gimbal Dynamics & Aerial Drone",
-      bio: "Master of movement and rhythm. Dipankar crafts wedding films that feel like classic cinema, capturing spontaneous laughter and tears in ultra HD.",
+      bio: "Master of visual rhythm and motion. Dipankar crafts wedding films that feel like classic motion pictures, capturing every milestone in vivid clarity.",
       gear: "Sony Cinema Line & Motorized 3-Axis Stabilizers",
       icon: Video,
     },
     {
       name: "Sankhadip",
-      role: "Senior Cinematographer",
+      role: "Cinematographer",
       badge: "Visual Storyteller",
-      experience: "Ritual & Documentary Cinema",
+      experience: "Ritual & Documentary Motion",
       image: "/team/sankhadip.jpg",
       focus: "Ritual Lighting, Sound Atmosphere & Color Art",
-      bio: "Dedicated to catching the unseen nuances — from Vedic fire reflections to heartfelt glances between family members during Saat Paak and Sindoor Daan.",
+      bio: "Dedicated to catching the unseen nuances — from sacred Vedic fire reflections to heartfelt glances between bride and groom during Saat Paak.",
       gear: "Cinematic Prime Glass & Low-Noise Audio Rigs",
       icon: Sparkles,
     },
@@ -74,21 +96,42 @@ export function TeamSection() {
         </div>
 
         {/* Team Grid */}
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {team.map((member) => {
             const IconComponent = member.icon;
             return (
               <StaggerItem key={member.name} className="flex">
                 <div className="group relative flex flex-col w-full rounded-3xl border border-[var(--gold-border)] bg-[var(--warm-ivory)] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1.5">
                   {/* Photo Container */}
-                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-900">
-                    <Image
-                      src={member.image}
-                      alt={`${member.name} - ${member.role} at Sritikuthi The Wedding Tales`}
-                      fill
-                      sizes="(min-width: 768px) 33vw, 100vw"
-                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    />
+                  <div className="relative aspect-[4/5] w-full overflow-hidden bg-gradient-to-br from-neutral-900 via-[#241512] to-neutral-950 flex items-center justify-center">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={`${member.name} - ${member.role} at Sritikuthi The Wedding Tales`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      />
+                    ) : (
+                      /* Fallback for members without photo (e.g. Ratul Kumar Saha) */
+                      <div className="relative flex flex-col items-center justify-center p-8 text-center text-white select-none">
+                        <div className="relative mb-4 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[var(--gold-border)] bg-white/5 backdrop-blur-md shadow-inner">
+                          <Clapperboard size={40} className="text-[#D4AF37]" />
+                          <span className="absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-[var(--crimson)] text-white text-[0.65rem] font-bold border border-white">
+                            4K
+                          </span>
+                        </div>
+                        <span className="serif text-2xl font-bold tracking-wide text-[var(--gold-light)]">
+                          {member.name}
+                        </span>
+                        <span className="mt-1 text-xs uppercase tracking-[0.2em] text-white/70">
+                          {member.role}
+                        </span>
+                        <p className="mt-3 text-[0.72rem] text-white/60 max-w-[200px] leading-relaxed">
+                          Master Cinematography &amp; Film Direction Unit
+                        </p>
+                      </div>
+                    )}
 
                     {/* Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
