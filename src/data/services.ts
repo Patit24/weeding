@@ -44,7 +44,7 @@ export const services: Service[] = [
     eyebrow: "Authentic Bengali traditions, Shubho Drishti & candid emotions",
     description:
       "Fine-art documentary wedding photography capturing every sacred ritual, emotional glance, and heartfelt family tear. We focus on natural light, authentic laughter, and vibrant Bengali wedding traditions.",
-    image: images.photography,
+    image: images.mosaicOne,
     href: "/services/wedding-photography",
     deliverables: [
       "Full-day lead candid coverage",
@@ -107,7 +107,7 @@ export const services: Service[] = [
     eyebrow: "Cinematic, relaxed & editorial couple sessions",
     description:
       "Creative concept-driven pre-wedding photography and cinematic music videos. Whether in historic Kolkata streets, Ganges river ghats, green woodlands, or heritage palaces, we design comfortable, unposed sessions that celebrate your connection.",
-    image: images.hero,
+    image: images.mosaicTwo,
     href: "/services/pre-wedding",
     deliverables: [
       "1 or 2-day outdoor styled session",
@@ -175,7 +175,7 @@ export const services: Service[] = [
     eyebrow: "Hospitality, vendor logistics & seamless celebration hosting",
     description:
       "Comprehensive event design, staging, and on-ground management for corporate galas, intimate cultural dinners, and large-scale celebrations.",
-    image: images.event,
+    image: images.featuredWide,
     href: "/services/event-management",
     deliverables: [
       "Venue setup & stage décor coordination",
@@ -196,7 +196,7 @@ export const services: Service[] = [
     eyebrow: "Ring ceremony, Aashirbaad & intimate beginnings",
     description:
       "Intimate documentation of your engagement, ring exchange, and family Aashirbaad rituals. We capture the subtle glances, emotional family blessings, and glamorous couple portraits in equal measure.",
-    image: images.mosaicTwo,
+    image: images.contact,
     href: "/services/engagement",
     deliverables: [
       "Half-day or full-day ritual coverage",
@@ -217,7 +217,7 @@ export const services: Service[] = [
     eyebrow: "Conferences, brand summits, corporate headshots & leadership galas",
     description:
       "Crisp, polished visual media for businesses, brand conferences, award galas, executive headshots, and corporate culture documentation. We deliver professional imagery ready for annual reports, PR, LinkedIn, and media releases.",
-    image: images.planning,
+    image: images.mosaicFour,
     href: "/services/corporate-shoot",
     deliverables: [
       "Executive headshots & team group portraits",
@@ -261,7 +261,7 @@ export const services: Service[] = [
     eyebrow: "Product campaigns, culinary, architecture, ecommerce & advertising",
     description:
       "Results-oriented commercial photography and ad films designed to elevate brands, restaurants, jewelry, apparel, real estate, and lifestyle products. Crisp lighting and razor-sharp detailing that convert viewers into customers.",
-    image: images.featuredWide,
+    image: images.filmStill,
     href: "/services/commercial",
     deliverables: [
       "White background e-commerce packshots (Amazon/Shopify ready)",

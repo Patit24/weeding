@@ -85,7 +85,7 @@ export const journalPosts: JournalPost[] = [
     date: "2026-03-21",
     readingTime: "5 min read",
     excerpt: "Different cities ask for different timing. Light, heat, travel, and venue restrictions should shape the plan early.",
-    image: images.films,
+    image: images.mosaicTwo,
     author: "Sritikuthi Editorial",
     quote: "The destination should shape the schedule, not just the invitation.",
     body: [

@@ -13,7 +13,7 @@ export const images = {
     alt: "Sneha in crimson bridal glow with traditional Bengali Mukut",
   },
   photography: {
-    src: "/portfolio/wedding/anirban-debopriya/shubho-drishti-paan.jpg",
+    src: "/portfolio/wedding/anirban-debopriya/ceremony-moment-1.jpg",
     alt: "Authentic Bengali Wedding Shubho Drishti photography in Kolkata",
   },
   films: {
@@ -33,8 +33,8 @@ export const images = {
     alt: "Sneha and Koushik sacred Shubho Drishti wedding ritual in Kolkata",
   },
   featuredPortrait: {
-    src: "/portfolio/wedding/sneha-koushik/bridal-crimson-mukut.jpg",
-    alt: "Regal Bengali Bride with Mukut in warm crimson lighting",
+    src: "/portfolio/wedding/dhritidipa/bridal-mukut-garden.jpg",
+    alt: "Regal Bengali Bride with Mukut in warm garden light",
   },
   mosaicOne: {
     src: "/portfolio/wedding/anirban-debopriya/bride-gachhkouto.jpg",
@@ -53,27 +53,27 @@ export const images = {
     alt: "Debopriya radiant Bou Bhat reception portrait with sindoor",
   },
   filmStill: {
-    src: "/portfolio/wedding/anirban-debopriya/couple-portrait.jpg",
+    src: "/portfolio/wedding/anirban-debopriya/ceremony-moment-2.jpg",
     alt: "Cinematic Bengali wedding frame by Sritikuthi",
   },
   event: {
-    src: "/pre-wedding/sneha-koushik/photo-1.jpg",
-    alt: "Grand crystal chandelier ballroom celebration and event design by Sritikuthi",
+    src: "/pre-wedding/sourin-sharmistha/photo-2.jpg",
+    alt: "Grand celebration and event design by Sritikuthi",
   },
   cta: {
-    src: "/portfolio/wedding/anirban-debopriya/shubho-drishti-paan.jpg",
+    src: "/pre-wedding/indrajit-susmita/photo-1.jpg",
     alt: "Sritikuthi The Wedding Tales authentic wedding celebration",
   },
   aboutHero: {
-    src: "/portfolio/wedding/sneha-koushik/shubho-drishti-ritual.jpg",
+    src: "/portfolio/wedding/dhritidipa/bride-silk-saree.jpg",
     alt: "Sritikuthi The Wedding Tales documentary wedding photography",
   },
   team: {
-    src: "/portfolio/wedding/anirban-debopriya/groom-topor.jpg",
+    src: "/portfolio/wedding/anirban-debopriya/mandap-portrait.jpg",
     alt: "Wedding creative photography session by Shiladitya and team",
   },
   contact: {
-    src: "/portfolio/wedding/sneha-koushik/bridal-crimson-mukut.jpg",
+    src: "/portfolio/wedding/sneha-koushik/wedding-portrait.jpg",
     alt: "Candid Kolkata wedding love story",
   },
 };
