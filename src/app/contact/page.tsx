@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Navigation, MapPin } from "lucide-react";
 import { images } from "@/data/images";
 import { siteConfig } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { ConsultationForm } from "@/components/forms/ConsultationForm";
+import { GoogleMapSection } from "@/components/sections/GoogleMapSection";
 import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 
 export const metadata: Metadata = {
@@ -14,6 +15,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const whatsappMessage = encodeURIComponent("Hello স্মৃতিকুঠি_The Wedding Tales, I would like to enquire about a celebration.");
+  const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    `${siteConfig.name}, ${siteConfig.address}`
+  )}`;
+
   const faqs = [
     ["How far in advance should we book?", "For weddings, enquire as soon as your date is fixed. Popular winter and festive dates are best reserved early."],
     ["Do you travel?", `Yes. We serve ${siteConfig.locations.join(", ")}.`],
@@ -50,8 +55,11 @@ export default function ContactPage() {
               <a href={`tel:${siteConfig.primaryPhone}`} className="inline-flex min-h-12 items-center rounded-xl border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
                 Call Now
               </a>
-              <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center rounded-xl border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
-                Google Maps
+              <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-1.5 rounded-xl bg-crimson-gradient px-5 text-xs font-bold uppercase tracking-[0.18em] !text-white shadow-crimson-glow transition-all hover:scale-105">
+                <Navigation size={14} /> Get Directions
+              </a>
+              <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-1.5 rounded-xl border border-[var(--fine-border)] px-4 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
+                <MapPin size={14} /> Google Maps
               </a>
             </div>
           </aside>
@@ -62,6 +70,7 @@ export default function ContactPage() {
           </FadeIn>
         </div>
       </MotionSection>
+      <GoogleMapSection variant="contact" />
       <MotionSection className="bg-[var(--sand)] py-20">
         <StaggerGroup className="container-editorial grid gap-8 md:grid-cols-3">
           {faqs.map(([question, answer]) => (

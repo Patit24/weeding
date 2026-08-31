@@ -19,6 +19,7 @@ import { HomeGalleryBento } from "@/components/sections/HomeGalleryBento";
 import { GoogleReviews } from "@/components/sections/GoogleReviews";
 import { ClientVideoReviews } from "@/components/sections/ClientVideoReviews";
 import { TeamSection } from "@/components/sections/TeamSection";
+import { GoogleMapSection } from "@/components/sections/GoogleMapSection";
 import { formatDate } from "@/lib/utils";
 
 export default function Home() {
@@ -217,6 +218,7 @@ export default function Home() {
           </StaggerGroup>
         </div>
       </MotionSection>
+      <GoogleMapSection />
       <CTASection />
     </>
   );
