@@ -10,26 +10,51 @@ export function HeroKineticTitle() {
   const { openModal } = useAvailabilityModal();
 
   return (
-    <div className="relative w-full overflow-hidden bg-[#FBF8F3] pt-28 pb-12 lg:pt-36 lg:pb-16">
-      {/* 🌟 100% SEAMLESS SINGLE MASTER CANVAS BACKGROUND */}
-      <div className="absolute inset-0 -z-10 select-none">
+    <div className="relative w-full overflow-hidden bg-[#FAF7F2] pt-28 pb-12 lg:pt-36 lg:pb-16">
+      {/* 🌸 1. TOP-LEFT HANGING FLORAL BRANCH (TRANSPARENT PNG) */}
+      <div className="pointer-events-none absolute top-0 left-0 w-56 sm:w-72 md:w-88 lg:w-[420px] select-none z-0">
         <Image
-          src="/hero-seamless-master.jpg"
-          alt="Victoria Memorial and heritage botanical canvas"
-          fill
+          src="/hero-floral-top-left.png"
+          alt="Vintage floral branch"
+          width={420}
+          height={315}
           priority
-          sizes="100vw"
-          className="object-cover object-center"
+          className="h-auto w-full object-contain"
         />
       </div>
 
+      {/* 🏛️ 2. BOTTOM-LEFT VICTORIA MEMORIAL MONUMENT WITH ROSES (TRANSPARENT PNG) */}
+      <div className="pointer-events-none absolute bottom-0 left-0 w-60 sm:w-76 md:w-[380px] lg:w-[460px] select-none z-0">
+        <Image
+          src="/hero-victoria-left.png"
+          alt="Victoria Memorial Kolkata with peach watercolor roses"
+          width={460}
+          height={613}
+          priority
+          className="h-auto w-full object-contain"
+        />
+      </div>
+
+      {/* 🏰 3. RIGHT MUGHAL ARCHWAY WITH BOTANICAL ROSES (TRANSPARENT PNG) */}
+      <div className="pointer-events-none absolute top-6 sm:top-10 right-0 w-60 sm:w-80 md:w-[400px] lg:w-[480px] select-none z-0">
+        <Image
+          src="/hero-arch-right.png"
+          alt="Classical Mughal archway with peach floral vines"
+          width={480}
+          height={640}
+          priority
+          className="h-auto w-full object-contain"
+        />
+      </div>
+
+      {/* 🌟 4. CENTER EDITORIAL HEADLINE & CONTENT */}
       <div className="container-editorial relative z-10 flex flex-col items-center text-center">
-        {/* 🌸 1. TOP HERITAGE PILL BADGE */}
+        {/* 🌸 Top Heritage Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2.5 rounded-full border border-[#D9CDBD] bg-[#FBF8F3]/80 px-6 py-1.5 shadow-xs backdrop-blur-xs"
+          className="inline-flex items-center gap-2.5 rounded-full border border-[#D9CDBD] bg-[#FAF7F2]/90 px-6 py-1.5 shadow-xs backdrop-blur-xs"
         >
           <span className="text-xs text-[#8B1E1E]">🌸</span>
           <span className="serif text-xs font-bold uppercase tracking-[0.24em] text-[#8B1E1E]">
@@ -41,7 +66,7 @@ export function HeroKineticTitle() {
           </span>
         </motion.div>
 
-        {/* 📜 2. SUB-HEADING */}
+        {/* 📜 Sub-heading */}
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +76,7 @@ export function HeroKineticTitle() {
           Where Every Detail Becomes A Memory
         </motion.p>
 
-        {/* 👑 3. GRAND DUAL-TONE HEADLINE */}
+        {/* 👑 Grand Dual-Tone Headline */}
         <motion.div
           initial={{ opacity: 0, scale: 0.97, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -66,7 +91,7 @@ export function HeroKineticTitle() {
           </span>
         </motion.div>
 
-        {/* ⚜️ 4. VINTAGE ORNATE GOLDEN DIVIDER */}
+        {/* ⚜️ Vintage Ornate Golden Divider */}
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
@@ -80,7 +105,7 @@ export function HeroKineticTitle() {
           <span className="h-px w-20 sm:w-28 bg-[#C5B49E]/70" />
         </motion.div>
 
-        {/* 💬 5. CALL TO ACTION BUTTON */}
+        {/* 💬 Call To Action Button */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,12 +124,12 @@ export function HeroKineticTitle() {
           </button>
         </motion.div>
 
-        {/* 🌟 6. SUB-HERO INTRO RIBBON */}
+        {/* 🌟 5. Sub-Hero Intro Ribbon */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-12 w-full max-w-5xl rounded-3xl border border-[#D9CDBD] bg-[#FDFBF7]/90 p-4 sm:p-5 shadow-lg backdrop-blur-md"
+          className="mt-12 w-full max-w-5xl rounded-3xl border border-[#D9CDBD] bg-[#FAF7F2]/95 p-4 sm:p-5 shadow-lg backdrop-blur-md"
         >
           <div className="flex flex-col md:flex-row items-center justify-between gap-5 text-center md:text-left">
             {/* Left: Icon & Catchphrase */}
