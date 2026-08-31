@@ -58,15 +58,15 @@ export const teamRoleConfigs: Record<TeamRole, RoleConfig> = {
   candidPhotographer: {
     key: "candidPhotographer",
     label: "Candid Photographer",
-    fullDayRate: 8500,
-    halfDayRate: 5000,
+    fullDayRate: 6000,
+    halfDayRate: 6000,
     maxCount: 4,
   },
   cinematographer: {
     key: "cinematographer",
     label: "Cinematographer",
-    fullDayRate: 9500,
-    halfDayRate: 5500,
+    fullDayRate: 6000,
+    halfDayRate: 6000,
     maxCount: 4,
   },
   traditionalPhotographer: {
@@ -236,7 +236,7 @@ export const standardFunctions: EventFunctionConfig[] = [
     defaultType: "half",
     tagline: "Annaprasan & Baby Milestone",
     shortDescription: "Traditional baby Mukhebhaat rituals, chandan phota and family portraits.",
-    image: images.cta,
+    image: images.riceCeremony,
     allowedDurations: ["Half Day", "Full Day"],
     defaultDuration: "Half Day",
     defaultTeam: {
@@ -317,22 +317,22 @@ export const deliverableOptions: DeliverableOption[] = [
   {
     id: "album-premium",
     name: "Premium Wedding Heirloom Album (40 Pages)",
-    price: 7000,
+    price: 15000,
     description: "Handcrafted Italian photobook with acrylic/velvet presentation box",
     popular: true,
   },
   {
     id: "teaser-film",
     name: "Teaser / Highlight Cinematic Film (3–5 Mins)",
-    price: 4000,
+    price: 5000,
     description: "Color-graded 4K cinematic highlight set to licensed music",
     popular: true,
   },
   {
     id: "reels-pack",
-    name: "Social Media Reels Pack (4–6 Edits)",
-    price: 3500,
-    description: "Vertical 9:16 high-impact reels formatted for Instagram",
+    name: "Social Media Reels (Per Reel)",
+    price: 5000,
+    description: "Vertical 9:16 high-impact cinematic reels formatted for Instagram",
     popular: true,
   },
   {

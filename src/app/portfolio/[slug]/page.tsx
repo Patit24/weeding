@@ -26,19 +26,49 @@ export default async function PortfolioDetailPage({ params }: Props) {
 
   return (
     <>
-      <MotionSection className="relative min-h-[82vh] overflow-hidden bg-[var(--espresso)] text-[var(--warm-ivory)]">
-        <SlowZoom className="absolute inset-0">
-          <Image src={item.cover.src} alt={item.cover.alt} fill priority sizes="100vw" className="object-cover opacity-62" />
-        </SlowZoom>
-        <div className="absolute inset-0 bg-[rgba(41,35,31,0.44)]" />
-        <div className="container-editorial relative flex min-h-[82vh] items-end pb-16 pt-32">
-          <FadeIn>
-            <p className="eyebrow text-[rgba(247,243,236,0.74)]">{item.category} · {item.location}</p>
-            <h1 className="serif mt-5 text-[clamp(4rem,10vw,9rem)] leading-[0.86]">{item.title}</h1>
-          </FadeIn>
+      <MotionSection className="relative border-b border-[var(--fine-border)] bg-gradient-to-b from-[var(--warm-ivory)] via-[var(--soft-white)] to-[var(--warm-ivory)] py-14 lg:py-20 text-[var(--espresso)]">
+        <div className="container-editorial">
+          <Breadcrumbs items={[{ href: "/portfolio", label: "Portfolio" }, { href: `/portfolio/${item.slug}`, label: item.title }]} />
+          
+          <div className="mt-8 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <FadeIn className="space-y-6">
+              <div className="inline-flex items-center gap-2.5 rounded-full border border-[var(--gold-border)] bg-[var(--soft-white)] px-4 py-1.5 shadow-sm">
+                <span className="h-2 w-2 rounded-full bg-[var(--crimson)]" />
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[var(--espresso)]">
+                  {item.category} · {item.location}
+                </span>
+              </div>
+
+              <h1 className="serif text-[clamp(3rem,6vw,5.8rem)] font-normal leading-[0.94] text-[var(--espresso)]">
+                {item.title}
+              </h1>
+
+              <p className="max-w-xl text-lg leading-8 text-[var(--muted)]">
+                {item.story}
+              </p>
+
+              <div className="grid grid-cols-3 gap-3 border-y border-[var(--fine-border)] py-4 text-xs">
+                <div>
+                  <span className="block font-bold text-[var(--espresso)]">Date</span>
+                  <span className="text-[0.68rem] text-[var(--muted)]">{item.date}</span>
+                </div>
+                <div className="border-x border-[var(--fine-border)] px-3">
+                  <span className="block font-bold text-[var(--crimson)]">Services</span>
+                  <span className="text-[0.68rem] text-[var(--muted)]">{item.services.slice(0, 2).join(", ")}</span>
+                </div>
+                <div className="pl-3">
+                  <span className="block font-bold text-amber-700">Location</span>
+                  <span className="text-[0.68rem] text-[var(--muted)] line-clamp-1">{item.location}</span>
+                </div>
+              </div>
+            </FadeIn>
+
+            <ImageReveal className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-[var(--gold-border)] shadow-2xl">
+              <Image src={item.cover.src} alt={item.cover.alt} fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+            </ImageReveal>
+          </div>
         </div>
       </MotionSection>
-      <Breadcrumbs items={[{ href: "/portfolio", label: "Portfolio" }, { href: `/portfolio/${item.slug}`, label: item.title }]} />
       <MotionSection className="py-20">
         <div className="container-editorial grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
           <FadeIn className="space-y-5 text-sm text-[var(--muted)]">

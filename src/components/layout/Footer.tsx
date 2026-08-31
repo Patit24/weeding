@@ -28,7 +28,7 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link className="link-underline text-[rgba(247,243,236,0.82)] hover:text-white transition-colors" href={link.href}>
+                <Link className="text-[rgba(247,243,236,0.82)] transition-colors duration-200 hover:text-[var(--gold-light)] hover:translate-x-0.5 inline-block" href={link.href}>
                   {link.label}
                 </Link>
               </li>
@@ -40,7 +40,7 @@ export function Footer() {
           <ul className="mt-5 space-y-3 text-sm">
             {serviceLinks.map((link) => (
               <li key={link.href}>
-                <Link className="link-underline text-[rgba(247,243,236,0.82)] hover:text-white transition-colors" href={link.href}>
+                <Link className="text-[rgba(247,243,236,0.82)] transition-colors duration-200 hover:text-[var(--gold-light)] hover:translate-x-0.5 inline-block" href={link.href}>
                   {link.label}
                 </Link>
               </li>
@@ -81,7 +81,7 @@ export function Footer() {
       </div>
       <div className="container-editorial mt-14 flex flex-col gap-3 border-t border-[rgba(247,243,236,0.18)] pt-6 text-xs text-[rgba(247,243,236,0.6)] sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} {siteConfig.name}. All rights reserved.</p>
-        <Link className="link-underline hover:text-white" href="/privacy">Privacy Policy</Link>
+        <Link className="transition-colors hover:text-white" href="/privacy">Privacy Policy</Link>
       </div>
     </footer>
   );

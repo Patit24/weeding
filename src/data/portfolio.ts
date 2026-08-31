@@ -1,6 +1,6 @@
-import { images, preWeddingGalleries, type ImageAsset } from "./images";
+import { images, preWeddingGalleries, weddingGalleries, riceCeremonyGalleries, type ImageAsset } from "./images";
 
-export type PortfolioCategory = "Weddings" | "Pre-Weddings" | "Films" | "Event Design" | "Corporate Events";
+export type PortfolioCategory = "Weddings" | "Pre-Weddings" | "Rice Ceremonies" | "Films" | "Event Design" | "Corporate Events";
 
 export type PortfolioItem = {
   slug: string;
@@ -18,6 +18,66 @@ export type PortfolioItem = {
 };
 
 export const portfolioItems: PortfolioItem[] = [
+  {
+    slug: "anirban-debopriya-bengali-wedding",
+    title: "Anirban & Debopriya",
+    location: "Heritage Mandap, South Kolkata",
+    date: "February 2026",
+    category: "Weddings",
+    cover: weddingGalleries.anirbanDebopriya.cover,
+    gallery: weddingGalleries.anirbanDebopriya.photos,
+    services: ["Traditional Bengali Wedding", "Shubho Drishti Rituals", "4K Cinematic Film", "Heirloom Photo Album"],
+    story:
+      "A soulful Bengali wedding celebration marked by sacred conch blowing (Shankhadhwani), traditional Shubho Drishti betel leaf ritual, the groom in Topor, and glowing reception portraits.",
+    quote: "Sritikuthi captured our Shubho Drishti and wedding rituals with such breathtaking authenticity and warmth.",
+    credits: ["Venue: Heritage Mandap, Kolkata", "Ritual Styling: Traditional Bengali Banarasi & Topor", "Photography & Films: Sritikuthi The Wedding Tales"],
+    nextProject: "sneha-koushik-regal-wedding",
+  },
+  {
+    slug: "sneha-koushik-regal-wedding",
+    title: "Sneha & Koushik",
+    location: "Heritage Palace & Lakeside, Kolkata",
+    date: "January 2026",
+    category: "Weddings",
+    cover: weddingGalleries.snehaKoushik.cover,
+    gallery: weddingGalleries.snehaKoushik.photos,
+    services: ["Bridal Portraiture", "Shubho Drishti Documentation", "Cinematic Highlight", "Drone Aerials"],
+    story:
+      "From the dramatic crimson glow of bridal Mukut studio portraits to the heartwarming Shubho Drishti ceremony and lakeside moments, an unforgettable celebration of two souls.",
+    quote: "The bridal Mukut portraits and ritual moments look straight out of a royal Bengali painting.",
+    credits: ["Venue: Heritage Palace, Kolkata", "Bridal Crown: Traditional Bengali Mukut & Nath", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "dhritidipa-bridal-tales",
+  },
+  {
+    slug: "dhritidipa-bridal-tales",
+    title: "Dhritidipa",
+    location: "Serene Garden Vista, Kolkata",
+    date: "December 2025",
+    category: "Weddings",
+    cover: weddingGalleries.dhritidipa.cover,
+    gallery: weddingGalleries.dhritidipa.photos,
+    services: ["Bridal Solo Session", "Ritual Portraiture", "Art Direction"],
+    story:
+      "Graceful Mukut elegance, traditional turquoise-magenta silk sarees, and candid joy as confetti and leaves shower over a radiant Bengali bride.",
+    quote: "Every frame brings back the unhurried joy and blessings of our special day.",
+    credits: ["Location: Botanical Gardens, Kolkata", "Attire: Handwoven Silk Saree & Gold Ornaments", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "aarav-annaprashan-rice-ceremony",
+  },
+  {
+    slug: "aarav-annaprashan-rice-ceremony",
+    title: "Baby Aarav's Rice Ceremony",
+    location: "Private Residence & Studio, Kolkata",
+    date: "January 2026",
+    category: "Rice Ceremonies",
+    cover: riceCeremonyGalleries.aaravAnnaprashan.cover,
+    gallery: riceCeremonyGalleries.aaravAnnaprashan.photos,
+    services: ["Annaprashan Ceremony", "Infant Portraiture", "Candid Family Moments", "Keepsake Photobook"],
+    story:
+      "Celebrating baby's first taste of solid food (Mukhebhaat) with sweet smiles, glowing fairy light teepee setups, cuddly plush toys, and warm blessings from grandparents and mama.",
+    quote: "Shiladitya and his team were so patient and gentle with our baby. The pictures are pure magic!",
+    credits: ["Setup: Cozy fairy light teepee & plushies", "Styling: Traditional Peach & Pink Infant Attire", "Photography: Sritikuthi The Wedding Tales"],
+    nextProject: "sneha-somnath-kolkata-prewedding",
+  },
   {
     slug: "sneha-somnath-kolkata-prewedding",
     title: "Sneha & Somnath",
@@ -139,18 +199,18 @@ export const portfolioItems: PortfolioItem[] = [
     nextProject: "sneha-somnath-kolkata-prewedding",
   },
   {
-    slug: "basu-family-annaprasan",
+    slug: "basu-family-gathering",
     title: "The Basu Family Gathering",
     location: "Kolkata",
     date: "August 2025",
     category: "Event Design",
-    cover: images.planning,
-    gallery: [images.planning, images.cta, images.featuredWide, images.event],
+    cover: images.event,
+    gallery: [images.event, images.mosaicTwo, images.planning, images.featuredWide],
     services: ["Décor & Styling", "Event Management", "Photography"],
     story:
       "An intimate family dinner with heirloom textiles, low florals, and a hosting plan that let every guest feel personally welcomed.",
     quote: "Every detail felt like it belonged to our family.",
-    credits: ["Venue: Private home", "Décor: Sritikuthi direction", "Catering: Client partner"],
+    credits: ["Venue: Private heritage banquet", "Décor: Sritikuthi direction", "Catering: Client partner"],
     nextProject: "heritage-brand-dinner",
   },
   {
@@ -166,13 +226,14 @@ export const portfolioItems: PortfolioItem[] = [
       "A brand dinner shaped around tactile materials, measured guest flow, and photography that felt editorial without interrupting conversation.",
     quote: "The event looked refined and ran with no visible friction.",
     credits: ["Client: Independent design atelier", "Production: Sritikuthi The Wedding Tales", "Location: Mumbai"],
-    nextProject: "sneha-somnath-kolkata-prewedding",
+    nextProject: "anirban-debopriya-bengali-wedding",
   },
 ];
 
-export const portfolioCategories = ["All", "Pre-Weddings", "Weddings", "Films", "Event Design", "Corporate Events"] as const;
+export const portfolioCategories = ["All", "Weddings", "Pre-Weddings", "Rice Ceremonies", "Films", "Event Design", "Corporate Events"] as const;
 
 export function getPortfolioItem(slug: string) {
   return portfolioItems.find((item) => item.slug === slug);
 }
+
 

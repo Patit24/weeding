@@ -1144,10 +1144,12 @@ export function RateCalculator() {
                 </a>
                 
                 <a
-                  href="/contact"
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-[var(--gold-border)] bg-[rgba(255,255,255,0.06)] hover:bg-crimson-gradient hover:border-transparent px-6 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] transition-all active:scale-95"
                 >
-                  <span>Book Formal Consultation</span>
+                  <span>Chat &amp; Lock Dates on WhatsApp</span>
                 </a>
               </div>
 

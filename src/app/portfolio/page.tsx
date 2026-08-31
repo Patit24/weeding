@@ -12,8 +12,15 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <PageHero eyebrow="Portfolio" title="Stories with texture, people, and place." intro="Browse Bengali weddings, films, pre-wedding sessions, private events, and design-led gatherings shaped by Sritikuthi." image={images.mosaicOne} />
-      <MotionSection className="py-24">
+      <PageHero
+        eyebrow="Portfolio & Archives"
+        title="Stories with texture, people, and place."
+        intro="Browse authentic Bengali weddings, sacred Shubho Drishti rituals, pre-wedding couple films, and heirloom celebrations framed by Sritikuthi."
+        image={images.featuredPortrait}
+        ctaText="Explore Celebrations"
+        ctaHref="#portfolio-grid"
+      />
+      <MotionSection id="portfolio-grid" className="py-20 lg:py-28">
         <div className="container-editorial">
           <PortfolioGrid />
         </div>

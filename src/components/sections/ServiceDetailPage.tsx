@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { portfolioItems } from "@/data/portfolio";
 import { services } from "@/data/services";
+import { getWhatsAppUrl } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { CTASection } from "@/components/sections/CTASection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -13,10 +14,17 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
   if (!service) notFound();
   const related = portfolioItems.filter((item) => {
     if (slug === "pre-wedding") return item.category === "Pre-Weddings";
-    if (slug === "wedding" || slug === "wedding-photography") return item.category === "Weddings";
-    if (slug === "wedding-films") return item.category === "Films";
+    if (slug === "wedding" || slug === "wedding-photography" || slug === "wedding-planning") return item.category === "Weddings";
+    if (slug === "wedding-films") return item.category === "Films" || item.category === "Weddings";
+    if (slug === "rice-ceremony") return item.category === "Rice Ceremonies" || item.category === "Event Design";
+    if (slug === "events" || slug === "event-management") return item.category === "Event Design" || item.category === "Corporate Events";
     return true;
-  }).slice(0, slug === "pre-wedding" ? 6 : 4);
+  }).slice(0, 6);
+
+  const samplePhotos = [
+    service.image,
+    ...related.flatMap((item) => item.gallery),
+  ].filter((img, idx, arr) => arr.findIndex((x) => x.src === img.src) === idx).slice(0, 6);
 
   return (
     <>
@@ -55,7 +63,7 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
         <div className="container-editorial">
           <FadeIn><h2 className="serif text-6xl text-[var(--espresso)]">Sample gallery</h2></FadeIn>
           <StaggerGroup className="mt-10 grid gap-5 md:grid-cols-3">
-            {[service.image, ...related.map((item) => item.cover)].slice(0, 6).map((image, index) => (
+            {samplePhotos.map((image, index) => (
               <ImageReveal delay={index * 0.08} className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-sm" key={`${image.src}-${index}`}>
                 <Image src={image.src} alt={image.alt} fill sizes="33vw" className="object-cover" />
               </ImageReveal>
@@ -98,7 +106,11 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
               </StaggerItem>
             ))}
           </StaggerGroup>
-          <FadeIn delay={0.16}><ButtonLink href="/contact" className="mt-10">Enquire About This Service</ButtonLink></FadeIn>
+          <FadeIn delay={0.16}>
+            <ButtonLink href={getWhatsAppUrl(`Hello Shiladitya, I would like to enquire about ${service.title} with স্মৃতিকুঠি The Wedding Tales.`)} className="mt-10">
+              Enquire About This Service
+            </ButtonLink>
+          </FadeIn>
         </div>
       </MotionSection>
       <CTASection />

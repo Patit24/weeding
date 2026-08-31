@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { images } from "@/data/images";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { useAvailabilityModal } from "@/components/ui/AvailabilityModal";
 import { FadeIn, MotionSection, SlowZoom } from "@/components/ui/Motion";
 
 export function CTASection() {
+  const { openModal } = useAvailabilityModal();
+
   return (
     <MotionSection className="relative overflow-hidden bg-royal-espresso py-28 text-[var(--warm-ivory)] border-t border-[var(--gold-border)]">
       <SlowZoom className="absolute inset-0">
@@ -21,9 +27,16 @@ export function CTASection() {
         <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(247,243,236,0.85)]">
           Tell us about your wedding, pre-wedding dreams, or sacred celebration in Kolkata or destination, and we will craft heirloom memories.
         </p>
-        <div className="mt-9 flex flex-wrap gap-4">
-          <ButtonLink href="/contact" variant="gold">Begin Your Story</ButtonLink>
-          <ButtonLink href="/pricing" variant="light">Calculate Investment</ButtonLink>
+        <div className="mt-9 flex flex-wrap items-center gap-4">
+          <button
+            type="button"
+            onClick={() => openModal()}
+            className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-white/20 bg-crimson-gradient px-7 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white shadow-crimson-glow transition-all duration-300 hover:brightness-110 hover:shadow-xl hover:scale-[1.02] active:scale-95 cursor-pointer"
+          >
+            <span>Check Availability &amp; Dates</span>
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </button>
+          <ButtonLink href="/#rate-calculator" variant="outline-light">Calculate Custom Package</ButtonLink>
         </div>
       </FadeIn>
     </MotionSection>

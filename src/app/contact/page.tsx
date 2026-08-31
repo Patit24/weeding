@@ -24,7 +24,14 @@ export default function ContactPage() {
   ];
   return (
     <>
-      <PageHero eyebrow="Contact" title="Begin with a quiet conversation." intro="Share where you are in the planning process. We will respond with next steps, availability, and a thoughtful way forward." image={images.contact} />
+      <PageHero
+        eyebrow="Direct Studio Booking"
+        title="Begin with a thoughtful conversation."
+        intro="Share your wedding date, venue, and vision. We will respond within 24 hours with custom packages, date availability, and tailored recommendations."
+        image={images.contact}
+        ctaText="Direct WhatsApp Chat"
+        ctaHref={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`}
+      />
       <MotionSection className="py-24">
         <div className="container-editorial grid gap-12 lg:grid-cols-[0.72fr_1.28fr]">
           <aside>

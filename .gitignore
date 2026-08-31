@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/dist/
 
 # production
 /build
@@ -23,6 +24,12 @@
 # misc
 .DS_Store
 *.pem
+
+# raw local source asset dumps (kept in public/ instead)
+/*.mp4
+/Pre Wedding/
+/Rice Ceremony/
+/Wedd 3/
 
 # debug
 npm-debug.log*

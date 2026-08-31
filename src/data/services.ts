@@ -17,14 +17,14 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "wedding",
-    title: "Wedding",
+    title: "Wedding Photography & Films",
     eyebrow: "Sacred rituals, candid tears, timeless heirloom stories",
     description:
-      "Documentary-led wedding photography and cinematography for traditional Bengali, luxury, and destination weddings. From Gaye Holud, Borjatri, and Sindoor Daan to the Bou Bhat reception, every glance and emotion is captured with artistic reverence.",
+      "Documentary-led wedding photography and cinematography for traditional Bengali, luxury, and destination weddings. From Gaye Holud, Borjatri, and Shubho Drishti to Sindoor Daan and Bou Bhat reception, every glance and emotion is captured with artistic reverence.",
     image: images.photography,
     href: "/services/wedding",
     deliverables: [
-      "Full-day multi-camera coverage",
+      "Full-day multi-camera candid coverage",
       "Edited high-resolution candid gallery",
       "4K cinematic highlight teaser (3–5 mins)",
       "Traditional chaptered ceremony film (60–90 mins)",
@@ -39,12 +39,75 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "wedding-photography",
+    title: "Wedding Photography",
+    eyebrow: "Authentic Bengali traditions, Shubho Drishti & candid emotions",
+    description:
+      "Fine-art documentary wedding photography capturing every sacred ritual, emotional glance, and heartfelt family tear. We focus on natural light, authentic laughter, and vibrant Bengali wedding traditions.",
+    image: images.photography,
+    href: "/services/wedding-photography",
+    deliverables: [
+      "Full-day lead candid coverage",
+      "Traditional ritual documentation",
+      "800+ color-graded high-res master portraits",
+      "Heirloom archival photo album",
+    ],
+    process: ["Consultation & shot list", "Rituals coverage", "Candid portrait session", "Album curation"],
+    inclusions: ["Lead photographer", "Associate photographer", "High-res gallery", "Custom leather album"],
+    addOns: ["Express sneak peek", "Extra photographer", "Drone photography"],
+    faqs: [
+      { question: "Do you capture formal family portraits?", answer: "Yes, along with artistic candid moments, we ensure all traditional family group portraits are cleanly captured." },
+    ],
+  },
+  {
+    slug: "wedding-films",
+    title: "Wedding Films",
+    eyebrow: "4K cinematic trailers, vows & timeless ceremony cinema",
+    description:
+      "Emotionally rich 4K cinematic wedding films and chaptered ceremony features. We weave authentic audio, vows, traditional music, and golden visuals into an unforgettable filmic legacy.",
+    image: images.films,
+    href: "/services/wedding-films",
+    deliverables: [
+      "4K cinematic highlight film (3–5 mins)",
+      "Full-length ceremony feature film",
+      "Vertical social media teaser reels (9:16)",
+      "Licensed soundtrack audio mastering",
+    ],
+    process: ["Audio recording prep", "Multi-camera filming", "Color grading & sound design", "Client review & 4K delivery"],
+    inclusions: ["Lead cinematographer", "Gimbal operator", "Dedicated sound recording", "4K master export"],
+    addOns: ["Drone cinematography", "Raw footage hard drive", "Same-day edit preview"],
+    faqs: [
+      { question: "Can we select our own music for the film?", answer: "We collaborate closely on musical moodboards and provide licensed soundtracks that elevate your wedding film." },
+    ],
+  },
+  {
+    slug: "wedding-planning",
+    title: "Wedding Planning",
+    eyebrow: "Vendor curation, timeline coordination & calm execution",
+    description:
+      "End-to-end wedding planning, vendor management, and day-of coordination. We handle logistics, venue styling, scheduling, and hospitality so you and your families can celebrate without stress.",
+    image: images.planning,
+    href: "/services/wedding-planning",
+    deliverables: [
+      "Vendor curation & contract negotiation",
+      "Complete ritual timeline & schedule",
+      "Hospitality & guest coordination",
+      "On-site wedding day director team",
+    ],
+    process: ["Vision & budget alignment", "Vendor scouting", "Timeline drafting", "Flawless day-of execution"],
+    inclusions: ["Dedicated lead planner", "On-site coordination staff", "Vendor point of contact"],
+    addOns: ["Guest RSVP management", "Destination logistics & hospitality", "Custom gifting curation"],
+    faqs: [
+      { question: "When should we hire a wedding planner?", answer: "Ideally 4 to 8 months before the wedding to lock in preferred venues and trusted vendor partners." },
+    ],
+  },
+  {
     slug: "pre-wedding",
     title: "Pre-Wedding",
     eyebrow: "Cinematic, relaxed & editorial couple sessions",
     description:
-      "Creative concept-driven pre-wedding photography and cinematic music videos. Whether in historic Kolkata streets, Shantiniketan red earth, tea gardens of Darjeeling, or a heritage palace stay, we design comfortable, unposed sessions that celebrate your connection.",
-    image: images.mosaicOne,
+      "Creative concept-driven pre-wedding photography and cinematic music videos. Whether in historic Kolkata streets, Ganges river ghats, green woodlands, or heritage palaces, we design comfortable, unposed sessions that celebrate your connection.",
+    image: images.hero,
     href: "/services/pre-wedding",
     deliverables: [
       "1 or 2-day outdoor styled session",
@@ -66,22 +129,23 @@ export const services: Service[] = [
     title: "Rice Ceremony",
     eyebrow: "Annaprasan · Mukhebhaat · Sacred childhood milestones",
     description:
-      "Gentle, patient, and joyful documentation of your baby's first solid food milestone. From traditional sandalwood makeup (Chandan phota) and mama's blessing to playful family moments and baby portraits, we preserve this tender cultural tradition with utmost warmth.",
-    image: images.cta,
+      "Gentle, patient, and joyful documentation of your baby's first solid food milestone. From fairy light teepee baby portraits, cozy plushies, and Sandalwood teep to traditional mama's blessings and playful family smiles, we preserve this tender cultural milestone with utmost warmth.",
+    image: images.riceCeremony,
     href: "/services/rice-ceremony",
     deliverables: [
+      "Baby portraiture & teepee light setup",
       "Ritual & guest reception coverage",
       "Dedicated baby & parents portrait session",
       "150+ color-graded high-res photos",
       "Short emotional celebration highlight reel",
       "Custom baby keepsake photobook",
     ],
-    process: ["Schedule around baby's sleep & meal time", "Quiet ritual documentation", "Candid family coverage", "Prompt gallery delivery"],
-    inclusions: ["Candid & traditional photographer", "Gentle lighting suitable for infants", "High-res edited gallery"],
-    addOns: ["Traditional video coverage", "Parent mini-albums", "Same-day photo sneak peek"],
+    process: ["Schedule around baby's sleep & meal time", "Gentle ambient lighting setup", "Quiet ritual documentation", "Prompt gallery delivery"],
+    inclusions: ["Candid & traditional photographer", "Infant-safe warm soft lighting", "High-res edited gallery", "Online sharing link"],
+    addOns: ["Cinematic video highlight reel", "Grandparent mini-albums", "Same-day photo sneak peek"],
     faqs: [
-      { question: "How do you manage if the baby gets cranky?", answer: "We work around the baby's comfort, taking breaks whenever needed with zero rush." },
-      { question: "Can we include outdoor family portraits?", answer: "Yes, we can do a brief intimate portrait session before the ceremony begins." },
+      { question: "How do you manage if the baby gets cranky?", answer: "We work around the baby's comfort and sleep cycles, taking pauses whenever needed with zero rush." },
+      { question: "Can we include sibling & grandparent portraits?", answer: "Yes! Family connection and blessings from elders are at the heart of our Annaprashan documentation." },
     ],
   },
   {
@@ -103,6 +167,27 @@ export const services: Service[] = [
     addOns: ["Cinematography & interviews", "Live streaming", "Same-day event highlight reel", "Photo booth setup"],
     faqs: [
       { question: "What is your turnaround time for event photos?", answer: "Standard delivery is within 5 to 7 business days, with urgent 24-hr previews available on request." },
+    ],
+  },
+  {
+    slug: "event-management",
+    title: "Event Management",
+    eyebrow: "Hospitality, vendor logistics & seamless celebration hosting",
+    description:
+      "Comprehensive event design, staging, and on-ground management for corporate galas, intimate cultural dinners, and large-scale celebrations.",
+    image: images.event,
+    href: "/services/event-management",
+    deliverables: [
+      "Venue setup & stage décor coordination",
+      "Sound, light & audiovisual management",
+      "Guest reception & hospitality desk",
+      "Real-time event running order execution",
+    ],
+    process: ["Consultation & site visit", "Vendor scheduling", "Rehearsal & setup", "Live event supervision"],
+    inclusions: ["Senior event coordinator", "On-site crew", "Emergency logistics kit"],
+    addOns: ["Celebrity & artist management", "Custom printed signage", "VIP transport logistics"],
+    faqs: [
+      { question: "Do you handle both indoor and outdoor events?", answer: "Yes, from banquet halls to open lawns, we manage full production setup." },
     ],
   },
   {
@@ -193,4 +278,7 @@ export const services: Service[] = [
   },
 ];
 
-export const overviewServices = [...services];
+export const overviewServices = services.filter((s) =>
+  ["wedding", "pre-wedding", "rice-ceremony", "events", "wedding-films"].includes(s.slug)
+);
+

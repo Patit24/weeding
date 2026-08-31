@@ -61,3 +61,10 @@ export const allServiceNames = [
   "Model Shoot & Fashion Portfolio",
   "Commercial & Product Photography",
 ] as const;
+
+export const getWhatsAppUrl = (message?: string) => {
+  const text = message || "Hello Shiladitya, I would like to check availability and book a wedding photography shoot with স্মৃতিকুঠি The Wedding Tales.";
+  return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;
+};
+
+export const defaultWhatsAppUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent("Hello Shiladitya, I would like to check availability and book a wedding photography shoot with স্মৃতিকুঠি The Wedding Tales.")}`;
