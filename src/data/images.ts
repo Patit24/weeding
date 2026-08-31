@@ -17,8 +17,8 @@ export const images = {
     alt: "Authentic Bengali Wedding Shubho Drishti photography in Kolkata",
   },
   films: {
-    src: "/portfolio/wedding/anirban-debopriya/groom-topor.jpg",
-    alt: "Bengali Groom Anirban wearing Topor during wedding ceremony",
+    src: "/portfolio/wedding/sneha-koushik/wedding-portrait.jpg",
+    alt: "Sneha and Koushik cinematic 4K Bengali wedding film portrait in Kolkata",
   },
   riceCeremony: {
     src: "/portfolio/rice-ceremony/baby-bokeh-lights.jpg",
