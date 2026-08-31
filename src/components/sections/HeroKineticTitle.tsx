@@ -11,23 +11,46 @@ export function HeroKineticTitle() {
   const { openModal } = useAvailabilityModal();
 
   return (
-    <div className="relative w-full overflow-hidden pt-28 pb-16 lg:pt-36 lg:pb-24">
-      {/* 🌟 1. BACKGROUND HERITAGE BOTANICAL & ARCHITECTURAL ARTWORK */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
+    <div className="relative w-full overflow-hidden bg-[#FAF7F2] pt-28 pb-16 lg:pt-36 lg:pb-24">
+      {/* 🌸 1. TOP-LEFT HANGING BOTANICAL BRANCH */}
+      <div className="pointer-events-none absolute -top-4 -left-4 sm:-top-6 sm:-left-6 w-56 sm:w-72 md:w-88 lg:w-[420px] aspect-[4/3] mix-blend-multiply opacity-85 z-0 select-none">
         <Image
-          src="/hero-heritage-bg.jpg"
-          alt="Victoria Memorial and heritage architectural botanical background"
+          src="/hero-floral-top-left.jpg"
+          alt="Vintage floral branch"
           fill
           priority
-          sizes="100vw"
-          className="object-cover object-center opacity-80 sm:opacity-90"
+          sizes="(min-width: 1024px) 420px, 280px"
+          className="object-contain object-top-left"
         />
-        {/* Soft radial vignette for crystal clear text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(250,247,242,0.4)] via-[rgba(250,247,242,0.15)] to-[rgba(250,247,242,0.95)]" />
       </div>
 
+      {/* 🏛️ 2. BOTTOM-LEFT VICTORIA MEMORIAL WITH PEACH ROSES */}
+      <div className="pointer-events-none absolute -bottom-10 -left-6 sm:left-0 w-64 sm:w-80 md:w-[380px] lg:w-[460px] aspect-[3/4] mix-blend-multiply opacity-90 z-0 select-none">
+        <Image
+          src="/hero-victoria-left.jpg"
+          alt="Victoria Memorial Kolkata sketch with peach watercolor roses"
+          fill
+          priority
+          sizes="(min-width: 1024px) 460px, 320px"
+          className="object-contain object-bottom-left"
+        />
+      </div>
+
+      {/* 🏰 3. RIGHT MUGHAL ARCHWAY WITH BOTANICAL VINES */}
+      <div className="pointer-events-none absolute top-10 -right-6 sm:right-0 w-64 sm:w-80 md:w-[400px] lg:w-[480px] aspect-[3/4] mix-blend-multiply opacity-90 z-0 select-none">
+        <Image
+          src="/hero-arch-right.jpg"
+          alt="Classical Mughal archway with peach floral vines"
+          fill
+          priority
+          sizes="(min-width: 1024px) 480px, 340px"
+          className="object-contain object-right"
+        />
+      </div>
+
+      {/* 🌟 4. CENTER EDITORIAL HEADLINE & CONTENT */}
       <div className="container-editorial relative z-10 flex flex-col items-center text-center">
-        {/* 🌸 2. TOP HERITAGE PILL BADGE */}
+        {/* 🌸 Top Heritage Pill Badge */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -44,7 +67,7 @@ export function HeroKineticTitle() {
           </span>
         </motion.div>
 
-        {/* 📜 3. SUB-HEADING */}
+        {/* 📜 Sub-heading */}
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +77,7 @@ export function HeroKineticTitle() {
           Where Every Detail Becomes A Memory
         </motion.p>
 
-        {/* 👑 4. GRAND DUAL-TONE HEADLINE */}
+        {/* 👑 Grand Dual-Tone Headline */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 15 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -69,7 +92,7 @@ export function HeroKineticTitle() {
           </span>
         </motion.div>
 
-        {/* ⚜️ 5. VINTAGE ORNATE GOLDEN DIVIDER */}
+        {/* ⚜️ Vintage Ornate Golden Divider */}
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
@@ -83,7 +106,7 @@ export function HeroKineticTitle() {
           <span className="h-px w-16 sm:w-28 bg-gradient-to-l from-transparent to-[#D4AF37]" />
         </motion.div>
 
-        {/* 💬 6. CALL TO ACTION BUTTON */}
+        {/* 💬 Call To Action Button */}
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -102,7 +125,7 @@ export function HeroKineticTitle() {
           </button>
         </motion.div>
 
-        {/* 🌟 7. SUB-HERO INTRO RIBBON */}
+        {/* 🌟 5. Sub-Hero Intro Ribbon */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
