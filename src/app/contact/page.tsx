@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { MessageCircle, Navigation, MapPin } from "lucide-react";
+import { MessageCircle, Navigation, MapPin, Phone } from "lucide-react";
 import { images } from "@/data/images";
 import { siteConfig } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
@@ -58,17 +58,39 @@ export default function ContactPage() {
               <p><strong className="text-[var(--charcoal)]">Service locations:</strong> {siteConfig.locations.join(", ")}.</p>
             </FadeIn>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--espresso)] bg-[var(--espresso)] px-5 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--warm-ivory)] transition-colors hover:bg-[var(--charcoal)]">
-                <MessageCircle size={17} /> WhatsApp
+              <a
+                href={`https://wa.me/${siteConfig.whatsapp}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#1F0E0B] px-5 text-xs font-bold uppercase tracking-[0.18em] !text-white shadow-md transition-all hover:bg-[#381B15] hover:scale-105 active:scale-95"
+              >
+                <MessageCircle size={17} className="text-[#25D366]" />
+                <span className="!text-white">WhatsApp</span>
               </a>
-              <a href={`tel:${siteConfig.primaryPhone}`} className="inline-flex min-h-12 items-center rounded-xl border border-[var(--fine-border)] px-5 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
-                Call Now
+              <a
+                href={`tel:${siteConfig.primaryPhone}`}
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--espresso)] bg-white px-5 text-xs font-bold uppercase tracking-[0.18em] !text-[var(--espresso)] shadow-xs transition-all hover:bg-[var(--warm-ivory)] hover:scale-105 active:scale-95"
+              >
+                <Phone size={15} className="text-[var(--crimson)]" />
+                <span className="!text-[var(--espresso)]">Call Now</span>
               </a>
-              <a href={directionsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-1.5 rounded-xl bg-crimson-gradient px-5 text-xs font-bold uppercase tracking-[0.18em] !text-white shadow-crimson-glow transition-all hover:scale-105">
-                <Navigation size={14} /> Get Directions
+              <a
+                href={directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-crimson-gradient px-5 text-xs font-bold uppercase tracking-[0.18em] !text-white shadow-crimson-glow transition-all hover:scale-105 active:scale-95"
+              >
+                <Navigation size={15} className="!text-white" />
+                <span className="!text-white">Get Directions</span>
               </a>
-              <a href={siteConfig.googleMaps} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center gap-1.5 rounded-xl border border-[var(--fine-border)] px-4 text-xs font-semibold uppercase tracking-[0.18em] transition-colors hover:border-[var(--espresso)]">
-                <MapPin size={14} /> Google Maps
+              <a
+                href={siteConfig.googleMaps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-[var(--gold-border)] bg-white px-5 text-xs font-bold uppercase tracking-[0.18em] !text-[var(--espresso)] shadow-xs transition-all hover:bg-[var(--warm-ivory)] hover:border-[var(--espresso)] hover:scale-105 active:scale-95"
+              >
+                <MapPin size={15} className="text-[#EA4335]" />
+                <span className="!text-[var(--espresso)]">Google Maps</span>
               </a>
             </div>
           </aside>
