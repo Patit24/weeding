@@ -33,10 +33,10 @@ export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/stories", label: "Stories" },
-  { href: "/#rate-calculator", label: "Calculator" },
+  { href: "/locations", label: "Locations" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/journal", label: "Journal" },
+  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
