@@ -59,6 +59,9 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
   },
+  verification: {
+    google: "HBKhebEKSy4yNlYwOOejItjKzYo5wggj3Up8W9CCb9U",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
