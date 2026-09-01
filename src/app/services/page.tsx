@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { images } from "@/data/images";
-import { allServiceNames } from "@/data/site";
+import { allServiceNames, siteConfig } from "@/data/site";
 import { PageHero } from "@/components/sections/PageHero";
 import { FadeIn, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 import { RateCalculator } from "@/components/sections/RateCalculator";
@@ -9,7 +9,14 @@ import { GoogleReviews } from "@/components/sections/GoogleReviews";
 
 export const metadata: Metadata = {
   title: "Services & Rate Calculator",
-  description: "Wedding photography, wedding cinematography, pre-wedding shoots, engagement, Haldi, Mehendi, Sangeet, Reception, drone, live streaming, albums, and interactive rate calculator.",
+  description: "Explore our luxury wedding photography, 4K wedding cinema, pre-wedding films, rice ceremony (annaprasan), and event management packages with our interactive rate calculator.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Services & Rate Calculator | স্মৃতিকুঠি The Wedding Tales",
+    description: "Explore our luxury wedding photography, 4K wedding cinema, pre-wedding films, rice ceremony (annaprasan), and event management packages with our interactive rate calculator.",
+    url: `${siteConfig.url}/services`,
+    images: [{ url: images.photography.src, width: 1200, height: 800, alt: "Sritikuthi Wedding Photography Services" }],
+  },
 };
 
 export default function ServicesPage() {

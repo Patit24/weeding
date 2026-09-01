@@ -142,11 +142,24 @@ export default function Home() {
         <div className="container-editorial">
           <SectionHeading eyebrow="Philosophy" title="We photograph with instinct and plan with a steady hand." />
           <StaggerGroup className="mt-12 grid gap-0 border-y border-[var(--fine-border)] lg:grid-cols-3">
-            {["Honest storytelling", "Thoughtful preparation", "Calm, personal service"].map((item, index) => (
-              <StaggerItem key={item} className="border-b border-[var(--fine-border)] py-8 lg:border-b-0 lg:border-r lg:px-8 last:lg:border-r-0">
+            {[
+              {
+                title: "Honest storytelling",
+                desc: "Preserving spontaneous laughter, tearful Sindoor Daan blessings, and unscripted intimacy without turning your sacred ceremony into a staged production.",
+              },
+              {
+                title: "Thoughtful preparation",
+                desc: "Mapping lighting, Muhurat schedules, and mandap angles weeks in advance so your family remains fully immersed in pure celebration.",
+              },
+              {
+                title: "Calm, personal service",
+                desc: "A dedicated team of senior visual artists moving with quiet precision, keeping your wedding serene, dignified, and effortless.",
+              },
+            ].map((item, index) => (
+              <StaggerItem key={item.title} className="border-b border-[var(--fine-border)] py-8 lg:border-b-0 lg:border-r lg:px-8 last:lg:border-r-0">
                 <p className="serif text-5xl text-[var(--taupe)]">0{index + 1}</p>
-                <h3 className="mt-4 text-base uppercase tracking-[0.14em] font-semibold">{item}</h3>
-                <p className="mt-3 leading-7 text-sm text-[var(--muted)]">A measured approach that keeps the day beautiful without making it feel performed.</p>
+                <h3 className="mt-4 text-base uppercase tracking-[0.14em] font-semibold">{item.title}</h3>
+                <p className="mt-3 leading-7 text-sm text-[var(--muted)]">{item.desc}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>
@@ -160,11 +173,28 @@ export default function Home() {
         <div className="container-editorial">
           <SectionHeading eyebrow="Experience" title="A considered process from first note to final gallery." />
           <StaggerGroup className="mt-10 grid gap-8 md:grid-cols-4">
-            {["Meet", "Imagine", "Create", "Remember"].map((step, index) => (
-              <StaggerItem key={step} className="border-t border-[var(--fine-border)] pt-6">
+            {[
+              {
+                step: "Meet",
+                desc: "An intimate consultation to understand your family traditions, ritual nuances, and aesthetic vision over coffee or a call.",
+              },
+              {
+                step: "Imagine",
+                desc: "Crafting tailored shot lists, timeline schedules, and mood boards synchronized with your venue's natural light.",
+              },
+              {
+                step: "Create",
+                desc: "Unobtrusive multi-angle 4K cinema and master portrait capture guided by seasoned wedding visual artists.",
+              },
+              {
+                step: "Remember",
+                desc: "Color-graded high-resolution digital galleries, cinematic 4K highlight reels, and handcrafted heirloom albums delivered to your doorstep.",
+              },
+            ].map((item, index) => (
+              <StaggerItem key={item.step} className="border-t border-[var(--fine-border)] pt-6">
                 <p className="serif text-5xl text-[var(--taupe)]">0{index + 1}</p>
-                <h3 className="mt-3 text-xs font-bold uppercase tracking-[0.18em]">{step}</h3>
-                <p className="mt-3 text-xs sm:text-sm leading-6 text-[var(--muted)]">We shape the next decision with context, care, and room for the day to remain human.</p>
+                <h3 className="mt-3 text-xs font-bold uppercase tracking-[0.18em]">{item.step}</h3>
+                <p className="mt-3 text-xs sm:text-sm leading-6 text-[var(--muted)]">{item.desc}</p>
               </StaggerItem>
             ))}
           </StaggerGroup>

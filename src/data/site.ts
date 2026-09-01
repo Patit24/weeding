@@ -7,7 +7,7 @@ export const siteConfig = {
   logoFull: "/brand-logo-full.png",
   description:
     "Professional wedding photography, cinematography, pre-wedding shoots, rice ceremony (annaprasan), events, engagement, corporate shoot, model shoot, and commercial photography across Kolkata, West Bengal, Bihar, Jharkhand, and destination locations.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://patit24.github.io/weeding",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.sritikuthitheweedingtales.com",
   email: "sritikuthi@gmail.com",
   phone: "+91 62979 07175 / +91 79082 86681",
   primaryPhone: "+916297907175",

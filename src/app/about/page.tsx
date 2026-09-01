@@ -23,8 +23,15 @@ import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@
 import { AboutHeroActions } from "@/components/sections/AboutHeroActions";
 
 export const metadata: Metadata = {
-  title: "About Shiladitya Das & Studio | স্মৃতিকুঠি The Wedding Tales",
+  title: "About Shiladitya Das & Studio",
   description: "Learn about স্মৃতিকুঠি The Wedding Tales, founded by lead storyteller Shiladitya Das. Luxury candid wedding photography, heirloom cinematography, and thoughtful celebration planning in Kolkata and pan-India.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Shiladitya Das & Studio | স্মৃতিকুঠি The Wedding Tales",
+    description: "Learn about স্মৃতিকুঠি The Wedding Tales, founded by lead storyteller Shiladitya Das. Luxury candid wedding photography, heirloom cinematography, and thoughtful celebration planning in Kolkata and pan-India.",
+    url: `${siteConfig.url}/about`,
+    images: [{ url: "/team/founder.jpg", width: 1200, height: 800, alt: "Shiladitya Das - Founder of Sritikuthi The Wedding Tales" }],
+  },
 };
 
 export default function AboutPage() {

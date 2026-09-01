@@ -8,9 +8,18 @@ import { JournalGrid } from "@/components/sections/JournalGrid";
 import { formatDate } from "@/lib/utils";
 import { FadeIn, ImageReveal, MotionSection } from "@/components/ui/Motion";
 
+import { siteConfig } from "@/data/site";
+
 export const metadata: Metadata = {
-  title: "Journal",
-  description: "Wedding planning, photography, event design, and Bengali celebration advice from Sritikuthi The Wedding Tales.",
+  title: "Journal & Wedding Planning Guides",
+  description: "Practical, editorial guidance for couples and families: Kolkata wedding photography timelines, pre-wedding shoot styling, and authentic ritual preservation.",
+  alternates: { canonical: "/journal" },
+  openGraph: {
+    title: "Journal & Wedding Planning Guides | স্মৃতিকুঠি The Wedding Tales",
+    description: "Practical, editorial guidance for couples and families: Kolkata wedding photography timelines, pre-wedding shoot styling, and authentic ritual preservation.",
+    url: `${siteConfig.url}/journal`,
+    images: [{ url: images.intro.src, width: 1200, height: 800, alt: "Sritikuthi Wedding Journal & Planning Guides" }],
+  },
 };
 
 export default function JournalPage() {

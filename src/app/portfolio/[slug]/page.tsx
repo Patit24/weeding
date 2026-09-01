@@ -12,10 +12,22 @@ export function generateStaticParams() {
   return portfolioItems.map((item) => ({ slug: item.slug }));
 }
 
+import { siteConfig } from "@/data/site";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const item = getPortfolioItem(slug);
-  return { title: item?.title || "Portfolio Story", description: item?.story };
+  return {
+    title: item?.title || "Portfolio Story",
+    description: item?.story,
+    alternates: { canonical: `/portfolio/${slug}` },
+    openGraph: {
+      title: item ? `${item.title} | ${siteConfig.name}` : siteConfig.name,
+      description: item?.story,
+      url: `${siteConfig.url}/portfolio/${slug}`,
+      images: item ? [{ url: item.cover.src, width: 1200, height: 800, alt: item.cover.alt }] : undefined,
+    },
+  };
 }
 
 export default async function PortfolioDetailPage({ params }: Props) {

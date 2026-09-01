@@ -4,9 +4,18 @@ import { PageHero } from "@/components/sections/PageHero";
 import { PortfolioGrid } from "@/components/sections/PortfolioGrid";
 import { MotionSection } from "@/components/ui/Motion";
 
+import { siteConfig } from "@/data/site";
+
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Wedding, pre-wedding, film, event design, and corporate event stories by Sritikuthi The Wedding Tales.",
+  title: "Portfolio & Wedding Stories",
+  description: "Browse authentic Bengali weddings, sacred Shubho Drishti rituals, pre-wedding couple films, and heirloom celebrations framed by Sritikuthi The Wedding Tales.",
+  alternates: { canonical: "/portfolio" },
+  openGraph: {
+    title: "Portfolio & Wedding Stories | স্মৃতিকুঠি The Wedding Tales",
+    description: "Browse authentic Bengali weddings, sacred Shubho Drishti rituals, pre-wedding couple films, and heirloom celebrations framed by Sritikuthi The Wedding Tales.",
+    url: `${siteConfig.url}/portfolio`,
+    images: [{ url: images.featuredPortrait.src, width: 1200, height: 800, alt: "Sritikuthi Wedding Photography Portfolio" }],
+  },
 };
 
 export default function PortfolioPage() {

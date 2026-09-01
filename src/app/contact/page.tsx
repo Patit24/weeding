@@ -9,8 +9,15 @@ import { GoogleMapSection } from "@/components/sections/GoogleMapSection";
 import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: "Enquire with স্মৃতিকুঠি_The Wedding Tales for wedding photography, cinematography, planning, drone coverage, live streaming, albums, and event management.",
+  title: "Contact & Studio Location",
+  description: "Enquire with স্মৃতিকুঠি The Wedding Tales for wedding photography, 4K cinematography, pre-wedding shoots, and date availability. Studio located in Tollygunge, Kolkata.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact & Studio Location | স্মৃতিকুঠি The Wedding Tales",
+    description: "Enquire with স্মৃতিকুঠি The Wedding Tales for wedding photography, 4K cinematography, pre-wedding shoots, and date availability. Studio located in Tollygunge, Kolkata.",
+    url: `${siteConfig.url}/contact`,
+    images: [{ url: images.contact.src, width: 1200, height: 800, alt: "Contact Sritikuthi The Wedding Tales Kolkata" }],
+  },
 };
 
 export default function ContactPage() {

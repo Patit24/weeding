@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { FadeIn, MotionSection } from "@/components/ui/Motion";
 
+import { siteConfig } from "@/data/site";
+
 export const metadata: Metadata = {
-  title: "Privacy",
-  description: "Privacy policy for Sritikuthi The Wedding Tales.",
+  title: "Privacy Policy",
+  description: "Privacy policy and client data handling practices for স্মৃতিকুঠি The Wedding Tales.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

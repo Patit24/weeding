@@ -6,7 +6,7 @@ import { serviceLinks, siteConfig } from "@/data/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/about", "/services", "/portfolio", "/journal", "/contact", "/privacy"];
+  const staticRoutes = ["", "/about", "/services", "/stories", "/portfolio", "/journal", "/contact", "/privacy"];
   return [
     ...staticRoutes.map((route) => ({ url: `${siteConfig.url}${route}`, lastModified: new Date() })),
     ...serviceLinks.map((service) => ({ url: `${siteConfig.url}${service.href}`, lastModified: new Date() })),

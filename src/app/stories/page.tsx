@@ -12,7 +12,15 @@ import { Star, ShieldCheck, Heart, MapPin, Award } from "lucide-react";
 export const metadata: Metadata = {
   title: "Client Stories & Google Reviews",
   description:
-    "Read real client stories and verified Google reviews for স্মৃতিকুঠি_The Wedding Tales. Discover authentic feedback from couples across Kolkata, West Bengal, Bihar, and Jharkhand.",
+    "Read real client stories and 128+ verified 4.9-star Google reviews for স্মৃতিকুঠি The Wedding Tales from couples across Kolkata, West Bengal, Bihar, and destination weddings.",
+  alternates: { canonical: "/stories" },
+  openGraph: {
+    title: "Client Stories & Google Reviews | স্মৃতিকুঠি The Wedding Tales",
+    description:
+      "Read real client stories and 128+ verified 4.9-star Google reviews for স্মৃতিকুঠি The Wedding Tales from couples across Kolkata, West Bengal, Bihar, and destination weddings.",
+    url: `${siteConfig.url}/stories`,
+    images: [{ url: images.photography.src, width: 1200, height: 800, alt: "Sritikuthi Client Stories & Reviews" }],
+  },
 };
 
 export default function StoriesPage() {

@@ -14,10 +14,23 @@ export function generateStaticParams() {
   return journalPosts.map((post) => ({ slug: post.slug }));
 }
 
+import { siteConfig } from "@/data/site";
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getJournalPost(slug);
-  return { title: post?.title || "Journal", description: post?.excerpt };
+  return {
+    title: post?.title || "Journal",
+    description: post?.excerpt,
+    alternates: { canonical: `/journal/${slug}` },
+    openGraph: {
+      title: post ? `${post.title} | ${siteConfig.name}` : siteConfig.name,
+      description: post?.excerpt,
+      url: `${siteConfig.url}/journal/${slug}`,
+      images: post ? [{ url: post.image.src, width: 1200, height: 800, alt: post.image.alt }] : undefined,
+      type: "article",
+    },
+  };
 }
 
 export default async function JournalDetailPage({ params }: Props) {
