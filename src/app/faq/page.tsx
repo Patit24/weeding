@@ -27,7 +27,41 @@ const faqItems = [
     questions: [
       {
         q: "How much does a wedding photographer cost in Kolkata?",
-        a: "Our shift pricing starts at ₹6,000 for full-day candid photography or cinematography, and ₹3,000 for half-day morning rituals (like Dodhi Mangal or Gaye Holud). You can use our interactive live Rate Calculator on the website to build a customized estimate based on your specific functions, crew count, and photo albums.",
+        a: `We offer transparent, modular pricing tailored to your exact wedding schedule. Here is our default standard Bengali wedding package breakdown alongside individual crew shift rates:
+
+⭐ Default Standard 2-Day Wedding Package (Most Popular):
+• Day 1 — Wedding Ceremony (Full Day):
+  - 1 Candid Photographer (₹6,000)
+  - 1 Cinematographer / 4K Cinema (₹6,000)
+  - 1 Traditional Photographer (₹5,000)
+  - 1 Traditional Videographer (₹5,500)
+  → Wedding Day Total: ₹22,500
+
+• Day 2 — Bou Bhat / Reception (Half Day / Evening):
+  - 1 Candid Photographer (₹3,000)
+  - 1 Cinematographer (₹3,000)
+  - 1 Traditional Photographer (₹3,000)
+  → Reception Total: ₹9,000
+
+💰 Standard 2-Day Package Total: ₹31,500 (Complete 4-crew wedding + 3-crew reception coverage)
+
+📋 Individual Crew Shift Rate Card:
+• Candid Photographer: ₹6,000 / Full Day | ₹3,000 / Half Day
+• Cinematographer (4K Cinema): ₹6,000 / Full Day | ₹3,000 / Half Day
+• Traditional Photographer: ₹5,000 / Full Day | ₹3,000 / Half Day
+• Traditional Videographer: ₹5,500 / Full Day | ₹3,000 / Half Day
+• Licensed 4K Drone Operator: ₹6,500 / Full Day | ₹3,500 / Half Day
+
+➕ Popular Ritual & Milestone Add-ons:
+• Gaye Holud / Haldi Morning (Half Day): 1 Candid + 1 Cinema = +₹6,000
+• Pre-Wedding Couple Shoot (1 Full Day): 1 Candid + 1 Cinema = +₹12,000
+• Premium Italian Photobook Album (40–50 pages): +₹8,000 to ₹12,000
+
+🎁 All Packages Include:
+✓ High-resolution color-graded photos (unlimited raw capture + curated print-ready gallery)
+✓ 4K cinematic teaser highlight reel + full ceremony multi-camera video feature
+✓ Zero travel or conveyance fees anywhere within Kolkata & immediate suburbs
+✓ Instant customized quote calculation via our live Rate Calculator on the website`,
       },
       {
         q: "How far in advance should we reserve our wedding dates?",
@@ -130,7 +164,7 @@ export default function FAQPage() {
                           className="shrink-0 text-[var(--muted)] transition-transform duration-300 group-open:rotate-180 group-open:text-[var(--crimson)]"
                         />
                       </summary>
-                      <p className="mt-4 text-sm sm:text-base leading-relaxed text-[var(--charcoal)] border-t border-[var(--fine-border)] pt-4">
+                      <p className="mt-4 text-sm sm:text-base leading-relaxed text-[var(--charcoal)] border-t border-[var(--fine-border)] pt-4 whitespace-pre-line font-normal">
                         {item.a}
                       </p>
                     </details>
