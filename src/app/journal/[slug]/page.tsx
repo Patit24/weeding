@@ -38,9 +38,39 @@ export default async function JournalDetailPage({ params }: Props) {
   const post = getJournalPost(slug);
   if (!post) notFound();
   const related = journalPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: [`${siteConfig.url}${post.image.src}`],
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      "@type": "Person",
+      name: post.author,
+      url: `${siteConfig.url}/about`,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteConfig.url}/brand-logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/journal/${post.slug}`,
+    },
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <MotionSection className="relative min-h-[76vh] overflow-hidden bg-[var(--espresso)] text-[var(--warm-ivory)]">
         <SlowZoom className="absolute inset-0">
           <Image src={post.image.src} alt={post.image.alt} fill priority sizes="100vw" className="object-cover opacity-58" />

@@ -11,14 +11,16 @@ import { FadeIn, ImageReveal, MotionSection } from "@/components/ui/Motion";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Journal & Wedding Planning Guides",
-  description: "Practical, editorial guidance for couples and families: Kolkata wedding photography timelines, pre-wedding shoot styling, and authentic ritual preservation.",
+  title: "Bengali Wedding Photography Guides | Rituals, Costs & Planning Kolkata",
+  description:
+    "Complete Bengali wedding planning & photography guides: Aiburobhat, Shubho Drishti, Saat Paak, Annaprashan photoshoot tips, and Kolkata wedding photographer price guides.",
   alternates: { canonical: "/journal" },
   openGraph: {
-    title: "Journal & Wedding Planning Guides | স্মৃতিকুঠি The Wedding Tales",
-    description: "Practical, editorial guidance for couples and families: Kolkata wedding photography timelines, pre-wedding shoot styling, and authentic ritual preservation.",
+    title: "Bengali Wedding Photography Guides | Rituals, Costs & Planning Kolkata",
+    description:
+      "Complete Bengali wedding planning & photography guides: Aiburobhat, Shubho Drishti, Saat Paak, Annaprashan photoshoot tips, and Kolkata wedding photographer price guides.",
     url: `${siteConfig.url}/journal`,
-    images: [{ url: images.intro.src, width: 1200, height: 800, alt: "Sritikuthi Wedding Journal & Planning Guides" }],
+    images: [{ url: images.intro.src, width: 1200, height: 800, alt: "Bengali Wedding Photography Guides Kolkata" }],
   },
 };
 

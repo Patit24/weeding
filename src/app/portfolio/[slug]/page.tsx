@@ -35,9 +35,30 @@ export default async function PortfolioDetailPage({ params }: Props) {
   const item = getPortfolioItem(slug);
   if (!item) notFound();
   const next = getPortfolioItem(item.nextProject) || portfolioItems[0];
+  const portfolioJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VisualArtwork",
+    name: item.title,
+    description: item.story,
+    image: `${siteConfig.url}${item.cover.src}`,
+    creator: {
+      "@type": "Person",
+      name: siteConfig.owner,
+      url: `${siteConfig.url}/about`,
+    },
+    locationCreated: {
+      "@type": "Place",
+      name: item.location,
+    },
+    genre: "Wedding Photography & Cinematography",
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(portfolioJsonLd) }}
+      />
       <MotionSection className="relative border-b border-[var(--fine-border)] bg-gradient-to-b from-[var(--warm-ivory)] via-[var(--soft-white)] to-[var(--warm-ivory)] py-14 lg:py-20 text-[var(--espresso)]">
         <div className="container-editorial">
           <Breadcrumbs items={[{ href: "/portfolio", label: "Portfolio" }, { href: `/portfolio/${item.slug}`, label: item.title }]} />

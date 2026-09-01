@@ -9,14 +9,16 @@ import { GoogleMapSection } from "@/components/sections/GoogleMapSection";
 import { FadeIn, ImageReveal, MotionSection, StaggerGroup, StaggerItem } from "@/components/ui/Motion";
 
 export const metadata: Metadata = {
-  title: "Contact & Studio Location",
-  description: "Enquire with স্মৃতিকুঠি The Wedding Tales for wedding photography, 4K cinematography, pre-wedding shoots, and date availability. Studio located in Tollygunge, Kolkata.",
+  title: "Book Wedding Photographer in Kolkata | Contact & Date Availability",
+  description:
+    "Check wedding dates availability with স্মৃতিকুঠি The Wedding Tales. Studio located near Malancha Cinema, Tollygunge, Kolkata 700040. Fast WhatsApp booking and custom quote.",
   alternates: { canonical: "/contact" },
   openGraph: {
-    title: "Contact & Studio Location | স্মৃতিকুঠি The Wedding Tales",
-    description: "Enquire with স্মৃতিকুঠি The Wedding Tales for wedding photography, 4K cinematography, pre-wedding shoots, and date availability. Studio located in Tollygunge, Kolkata.",
+    title: "Book Wedding Photographer in Kolkata | Contact & Date Availability",
+    description:
+      "Check wedding dates availability with স্মৃতিকুঠি The Wedding Tales. Studio located near Malancha Cinema, Tollygunge, Kolkata 700040. Fast WhatsApp booking and custom quote.",
     url: `${siteConfig.url}/contact`,
-    images: [{ url: images.contact.src, width: 1200, height: 800, alt: "Contact Sritikuthi The Wedding Tales Kolkata" }],
+    images: [{ url: images.contact.src, width: 1200, height: 800, alt: "Book Wedding Photographer in Kolkata" }],
   },
 };
 

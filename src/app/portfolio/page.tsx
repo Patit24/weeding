@@ -7,14 +7,16 @@ import { MotionSection } from "@/components/ui/Motion";
 import { siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Portfolio & Wedding Stories",
-  description: "Browse authentic Bengali weddings, sacred Shubho Drishti rituals, pre-wedding couple films, and heirloom celebrations framed by Sritikuthi The Wedding Tales.",
+  title: "Bengali Wedding Photography Portfolio Kolkata | Real Weddings & Films",
+  description:
+    "Explore our wedding photography and 4K film portfolio in Kolkata. Authentic Bengali weddings, sacred Shubho Drishti, Sindoor Daan, intimate pre-weddings, and destination celebrations.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
-    title: "Portfolio & Wedding Stories | স্মৃতিকুঠি The Wedding Tales",
-    description: "Browse authentic Bengali weddings, sacred Shubho Drishti rituals, pre-wedding couple films, and heirloom celebrations framed by Sritikuthi The Wedding Tales.",
+    title: "Bengali Wedding Photography Portfolio Kolkata | Real Weddings & Films",
+    description:
+      "Explore our wedding photography and 4K film portfolio in Kolkata. Authentic Bengali weddings, sacred Shubho Drishti, Sindoor Daan, intimate pre-weddings, and destination celebrations.",
     url: `${siteConfig.url}/portfolio`,
-    images: [{ url: images.featuredPortrait.src, width: 1200, height: 800, alt: "Sritikuthi Wedding Photography Portfolio" }],
+    images: [{ url: images.featuredPortrait.src, width: 1200, height: 800, alt: "Bengali Wedding Photography Portfolio Kolkata" }],
   },
 };
 

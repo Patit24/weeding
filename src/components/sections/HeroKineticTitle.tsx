@@ -77,20 +77,21 @@ export function HeroKineticTitle() {
           Where Every Detail Becomes A Memory
         </motion.p>
 
-        {/* 👑 Grand Dual-Tone Headline */}
-        <motion.div
+        {/* 👑 Grand Dual-Tone Headline (Semantic H1 for SEO) */}
+        <motion.h1
           initial={{ opacity: 0, scale: 0.97, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-2 flex flex-col items-center justify-center font-serif leading-[0.88] tracking-tight select-none"
         >
+          <span className="sr-only">স্মৃতিকুঠি The Wedding Tales — Best Bengali Wedding Photographer in Kolkata & Luxury 4K Cinematography</span>
           <span className="text-[clamp(4.6rem,11.5vw,9.6rem)] font-normal text-[#241512]">
             Wedding
           </span>
           <span className="text-[clamp(4.6rem,11.5vw,9.6rem)] font-normal text-[#8B1E1E] -mt-1 sm:-mt-3">
             Tales
           </span>
-        </motion.div>
+        </motion.h1>
 
         {/* ⚜️ Vintage Ornate Golden Divider */}
         <motion.div

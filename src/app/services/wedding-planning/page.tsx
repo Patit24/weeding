@@ -5,14 +5,16 @@ import { siteConfig } from "@/data/site";
 import { images } from "@/data/images";
 
 export const metadata: Metadata = {
-  title: "Wedding Planning & Vendor Coordination",
-  description: "End-to-end wedding planning, vendor management, styling, and day-of coordination across Kolkata and destination wedding venues.",
+  title: "Wedding Planning in Kolkata | Luxury Event Coordination & Styling",
+  description:
+    "Bespoke Bengali and destination wedding planning in Kolkata. Venue booking, guest coordination, traditional vendor management, and luxury decor styling.",
   alternates: { canonical: "/services/wedding-planning" },
   openGraph: {
-    title: "Wedding Planning & Vendor Coordination | স্মৃতিকুঠি The Wedding Tales",
-    description: "End-to-end wedding planning, vendor management, styling, and day-of coordination across Kolkata and destination wedding venues.",
+    title: "Wedding Planning in Kolkata | Luxury Event Coordination & Styling",
+    description:
+      "Bespoke Bengali and destination wedding planning in Kolkata. Venue booking, guest coordination, traditional vendor management, and luxury decor styling.",
     url: `${siteConfig.url}/services/wedding-planning`,
-    images: [{ url: images.planning.src, width: 1200, height: 800, alt: "Wedding Planning Kolkata" }],
+    images: [{ url: images.planning.src, width: 1200, height: 800, alt: "Wedding Planning in Kolkata" }],
   },
 };
 

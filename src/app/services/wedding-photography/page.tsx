@@ -5,12 +5,14 @@ import { siteConfig } from "@/data/site";
 import { images } from "@/data/images";
 
 export const metadata: Metadata = {
-  title: "Documentary Wedding Photography",
-  description: "Documentary-led luxury Bengali wedding photography in Kolkata and destination weddings across India. Authentic Shubho Drishti, Sindoor Daan, and candid emotions.",
+  title: "Wedding Photography Kolkata | Documentary Bengali Wedding Photographer",
+  description:
+    "Top-rated luxury wedding photography in Kolkata. We capture authentic Bengali wedding moments—Shubho Drishti, Saat Paak, Sindoor Daan, and candid emotions with artistic mastery.",
   alternates: { canonical: "/services/wedding-photography" },
   openGraph: {
-    title: "Documentary Wedding Photography | স্মৃতিকুঠি The Wedding Tales",
-    description: "Documentary-led luxury Bengali wedding photography in Kolkata and destination weddings across India. Authentic Shubho Drishti, Sindoor Daan, and candid emotions.",
+    title: "Wedding Photography Kolkata | Documentary Bengali Wedding Photographer",
+    description:
+      "Top-rated luxury wedding photography in Kolkata. We capture authentic Bengali wedding moments—Shubho Drishti, Saat Paak, Sindoor Daan, and candid emotions with artistic mastery.",
     url: `${siteConfig.url}/services/wedding-photography`,
     images: [{ url: images.mosaicOne.src, width: 1200, height: 800, alt: "Wedding Photography Kolkata" }],
   },

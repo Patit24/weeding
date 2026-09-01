@@ -246,8 +246,68 @@ export default function Home() {
               </StaggerItem>
             ))}
           </StaggerGroup>
+          <div className="mt-12 text-center">
+            <ButtonLink href="/journal" variant="crimson">
+              View All Wedding Guides &amp; Rituals →
+            </ButtonLink>
+          </div>
         </div>
       </MotionSection>
+
+      {/* Destination & City Coverage Internal Linking Hub */}
+      <MotionSection className="py-20 border-t border-[var(--fine-border)] bg-[var(--warm-ivory)]">
+        <div className="container-editorial">
+          <SectionHeading
+            eyebrow="Coverage & Destinations"
+            title="Wedding Photography Across Kolkata & Beyond"
+          >
+            <p>
+              Based in Kolkata with zero travel fees across the city. We regularly travel across West Bengal, Bihar, Jharkhand, and pan-India destination venues with full 4K cinema and multi-photographer production crews.
+            </p>
+          </SectionHeading>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { name: "Kolkata (Home Base)", slug: "kolkata", desc: "Tollygunge, Salt Lake, New Town, South Kolkata, Rajbaris", fee: "₹0 Travel Fee" },
+              { name: "Howrah & Hooghly", slug: "howrah", desc: "Riverside Ghats, Heritage Mansions & Grand Banquets", fee: "Direct Transit" },
+              { name: "Durgapur & Asansol", slug: "durgapur", desc: "Steel City Luxury Banquets & Steel Club Weddings", fee: "Full Crew Travel" },
+              { name: "Siliguri & North Bengal", slug: "siliguri", desc: "Tea Gardens, Foothills & Destination Resorts", fee: "Full Crew Travel" },
+              { name: "Shantiniketan & Bolpur", slug: "shantiniketan", desc: "Open-Air Baul Heritage & Eco-Resort Nuptials", fee: "Full Crew Travel" },
+              { name: "Patna & Bihar", slug: "patna", desc: "Grand Bhojpuri & Bihari Cultural Celebrations", fee: "Destination Travel" },
+              { name: "Ranchi & Jharkhand", slug: "ranchi", desc: "Plateau Resorts, Forest Venues & Club Weddings", fee: "Destination Travel" },
+              { name: "Destination Weddings", slug: "destination", desc: "Puri, Goa, Jaipur, Udaipur & Pan-India Resorts", fee: "Pan-India Production" },
+            ].map((loc) => (
+              <Link
+                key={loc.slug}
+                href={loc.slug === "kolkata" ? "/locations" : `/locations/${loc.slug}`}
+                className="group rounded-2xl border border-[var(--fine-border)] bg-[var(--soft-white)] p-5 shadow-xs transition-all duration-300 hover:border-[var(--gold-border)] hover:shadow-md"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[var(--crimson)]">
+                    {loc.fee}
+                  </span>
+                  <span className="text-xs text-[var(--muted)] group-hover:translate-x-1 transition-transform">
+                    →
+                  </span>
+                </div>
+                <h3 className="serif mt-3 text-xl font-bold text-[var(--espresso)] group-hover:text-[var(--crimson)] transition-colors">
+                  {loc.name}
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-[var(--charcoal)]">
+                  {loc.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <ButtonLink href="/locations" variant="text">
+              Explore All Regional Locations &amp; Venues →
+            </ButtonLink>
+          </div>
+        </div>
+      </MotionSection>
+
       <GoogleMapSection />
       <CTASection />
     </>
